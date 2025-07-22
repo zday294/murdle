@@ -6,5 +6,5 @@ import lombok.Data;
 public abstract class Suspect {
     private String name;
     private String description;
-    private String imageLocation;
+    private String icon;
 }

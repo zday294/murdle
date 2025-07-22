@@ -1,0 +1,7 @@
+{
+    "name": "Knife",
+    "description": "Oi bruv, it's simple and effective, innit? A classic murder weapon for those on the right side of the pond.",
+    "icon": "🔪",
+    "weight": "LIGHT",
+    "madeOf": "metal"
+}

@@ -12,6 +12,6 @@ public class Resolution {
     private String resolutionText;
 
     public List<Boolean> checkGuess(Person person, Location location, Weapon weapon) {
-        return List.of(person.equals(correctSolution.getPerson()), location.equals(correctSolution.getLocation()), weapon.equals(correctSolution.getWeapon()));
+        return List.of(person.getName().equals(correctSolution.getPerson()), location.getName().equals(correctSolution.getLocation()), weapon.getName().equals(correctSolution.getWeapon()));
     }
 }

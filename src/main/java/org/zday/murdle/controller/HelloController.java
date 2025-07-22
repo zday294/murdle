@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import org.zday.murdle.model.notebook.BoxState;
+import org.zday.murdle.model.notebook.Box;
 import org.zday.murdle.view.component.StateButton;
 
 import java.net.URL;
@@ -24,7 +24,7 @@ public class HelloController implements Initializable {
     private Button clickedButton;
 
     @FXML
-    private BoxState state = BoxState.UNMARKED;
+    private Box.BoxState state = Box.BoxState.UNMARKED;
 
 
     @Override

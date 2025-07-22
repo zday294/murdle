@@ -12,6 +12,8 @@ import java.util.List;
 
 @Data
 public class Case {
+    private String description;
+
     //suspects
     private List<Person> personList;
     private List<Location> locationList;
@@ -22,6 +24,4 @@ public class Case {
 
     //solution
     private Resolution resolution;
-
-    private boolean solved;
 }

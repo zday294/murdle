@@ -7,7 +7,7 @@ import org.zday.murdle.model.murdercase.suspect.Weapon;
 
 @Data
 public class Solution {
-    private Person person;
-    private Location location;
-    private Weapon weapon;
+    private String person;
+    private String location;
+    private String weapon;
 }

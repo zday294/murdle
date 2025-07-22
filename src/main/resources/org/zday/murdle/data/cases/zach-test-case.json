@@ -1,0 +1,43 @@
+{
+    "description": "It was a lovely day when the detective went to the estate to visit an old foe. Unfortunately said old foe was now dead. Plenty of people had every right to be upset with the doctor, but the Detective had hoped to deliver him to prison rather than the morgue. Oh well, you take what you can get. Which in this case was a murderer. That was often the case.",
+    "personList": [
+        "Blue",
+        "Red",
+        "Green"
+    ],
+    "weaponList": [
+        "Gun",
+        "Axe",
+        "Fork"
+    ],
+    "locationList": [
+        "Forest",
+        "House",
+        "Bunker"
+    ],
+    "cluesList": [
+        {
+            "description": "The Axe had recently been used properly"
+        },
+        { 
+            "description": "Blue was not outside"
+        },
+        {
+            "description": "The Fork was held by someone named after a long wavelength of light"
+        },
+        {
+            "description": "All silverware was where it belonged"
+        },
+        {
+            "description": "The corpse smelled lightly explosive"
+        }
+    ],
+    "resolution": {
+        "correctSolution": {
+            "person": "Blue",
+            "location": "Bunker",
+            "weapon": "Gun"
+        },
+        "resolutionText": "Blue protested his innocence for a solid second before caving. \"Fine, take me away. None of it matters anyways.\" Honestly, the Detective was starting to feel depressed himself. Nothing a celebratory drink couldn't solve though."
+    }
+}

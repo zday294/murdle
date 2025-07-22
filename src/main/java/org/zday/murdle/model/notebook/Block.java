@@ -1,26 +1,67 @@
 package org.zday.murdle.model.notebook;
 
+import lombok.Data;
+import org.zday.murdle.model.murdercase.suspect.Location;
+import org.zday.murdle.model.murdercase.suspect.Person;
 import org.zday.murdle.model.murdercase.suspect.Suspect;
+import org.zday.murdle.model.murdercase.suspect.Weapon;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
 public class Block {
-    // row, column indexing
-    List<List<BoxState>> rowColumnBoxes;
+    private List<List<Box>> rowsList;
+    private List<List<Box>> columnsList;
+    private RowColumnType rowType;
+    private RowColumnType columnType;
 
-    public Block(List<? extends Suspect> rows, List<? extends Suspect> columns)  {
-        if (rows.size() != columns.size()) {
-            throw new IllegalArgumentException("Must have the same number of rows and columns! rows.size()=" + rows.size() + ", columns.size()=" + columns.size());
+    public Block(List<? extends Suspect> rowSuspects, List<? extends Suspect> columnSuspects)  {
+        if (rowSuspects.isEmpty() || columnSuspects.isEmpty()){
+            throw new IllegalArgumentException("rowSuspects and columnSuspects must not be empty");
+        } else if (rowSuspects.size() != columnSuspects.size()) {
+            throw new IllegalArgumentException("Must have the same number of rowSuspects and columnSuspects! rowSuspects.size()=" + rowSuspects.size() + ", columnSuspects.size()=" + columnSuspects.size());
         }
 
-        rowColumnBoxes = new ArrayList<>();
+        rowType = determineType(rowSuspects.get(0));
+        columnType = determineType(columnSuspects.get(0));
 
-        for (int i = 0; i < rows.size(); i++) {
-            rowColumnBoxes.add(new ArrayList<>());
-            for (int j = 0; j < columns.size(); j++) {
-                rowColumnBoxes.get(i).add(BoxState.UNMARKED);
+        rowsList = new ArrayList<>();
+        columnsList = new ArrayList<>();
+
+        for (int i = 0; i < rowSuspects.size(); i++) {
+            List<Box> row = new ArrayList<>();
+            for (int j = 0; j < columnSuspects.size(); j++){
+                row.add(new Box());
             }
+            rowsList.add(row);
         }
+
+        for (int i = 0; i < columnSuspects.size(); i++) {
+            List<Box> column = new ArrayList<>();
+            for (List<Box> row : rowsList) {
+                column.add(row.get(i));
+            }
+            columnsList.add(column);
+        }
+    }
+
+    private RowColumnType determineType(Suspect suspect) {
+        if (suspect instanceof Person) {
+            return RowColumnType.PERSON;
+        } else if (suspect instanceof Location) {
+            return RowColumnType.LOCATION;
+        } else if (suspect instanceof Weapon) {
+            return RowColumnType.WEAPON;
+        } else {
+            throw new IllegalArgumentException("Unknown suspect type: " + suspect.getClass().getName());
+        }
+
+    }
+
+    public enum RowColumnType {
+        PERSON,
+        LOCATION,
+        WEAPON
     }
 }
