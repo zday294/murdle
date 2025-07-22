@@ -1,5 +1,6 @@
 package org.zday.murdle.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -7,6 +8,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
+import lombok.Getter;
 import org.zday.murdle.model.murdercase.Case;
 import org.zday.murdle.model.murdercase.suspect.Location;
 import org.zday.murdle.model.murdercase.suspect.Person;
@@ -15,12 +17,16 @@ import org.zday.murdle.model.notebook.Block;
 import org.zday.murdle.model.notebook.Board;
 import org.zday.murdle.view.component.StateButton;
 
+import java.io.InputStream;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class CaseController implements Initializable {
 
+    private String caseFileName;
+
+    @Getter
     private Case caseInstance;
 
     private Board board;
@@ -40,14 +46,26 @@ public class CaseController implements Initializable {
     @FXML
     private Button saveBoardButton;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        createNotebook();
+    public void initData(String filename) {
+        caseFileName = filename;
     }
 
-    public void loadCase(){
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObjectMapper mapper = new ObjectMapper();
 
-        //todo: have case load itself.
+        caseFileName = "../data/cases/zach-test-case.json";
+
+        try {
+            InputStream is = this.getClass().getResourceAsStream(caseFileName);
+            caseInstance = mapper.readValue(is, Case.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
+
+
+        createNotebook();
     }
 
     private void createNotebook() {

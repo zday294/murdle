@@ -4,6 +4,7 @@ module org.example.demo {
 
     requires org.controlsfx.controls;
     requires static lombok;
+    requires com.fasterxml.jackson.databind;
 
     opens org.zday.murdle to javafx.fxml;
     exports org.zday.murdle;

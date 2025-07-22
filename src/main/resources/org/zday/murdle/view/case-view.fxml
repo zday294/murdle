@@ -10,6 +10,8 @@
       fx:controller="org.zday.murdle.controller.CaseController">
     <VBox alignment="CENTER" fx:id="cluesPane">
         <Label text="Clues pane"/>
+
+
     </VBox>
     <VBox alignment="CENTER" fx:id="notebookPane">
         <Label text="Notebook Pane"/>
