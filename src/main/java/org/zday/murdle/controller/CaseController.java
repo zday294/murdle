@@ -54,7 +54,12 @@ public class CaseController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObjectMapper mapper = new ObjectMapper();
 
-        caseFileName = "../data/cases/zach-test-case.json";
+        //get current working directory
+//        caseFileName = System.getProperty("user.dir") + "/data/cases/zach-test-case.json";
+        //get classpath
+
+
+        caseFileName = "/org/zday/murdle/data/cases/zach-test-case.json";
 
         try {
             InputStream is = this.getClass().getResourceAsStream(caseFileName);

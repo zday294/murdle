@@ -1,6 +1,6 @@
 package org.zday.murdle.model.murdercase;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.zday.murdle.model.murdercase.clues.Clue;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
-@JsonDeserialize(using = CaseDeserializer.class)
+@AllArgsConstructor
 public class Case {
     private String description;
     private List<Person> personList;

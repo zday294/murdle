@@ -1,4 +1,4 @@
-module org.example.demo {
+module org.zday.murdle {
     requires javafx.controls;
     requires javafx.fxml;
 

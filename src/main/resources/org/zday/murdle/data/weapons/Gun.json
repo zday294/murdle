@@ -1,7 +1,0 @@
-{
-    "name": "Gun",
-    "description": "Simple and effective. A classic murder weapon",
-    "icon": "🔫",
-    "weight": "MEDIUM",
-    "madeOf": "metal and gunpowder"
-}
