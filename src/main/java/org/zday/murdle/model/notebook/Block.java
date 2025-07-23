@@ -1,5 +1,6 @@
 package org.zday.murdle.model.notebook;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.zday.murdle.model.murdercase.suspect.Location;
 import org.zday.murdle.model.murdercase.suspect.Person;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@AllArgsConstructor
 public class Block {
     private List<List<Box>> rowsList;
     private List<List<Box>> columnsList;
@@ -63,5 +65,27 @@ public class Block {
         PERSON,
         LOCATION,
         WEAPON
+    }
+
+    public Block clone() {
+        List<List<Box>> newRowList = new ArrayList<>();
+        for (List<Box> row : rowsList) {
+            List<Box> newRow = new ArrayList<>();
+            for (Box box : row) {
+                newRow.add(box.clone());
+            }
+            newRowList.add(newRow);
+        }
+
+        List<List<Box>> newColumnList = new ArrayList<>();
+        for (int i = 0; i < columnsList.size(); i++) {
+            List<Box> newColumn = new ArrayList<>();
+            for (List<Box> row : rowsList) {
+                newColumn.add(row.get(i));
+            }
+            newColumnList.add(newColumn);
+        }
+
+        return new Block(newRowList, newColumnList, this.rowType, this.columnType);
     }
 }

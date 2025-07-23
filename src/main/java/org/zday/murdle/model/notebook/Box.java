@@ -13,6 +13,10 @@ public class Box {
         state = BoxState.UNMARKED;
     }
 
+    public Box(BoxState boxState) {
+        state = boxState;
+    }
+
     public enum BoxState {
         UNMARKED{
 
@@ -70,6 +74,10 @@ public class Box {
         public BoxState onUneliminated() {
             return this;
         }
+    }
+
+    public Box clone() {
+        return new Box(state);
     }
 }
 
