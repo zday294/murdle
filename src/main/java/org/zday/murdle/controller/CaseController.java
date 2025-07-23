@@ -63,7 +63,8 @@ public class CaseController implements Initializable {
 
         try {
             InputStream is = this.getClass().getResourceAsStream(caseFileName);
-            caseInstance = mapper.readValue(is, Case.class);
+            String json = new String(is.readAllBytes());
+            caseInstance = mapper.readValue(json, Case.class);
         } catch (Exception e) {
             e.printStackTrace();
             return;

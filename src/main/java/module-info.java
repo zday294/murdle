@@ -12,4 +12,13 @@ module org.zday.murdle {
     opens org.zday.murdle.view.component to javafx.fxml;
     exports org.zday.murdle.controller;
     opens org.zday.murdle.controller to javafx.fxml;
+    exports org.zday.murdle.model.murdercase;
+    opens org.zday.murdle.model.murdercase to com.fasterxml.jackson.databind;
+    exports org.zday.murdle.model.murdercase.suspect;
+    opens org.zday.murdle.model.murdercase.suspect to com.fasterxml.jackson.databind;
+    exports org.zday.murdle.model.murdercase.clues;
+    opens org.zday.murdle.model.murdercase.clues to com.fasterxml.jackson.databind;
+    exports org.zday.murdle.model.murdercase.resolution;
+    opens org.zday.murdle.model.murdercase.resolution to com.fasterxml.jackson.databind;
+
 }
