@@ -7,6 +7,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.VBox;
+import org.zday.murdle.model.GameStateManager;
 import org.zday.murdle.model.murdercase.MurderCase;
 import org.zday.murdle.model.murdercase.suspect.Location;
 import org.zday.murdle.model.murdercase.suspect.Person;
@@ -21,10 +22,9 @@ import java.util.ResourceBundle;
 
 public class CaseController implements Initializable {
 
-    private MurderCase caseInstance;
+//    private MurderCase caseInstance;
 
     private Board gameBoard;
-
     private Board savedBoard;
 
     @FXML
@@ -57,21 +57,21 @@ public class CaseController implements Initializable {
     }
 
     private void createBoard() {
-        gameBoard = new Board(caseInstance.getPersonList(), caseInstance.getWeaponList(), caseInstance.getLocationList());
+        gameBoard = new Board(GameStateManager.getInstance().getMurderCase().getPersonList(), GameStateManager.getInstance().getMurderCase().getWeaponList(), GameStateManager.getInstance().getMurderCase().getLocationList());
 
         TableView<List<StateButton>> tableView = new TableView<>();
         tableView.getColumns().add(new TableColumn<>("")); // column for row labels
-        for(Person person : caseInstance.getPersonList()) {
+        for(Person person : GameStateManager.getInstance().getMurderCase().getPersonList()) {
             tableView.getColumns().add(new TableColumn<>(person.getIcon()));
         }
 
-        for (Location location : caseInstance.getLocationList()){
+        for (Location location : GameStateManager.getInstance().getMurderCase().getLocationList()){
             tableView.getColumns().add(new TableColumn<>(location.getIcon()));
         }
 
         Block weaponPersonBlock = gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.WEAPON, Block.RowColumnType.PERSON);
         Block weaponLocationBlock = gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.WEAPON, Block.RowColumnType.LOCATION);
-        for (Weapon weapon : caseInstance.getWeaponList()) {
+        for (Weapon weapon : GameStateManager.getInstance().getMurderCase().getWeaponList()) {
 
 
             //bind the cells in that row to the boxes in
@@ -100,6 +100,10 @@ public class CaseController implements Initializable {
 
     public void saveBoard() {
         savedBoard = gameBoard.clone();
+    }
+
+    public void loadSavedBoard() {
+        gameBoard = savedBoard.clone();
     }
 
 
