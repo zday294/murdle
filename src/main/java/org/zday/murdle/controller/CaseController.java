@@ -73,7 +73,6 @@ public class CaseController implements Initializable {
         Block locationPersonBlock = gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.LOCATION, Block.RowColumnType.PERSON);
         for (Weapon weapon : GameStateManager.getInstance().getMurderCase().getWeaponList()) {
 
-
             //bind the cells in that row to the boxes in
         }
 
