@@ -28,7 +28,7 @@ public class StateButton extends Button {
 
     public void updateState() {
         boxState = boxState.update();
-        setStateName(boxState.name());
+        setStateName(boxState.getIcon());
     }
 
 }

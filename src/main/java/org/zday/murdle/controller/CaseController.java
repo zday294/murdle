@@ -6,9 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import org.zday.murdle.model.GameStateManager;
-import org.zday.murdle.model.murdercase.MurderCase;
 import org.zday.murdle.model.murdercase.suspect.Location;
 import org.zday.murdle.model.murdercase.suspect.Person;
 import org.zday.murdle.model.murdercase.suspect.Weapon;
@@ -42,10 +42,9 @@ public class CaseController implements Initializable {
     @FXML
     private Button saveBoardButton;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
         createNotebook();
     }
 
@@ -53,7 +52,7 @@ public class CaseController implements Initializable {
         //create board and add to notebook pane
 
 
-        createBoardControls();
+        createBoard();
     }
 
     private void createBoard() {
@@ -71,15 +70,19 @@ public class CaseController implements Initializable {
 
         Block weaponPersonBlock = gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.WEAPON, Block.RowColumnType.PERSON);
         Block weaponLocationBlock = gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.WEAPON, Block.RowColumnType.LOCATION);
+        Block locationPersonBlock = gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.LOCATION, Block.RowColumnType.PERSON);
         for (Weapon weapon : GameStateManager.getInstance().getMurderCase().getWeaponList()) {
 
 
             //bind the cells in that row to the boxes in
         }
+
     }
 
 
-    private void createBoardControls(){
+
+
+    private void createBoardControls() {
         clearBoardButton = new Button();
         clearBoardButton.setText("🗑️");
         Tooltip clearTooltip = new Tooltip("Clear board");
@@ -105,6 +108,20 @@ public class CaseController implements Initializable {
     public void loadSavedBoard() {
         gameBoard = savedBoard.clone();
     }
+
+    private GridPane createBlock(Block block) {
+        //create grid
+        GridPane gridPane = new GridPane();
+
+        for (int i = 0; i < block.getRowsList().size(); i++) {
+            for (int j = 0; j < block.getRowsList().get(i).size(); j++) {
+                StateButton stateButton = new StateButton();
+            }
+        }
+
+        return gridPane;
+    }
+
 
 
 }

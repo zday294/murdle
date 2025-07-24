@@ -15,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MurderCase {
+    private String title;
     private String description;
     private List<Person> personList;
     private List<Location> locationList;
