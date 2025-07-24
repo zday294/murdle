@@ -1,0 +1,127 @@
+{
+  "title": "Return House on Wilson Street",
+  "description": "The detective was visiting the former home of his old foe only to discover that yet another murder had taken place. This was suspiciously similar to the previous one, except this time it was the groundskeeper who was killed.",
+  "personList": [
+    {
+      "name": "Blue",
+      "description": "A sad, sad man. Or at least that's the impression you'd get from his music. It was the number one hit for like 2 days back in '86",
+      "icon": "👨‍🎤",
+      "hairColor": "Black",
+      "eyeColor": "Blue",
+      "handedness": "Left-handed",
+      "astrologicalSign": "Cancer",
+      "height": "5'1\""
+    },
+    {
+      "name": "Red",
+      "description": "He was a champion fighter for a long time. Unfortunately for him, it was dog fighting, so he's been in prison. He's out now, and pretty pissed about the whole arrest thing. RIP Poochie-poo",
+      "icon": "🦮",
+      "hairColor": "Red",
+      "eyeColor": "Brown",
+      "handedness": "Right-handed",
+      "astrologicalSign": "Taurus",
+      "height": "6'3\""
+    },
+    {
+      "name": "Green",
+      "description": "She's a hacker, though her haters would tell you she's just a hack. Hard to argue with millions of dollars that she definitely got from that bank legally though.",
+      "icon": "🤦",
+      "hairColor": "Green",
+      "eyeColor": "Green",
+      "handedness": "Left-handed",
+      "astrologicalSign": "Pisces",
+      "height": "5'4\""
+    },
+    {
+      "name": "Yellow",
+      "description": "She's the groundskeeper's wife. She was here with her husband to reminisce about the former owner. Why? She won't say.",
+      "icon": "👰",
+      "hairColor": "Blonde",
+      "eyeColor": "Grey",
+      "handedness": "Right-handed",
+      "astrologicalSign": "Gemini",
+      "height": "5'5\""
+    }
+  ],
+  "weaponList": [
+    {
+      "name": "Gun",
+      "description": "Simple and effective. A classic murder weapon.",
+      "icon": "🔫",
+      "weight": "MEDIUM",
+      "madeOf": "metal and gunpowder"
+    },
+    {
+      "name": "Axe",
+      "description": "Excellent for cutting wood. Or murder. Or cutting wood to be used in later murder.",
+      "icon": "🪓",
+      "weight": "HEAVY",
+      "madeOf": "metal and wood"
+    },
+    {
+      "name": "Fork",
+      "description": "Generally best for eating, but not too bad at stabbing either.",
+      "icon": "🍴",
+      "weight": "LIGHT",
+      "madeOf": "metal"
+    },
+    {
+      "name": "Veil",
+      "description": "A beautiful white veil fit for a bride. Though that red stain might ruin the look.",
+      "icon": "🧣",
+      "weight": "LIGHT",
+      "madeOf": "lace"
+    }
+  ],
+  "locationList": [
+    {
+      "name": "Forest",
+      "description": "Oh hey look! Trees! We should go exploring! Surely there are no axe murderers to run from in there!",
+      "icon": "🌲",
+      "doorness": "OUTDOORS"
+    },
+    {
+      "name": "House",
+      "description": "They say a doctor lives here. Injured his leg a while ago. Not sure why he has such a big place then.",
+      "icon": "🏠",
+      "doorness": "INDOORS"
+    },
+    {
+      "name": "Bunker",
+      "description": "For all your prepper faves, because your preppy faves wouldn't be caught dead in here. It's too underground for them.",
+      "icon": "💣",
+      "doorness": "INDOORS"
+    },
+    {
+      "name": "Gardens",
+      "description": "Tale as old as time, song as old as rhyme, pulling all the weeds.",
+      "icon": "💐",
+      "doorness": "OUTDOORS"
+    }
+  ],
+  "cluesList": [
+    {
+      "description": "The Axe had recently been used properly"
+    },
+    {
+      "description": "Blue was not outside"
+    },
+    {
+      "description": "The Fork was held by someone named after a long wavelength of light"
+    },
+    {
+      "description": "All silverware was where it belonged"
+    },
+    {
+      "description": "The corpse smelled lightly explosive"
+    }
+  ],
+  "resolution": {
+    "correctSolution": {
+      "person": "Blue",
+      "location": "Bunker",
+      "weapon": "Gun"
+    },
+    "resolutionText": "Blue protested his innocence for a solid second before caving. \"Fine, take me away. None of it matters anyways.\" Honestly, the Detective was starting to feel depressed himself. Nothing a celebratory drink couldn't solve though."
+  }
+}

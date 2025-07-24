@@ -13,10 +13,6 @@ public class Box {
         state = BoxState.UNMARKED;
     }
 
-    public Box(BoxState boxState) {
-        state = boxState;
-    }
-
     public enum BoxState {
         UNMARKED{
 
@@ -31,7 +27,7 @@ public class Box {
             }
 
             @Override
-            public String getIcon() { return "  "; }
+            public String getIcon() { return "     "; }
         },
         FALSE {
 
@@ -48,7 +44,7 @@ public class Box {
 
             @Override
             public BoxState update() {
-                // need to send out the unelimination event as state is updated
+                //TODO need to send out the unelimination event as state is updated
                 return BoxState.UNSURE;
             }
 
@@ -91,6 +87,11 @@ public class Box {
     public Box clone() {
         return new Box(state);
     }
+
+    public void update() {
+        state = state.update();
+    }
+
 }
 
 

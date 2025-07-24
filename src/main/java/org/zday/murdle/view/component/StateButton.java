@@ -3,14 +3,18 @@ package org.zday.murdle.view.component;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.control.Button;
+import lombok.Getter;
+import lombok.Setter;
+import org.zday.murdle.model.notebook.Box;
 import org.zday.murdle.model.notebook.Box.BoxState;
 
 public class StateButton extends Button {
 
-    private BoxState boxState = BoxState.UNMARKED;
+    @Setter
+    @Getter
+    private Box box;
 
-
-    private StringProperty stateName = new SimpleStringProperty(BoxState.UNMARKED.name());
+    private StringProperty stateName = new SimpleStringProperty(BoxState.UNMARKED.getIcon());
 
 
     public StringProperty stateNameProperty() {
@@ -27,8 +31,8 @@ public class StateButton extends Button {
 
 
     public void updateState() {
-        boxState = boxState.update();
-        setStateName(boxState.getIcon());
+        box.update();
+        setStateName(box.getState().getIcon());
     }
 
 }

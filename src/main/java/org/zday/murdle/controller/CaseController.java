@@ -1,5 +1,6 @@
 package org.zday.murdle.controller;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -7,6 +8,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.zday.murdle.model.GameStateManager;
 import org.zday.murdle.model.murdercase.suspect.Location;
@@ -18,6 +20,7 @@ import org.zday.murdle.view.component.StateButton;
 
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class CaseController implements Initializable {
@@ -49,10 +52,8 @@ public class CaseController implements Initializable {
     }
 
     private void createNotebook() {
-        //create board and add to notebook pane
-
-
         createBoard();
+        createBoardControls();
     }
 
     private void createBoard() {
@@ -68,32 +69,42 @@ public class CaseController implements Initializable {
             tableView.getColumns().add(new TableColumn<>(location.getIcon()));
         }
 
-        Block weaponPersonBlock = gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.WEAPON, Block.RowColumnType.PERSON);
-        Block weaponLocationBlock = gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.WEAPON, Block.RowColumnType.LOCATION);
-        Block locationPersonBlock = gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.LOCATION, Block.RowColumnType.PERSON);
-        for (Weapon weapon : GameStateManager.getInstance().getMurderCase().getWeaponList()) {
 
-            //bind the cells in that row to the boxes in
-        }
+        createBoardRow(
+                gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.WEAPON, Block.RowColumnType.PERSON),
+                gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.WEAPON, Block.RowColumnType.MOTIVE),
+                gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.WEAPON, Block.RowColumnType.LOCATION))
+                .ifPresentOrElse(
+                        row -> notebookPane.getChildren().add(row),
+                        () -> {throw new IllegalArgumentException("An error has occurred while creating the first row of the board");});
 
+        createBoardRow(
+                gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.LOCATION, Block.RowColumnType.PERSON),
+                gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.LOCATION, Block.RowColumnType.MOTIVE))
+                .ifPresentOrElse(
+                        row -> notebookPane.getChildren().add(row),
+                        () -> {throw new IllegalArgumentException("An error has occurred while creating the second row of the board");});
+
+        createBoardRow(
+                gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.MOTIVE, Block.RowColumnType.PERSON))
+                .ifPresent(row -> notebookPane.getChildren().add(row));
     }
-
-
-
 
     private void createBoardControls() {
         clearBoardButton = new Button();
-        clearBoardButton.setText("🗑️");
+        clearBoardButton.setText("🗑");
         Tooltip clearTooltip = new Tooltip("Clear board");
         clearBoardButton.setTooltip(clearTooltip);
 
         loadBoardButton = new Button();
         loadBoardButton.setText("♻️");
+        loadBoardButton.setOnAction(e -> loadSavedBoard());
         Tooltip loadTooltip = new Tooltip("Load board");
         loadBoardButton.setTooltip(loadTooltip);
 
         saveBoardButton = new Button();
         saveBoardButton.setText("💾");
+        saveBoardButton.setOnAction(e -> saveBoard());
         Tooltip saveTooltip = new Tooltip("Save board");
         saveBoardButton.setTooltip(saveTooltip);
 
@@ -115,12 +126,27 @@ public class CaseController implements Initializable {
         for (int i = 0; i < block.getRowsList().size(); i++) {
             for (int j = 0; j < block.getRowsList().get(i).size(); j++) {
                 StateButton stateButton = new StateButton();
+                stateButton.setBox(block.getRowsList().get(i).get(j));
+                stateButton.setOnAction(e -> stateButton.updateState());
+                stateButton.textProperty().bind(stateButton.stateNameProperty());
+                gridPane.add(stateButton, i, j);
             }
         }
 
         return gridPane;
     }
 
+    private Optional<HBox> createBoardRow(Optional<Block>... blockOpts ) {
+        HBox row = new HBox();
+        boolean rowIsNecessary = false;
+        for (Optional<Block> blockOpt : blockOpts) {
+            if (blockOpt.isPresent()){
+                rowIsNecessary = true;
+                row.getChildren().add(createBlock(blockOpt.get()));
+            }
+        }
+        return rowIsNecessary ? Optional.of(row) : Optional.empty();
+    }
 
 
 }

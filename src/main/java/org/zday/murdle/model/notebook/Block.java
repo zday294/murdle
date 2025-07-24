@@ -64,7 +64,8 @@ public class Block {
     public enum RowColumnType {
         PERSON,
         LOCATION,
-        WEAPON
+        WEAPON,
+        MOTIVE
     }
 
     public Block clone() {
