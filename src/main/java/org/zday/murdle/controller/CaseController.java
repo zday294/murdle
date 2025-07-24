@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import lombok.Getter;
 import org.zday.murdle.model.murdercase.Case;
@@ -45,10 +46,6 @@ public class CaseController implements Initializable {
 
     @FXML
     private Button saveBoardButton;
-
-    public void initData(String filename) {
-        caseFileName = filename;
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -96,6 +93,7 @@ public class CaseController implements Initializable {
 
         Block weaponPersonBlock = board.findBlockByRowAndColumnTypes(Block.RowColumnType.WEAPON, Block.RowColumnType.PERSON);
         Block weaponLocationBlock = board.findBlockByRowAndColumnTypes(Block.RowColumnType.WEAPON, Block.RowColumnType.LOCATION);
+        Block locationPersonBlock = board.findBlockByRowAndColumnTypes(Block.RowColumnType.LOCATION, Block.RowColumnType.PERSON);
         for (Weapon weapon : caseInstance.getWeaponList()) {
 
 
@@ -124,6 +122,19 @@ public class CaseController implements Initializable {
         saveBoardButton.setTooltip(saveTooltip);
 
         notebookPane.getChildren().addAll(clearBoardButton, loadBoardButton, saveBoardButton);
+    }
+
+    private GridPane createBlock(Block block) {
+        //create grid
+        GridPane gridPane = new GridPane();
+
+        for (int i = 0; i < block.getRowsList().size(); i++) {
+            for (int j = 0; j < block.getRowsList().get(i).size(); j++) {
+                StateButton stateButton = new StateButton();
+            }
+        }
+
+        return gridPane;
     }
 
 

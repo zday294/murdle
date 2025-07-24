@@ -25,14 +25,20 @@ public class Box {
             public BoxState onEliminated() {
                 return BoxState.FALSE_BY_ELIMINATION;
             }
+
+            @Override
+            public String getIcon() { return "  "; }
         },
         FALSE {
 
             @Override
             public BoxState update() {
-                // need to send out the eliminations as the state is updated
+                // TODO: need to send out the eliminations as the state is updated
                 return BoxState.TRUE;
             }
+
+            @Override
+            public String getIcon() { return "❌";}
         },
         TRUE {
 
@@ -41,6 +47,9 @@ public class Box {
                 // need to send out the unelimination event as state is updated
                 return BoxState.UNSURE;
             }
+
+            @Override
+            public String getIcon() { return "✅"; }
         },
         UNSURE {
 
@@ -49,8 +58,8 @@ public class Box {
                 return BoxState.UNMARKED;
             }
 
-            //TODO: Check how this responds to elimination
-            //The existence of this state might result in needing a "previous state" property
+            @Override
+            public String getIcon() { return "❓"; }
         },
         FALSE_BY_ELIMINATION {
 
@@ -59,6 +68,8 @@ public class Box {
                 return BoxState.UNMARKED;
             }
 
+            @Override
+            public String getIcon() { return "ⅹ"; }
         };
 
         public BoxState update() {
@@ -70,6 +81,7 @@ public class Box {
         public BoxState onUneliminated() {
             return this;
         }
+        public abstract String getIcon();
     }
 }
 
