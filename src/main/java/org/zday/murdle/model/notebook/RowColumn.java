@@ -29,11 +29,6 @@ public class RowColumn implements EliminationListener {
     }
 
     @Override
-    public boolean checkUneliminable() {
-        return boxes.stream().noneMatch(box -> box.getState() == Box.BoxState.TRUE);
-    }
-
-    @Override
     public boolean checkEliminable() {
         return boxes.stream().anyMatch(box -> box.getState() == Box.BoxState.TRUE);
     }

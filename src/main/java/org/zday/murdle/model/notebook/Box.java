@@ -70,14 +70,10 @@ public class Box {
     }
 
     public void uneliminate() {
-        if (checkUneliminable()) {
+        if (!checkEliminable()) {
             state = state.onUneliminated();
             stateIcon.setValue(state.getIcon());
         }
-    }
-
-    private boolean checkUneliminable() {
-        return eliminationListeners.stream().allMatch(EliminationListener::checkUneliminable);
     }
 
     private boolean checkEliminable() {
