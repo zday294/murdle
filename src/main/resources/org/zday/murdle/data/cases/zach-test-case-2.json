@@ -116,6 +116,7 @@
       "description": "The corpse smelled lightly explosive"
     }
   ],
+  "hint": "Like in the last case, if I was good at writing hints, I would write one here. Fortunately, this is test data and thus doesn't need to be that useful to a player.",
   "resolution": {
     "correctSolution": {
       "person": "Blue",

@@ -22,7 +22,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class CaseController implements Initializable {
-    private final double boxSize = 35;
+    private final double BOX_SIZE = 35;
 
     @FXML
     private VBox notebookPane;
@@ -88,8 +88,8 @@ public class CaseController implements Initializable {
         boardHeaderPane = new GridPane();
 
         Label bufferLabel = new Label();
-        bufferLabel.setMinHeight(boxSize);
-        bufferLabel.setMinWidth(boxSize);
+        bufferLabel.setMinHeight(BOX_SIZE);
+        bufferLabel.setMinWidth(BOX_SIZE);
 
         boardHeaderPane.add(bufferLabel, 0, 0);
 
@@ -166,8 +166,8 @@ public class CaseController implements Initializable {
                 stateButton.setBox(block.getRowsList().get(i).getBoxes().get(j));
                 stateButton.setOnAction(e -> stateButton.updateState());
                 stateButton.textProperty().bind(stateButton.getBox().stateIconProperty());
-                stateButton.setMinWidth(boxSize);
-                stateButton.setMinHeight(boxSize);
+                stateButton.setMinWidth(BOX_SIZE);
+                stateButton.setMinHeight(BOX_SIZE);
                 gridPane.add(stateButton, i, j);
             }
         }
@@ -177,8 +177,8 @@ public class CaseController implements Initializable {
 
     private Label createHeaderLabel(String icon, String tooltip) {
         Label headerLabel = new Label(icon);
-        headerLabel.setMinHeight(boxSize);
-        headerLabel.setMinWidth(boxSize);
+        headerLabel.setMinHeight(BOX_SIZE);
+        headerLabel.setMinWidth(BOX_SIZE);
         headerLabel.setTooltip(new Tooltip(tooltip));
         headerLabel.setAlignment(Pos.CENTER);
         return headerLabel;

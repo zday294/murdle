@@ -93,6 +93,7 @@
             "description": "The corpse smelled lightly explosive"
         }
     ],
+    "hint": "There would be a really good hint here if I knew how to write a good hint.",
     "resolution": {
         "correctSolution": {
             "person": "Blue",

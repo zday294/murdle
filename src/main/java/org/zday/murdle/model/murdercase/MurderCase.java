@@ -22,6 +22,7 @@ public class MurderCase {
     private List<Weapon> weaponList;
     private List<Motive> motiveList;
     private List<Clue> cluesList;
+    private String hint;
     private Resolution resolution;
 
     public List<Suspect> getSuspectListByType(Block.RowColumnType type) {
