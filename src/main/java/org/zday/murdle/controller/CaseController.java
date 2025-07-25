@@ -22,11 +22,6 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class CaseController implements Initializable {
-
-//    private MurderCase caseInstance;
-
-//    private Board gameBoard;
-//    private Board savedBoard;
     private final double boxSize = 35;
 
     @FXML
@@ -166,9 +161,9 @@ public class CaseController implements Initializable {
         GridPane gridPane = new GridPane();
 
         for (int i = 0; i < block.getRowsList().size(); i++) {
-            for (int j = 0; j < block.getRowsList().get(i).size(); j++) {
+            for (int j = 0; j < block.getRowsList().get(i).getBoxes().size(); j++) {
                 StateButton stateButton = new StateButton();
-                stateButton.setBox(block.getRowsList().get(i).get(j));
+                stateButton.setBox(block.getRowsList().get(i).getBoxes().get(j));
                 stateButton.setOnAction(e -> stateButton.updateState());
                 stateButton.textProperty().bind(stateButton.getBox().stateIconProperty());
                 stateButton.setMinWidth(boxSize);

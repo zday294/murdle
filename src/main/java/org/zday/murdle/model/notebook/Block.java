@@ -13,8 +13,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class Block {
-    private List<List<Box>> rowsList;
-    private List<List<Box>> columnsList;
+    private List<RowColumn> rowsList;
+    private List<RowColumn> columnsList;
     private RowColumnType rowType;
     private RowColumnType columnType;
 
@@ -32,7 +32,7 @@ public class Block {
         columnsList = new ArrayList<>();
 
         for (int i = 0; i < rowSuspects.size(); i++) {
-            List<Box> row = new ArrayList<>();
+            RowColumn row = new RowColumn();
             for (int j = 0; j < columnSuspects.size(); j++){
                 row.add(new Box());
             }
@@ -40,9 +40,9 @@ public class Block {
         }
 
         for (int i = 0; i < columnSuspects.size(); i++) {
-            List<Box> column = new ArrayList<>();
-            for (List<Box> row : rowsList) {
-                column.add(row.get(i));
+            RowColumn column = new RowColumn();
+            for (RowColumn row : rowsList) {
+                column.add(row.getBoxes().get(i));
             }
             columnsList.add(column);
         }
@@ -61,10 +61,10 @@ public class Block {
 
     }
 
-    public void populatefromBlock(Block fromBlock) {
+    public void populateFromBlock(Block fromBlock) {
         for (int i = 0; i < rowsList.size(); i++) {
-            for (int j = 0; j < rowsList.get(i).size(); j++) {
-                rowsList.get(i).get(j).populateFromBox(fromBlock.getRowsList().get(i).get(j));
+            for (int j = 0; j < rowsList.get(i).getBoxes().size(); j++) {
+                rowsList.get(i).getBoxes().get(j).populateFromBox(fromBlock.getRowsList().get(i).getBoxes().get(j));
             }
         }
     }
@@ -77,20 +77,16 @@ public class Block {
     }
 
     public Block clone() {
-        List<List<Box>> newRowList = new ArrayList<>();
-        for (List<Box> row : rowsList) {
-            List<Box> newRow = new ArrayList<>();
-            for (Box box : row) {
-                newRow.add(box.clone());
-            }
-            newRowList.add(newRow);
+        List<RowColumn> newRowList = new ArrayList<>();
+        for (RowColumn row : rowsList) {
+            newRowList.add(row.clone());
         }
 
-        List<List<Box>> newColumnList = new ArrayList<>();
+        List<RowColumn> newColumnList = new ArrayList<>();
         for (int i = 0; i < columnsList.size(); i++) {
-            List<Box> newColumn = new ArrayList<>();
-            for (List<Box> row : rowsList) {
-                newColumn.add(row.get(i));
+            RowColumn newColumn = new RowColumn();
+            for (RowColumn row : rowsList) {
+                newColumn.add(row.boxes.get(i));
             }
             newColumnList.add(newColumn);
         }
