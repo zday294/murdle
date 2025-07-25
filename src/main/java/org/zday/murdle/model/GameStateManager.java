@@ -6,9 +6,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.zday.murdle.model.murdercase.MurderCase;
+import org.zday.murdle.model.notebook.Block;
 import org.zday.murdle.model.notebook.Board;
 
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 
 @Data
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -16,6 +20,7 @@ import java.io.InputStream;
 public final class GameStateManager {
     private MurderCase murderCase;
     private Board gameBoard;
+    private Board savedBoard;
     private final static GameStateManager INSTANCE = new GameStateManager();
 
     public static GameStateManager getInstance() {
@@ -29,4 +34,22 @@ public final class GameStateManager {
             e.printStackTrace();
         }
     }
+
+    public void createBoard() {
+        gameBoard = new Board(murderCase.getPersonList(), murderCase.getWeaponList(), murderCase.getLocationList());
+    }
+
+    public void saveBoard() {
+        savedBoard = gameBoard.clone();
+    }
+
+    public void loadSavedBoard() {
+        if (savedBoard != null) {
+            gameBoard = savedBoard.clone();
+        }
+    }
+
+
+
+
 }

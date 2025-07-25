@@ -7,6 +7,7 @@ import org.zday.murdle.model.murdercase.suspect.Person;
 import org.zday.murdle.model.murdercase.suspect.Weapon;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,5 +34,13 @@ public class Board {
         }
 
         return new Board(cloneBlocks);
+    }
+
+    public List<Optional<Block>> getRowBySuspect(Block.RowColumnType rowType){
+        List<Optional<Block>> blockList = new ArrayList<>();
+        for (Block.RowColumnType columnType : Arrays.stream(Block.RowColumnType.values()).filter(e -> !e.equals(rowType)).toList()) {
+            blockList.add(findBlockByRowAndColumnTypes(rowType, columnType));
+        }
+        return blockList;
     }
 }

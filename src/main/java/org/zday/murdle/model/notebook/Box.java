@@ -27,7 +27,7 @@ public class Box {
             }
 
             @Override
-            public String getIcon() { return "     "; }
+            public String getIcon() { return "       "; }
         },
         FALSE {
 

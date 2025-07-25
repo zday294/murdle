@@ -1,21 +1,16 @@
 package org.zday.murdle.controller;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.zday.murdle.model.GameStateManager;
-import org.zday.murdle.model.murdercase.suspect.Location;
-import org.zday.murdle.model.murdercase.suspect.Person;
-import org.zday.murdle.model.murdercase.suspect.Weapon;
 import org.zday.murdle.model.notebook.Block;
-import org.zday.murdle.model.notebook.Board;
 import org.zday.murdle.view.component.StateButton;
 
 import java.net.URL;
@@ -27,11 +22,15 @@ public class CaseController implements Initializable {
 
 //    private MurderCase caseInstance;
 
-    private Board gameBoard;
-    private Board savedBoard;
+//    private Board gameBoard;
+//    private Board savedBoard;
+    private final double boxSize = 35.0;
 
     @FXML
     private VBox notebookPane;
+
+    @FXML
+    private VBox boardPane;
 
     @FXML
     private VBox cluesPane;
@@ -52,74 +51,81 @@ public class CaseController implements Initializable {
     }
 
     private void createNotebook() {
-        createBoard();
+        GameStateManager.getInstance().createBoard();
+        drawBoard();
+        notebookPane.getChildren().add(boardPane);
         createBoardControls();
     }
 
-    private void createBoard() {
-        gameBoard = new Board(GameStateManager.getInstance().getMurderCase().getPersonList(), GameStateManager.getInstance().getMurderCase().getWeaponList(), GameStateManager.getInstance().getMurderCase().getLocationList());
+    private void drawBoard() {
+        VBox newBoardPane = new VBox();
 
-        TableView<List<StateButton>> tableView = new TableView<>();
-        tableView.getColumns().add(new TableColumn<>("")); // column for row labels
-        for(Person person : GameStateManager.getInstance().getMurderCase().getPersonList()) {
-            tableView.getColumns().add(new TableColumn<>(person.getIcon()));
-        }
+        drawBoardHeader();
 
-        for (Location location : GameStateManager.getInstance().getMurderCase().getLocationList()){
-            tableView.getColumns().add(new TableColumn<>(location.getIcon()));
-        }
-
-
-        createBoardRow(
-                gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.WEAPON, Block.RowColumnType.PERSON),
-                gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.WEAPON, Block.RowColumnType.MOTIVE),
-                gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.WEAPON, Block.RowColumnType.LOCATION))
+        drawBoardRow(
+                GameStateManager.getInstance().getGameBoard().getRowBySuspect(Block.RowColumnType.WEAPON))
                 .ifPresentOrElse(
-                        row -> notebookPane.getChildren().add(row),
+                        row -> newBoardPane.getChildren().add(row),
                         () -> {throw new IllegalArgumentException("An error has occurred while creating the first row of the board");});
 
-        createBoardRow(
-                gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.LOCATION, Block.RowColumnType.PERSON),
-                gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.LOCATION, Block.RowColumnType.MOTIVE))
+        drawBoardRow(
+                GameStateManager.getInstance().getGameBoard().getRowBySuspect(Block.RowColumnType.LOCATION))
                 .ifPresentOrElse(
-                        row -> notebookPane.getChildren().add(row),
+                        row -> newBoardPane.getChildren().add(row),
                         () -> {throw new IllegalArgumentException("An error has occurred while creating the second row of the board");});
 
-        createBoardRow(
-                gameBoard.findBlockByRowAndColumnTypes(Block.RowColumnType.MOTIVE, Block.RowColumnType.PERSON))
-                .ifPresent(row -> notebookPane.getChildren().add(row));
+        drawBoardRow(
+                GameStateManager.getInstance().getGameBoard().getRowBySuspect(Block.RowColumnType.MOTIVE))
+                .ifPresent(row -> newBoardPane.getChildren().add(row));
+
+        boardPane = newBoardPane;
+
+    }
+
+    private void drawBoardHeader() {
+        Label bufferLabel = new Label();
+        bufferLabel.setMinHeight(boxSize);
+        bufferLabel.setMinWidth(boxSize);
     }
 
     private void createBoardControls() {
         clearBoardButton = new Button();
         clearBoardButton.setText("🗑");
-        Tooltip clearTooltip = new Tooltip("Clear board");
-        clearBoardButton.setTooltip(clearTooltip);
+        clearBoardButton.setOnAction(e -> clearBoard());
+        clearBoardButton.setTooltip(new Tooltip("Clear board"));
 
         loadBoardButton = new Button();
         loadBoardButton.setText("♻️");
         loadBoardButton.setOnAction(e -> loadSavedBoard());
-        Tooltip loadTooltip = new Tooltip("Load board");
-        loadBoardButton.setTooltip(loadTooltip);
+        loadBoardButton.setTooltip(new Tooltip("Load board"));
 
         saveBoardButton = new Button();
         saveBoardButton.setText("💾");
         saveBoardButton.setOnAction(e -> saveBoard());
-        Tooltip saveTooltip = new Tooltip("Save board");
-        saveBoardButton.setTooltip(saveTooltip);
+        saveBoardButton.setTooltip(new Tooltip("Save board"));
 
-        notebookPane.getChildren().addAll(clearBoardButton, loadBoardButton, saveBoardButton);
+        HBox hBox = new HBox(clearBoardButton, loadBoardButton, saveBoardButton);
+        hBox.setPadding(new Insets(10));
+
+        notebookPane.getChildren().add(hBox);
     }
 
     public void saveBoard() {
-        savedBoard = gameBoard.clone();
+        GameStateManager.getInstance().saveBoard();
+        drawBoard();
     }
 
     public void loadSavedBoard() {
-        gameBoard = savedBoard.clone();
+        GameStateManager.getInstance().loadSavedBoard();
+        drawBoard();
     }
 
-    private GridPane createBlock(Block block) {
+    public void clearBoard() {
+        GameStateManager.getInstance().createBoard();
+        drawBoard();
+    }
+
+    private GridPane drawBlock(Block block) {
         //create grid
         GridPane gridPane = new GridPane();
 
@@ -129,6 +135,8 @@ public class CaseController implements Initializable {
                 stateButton.setBox(block.getRowsList().get(i).get(j));
                 stateButton.setOnAction(e -> stateButton.updateState());
                 stateButton.textProperty().bind(stateButton.stateNameProperty());
+                stateButton.setMinWidth(boxSize);
+                stateButton.setMinHeight(boxSize);
                 gridPane.add(stateButton, i, j);
             }
         }
@@ -136,13 +144,13 @@ public class CaseController implements Initializable {
         return gridPane;
     }
 
-    private Optional<HBox> createBoardRow(Optional<Block>... blockOpts ) {
+    private Optional<HBox> drawBoardRow(List<Optional<Block>> blockOpts ) {
         HBox row = new HBox();
         boolean rowIsNecessary = false;
         for (Optional<Block> blockOpt : blockOpts) {
             if (blockOpt.isPresent()){
                 rowIsNecessary = true;
-                row.getChildren().add(createBlock(blockOpt.get()));
+                row.getChildren().add(drawBlock(blockOpt.get()));
             }
         }
         return rowIsNecessary ? Optional.of(row) : Optional.empty();

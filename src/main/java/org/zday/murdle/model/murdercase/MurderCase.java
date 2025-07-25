@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.zday.murdle.model.murdercase.clues.Clue;
 import org.zday.murdle.model.murdercase.resolution.Resolution;
 import org.zday.murdle.model.murdercase.suspect.Location;
+import org.zday.murdle.model.murdercase.suspect.Motive;
 import org.zday.murdle.model.murdercase.suspect.Person;
 import org.zday.murdle.model.murdercase.suspect.Weapon;
 
@@ -20,6 +21,7 @@ public class MurderCase {
     private List<Person> personList;
     private List<Location> locationList;
     private List<Weapon> weaponList;
+    private List<Motive> motiveList;
     private List<Clue> cluesList;
     private Resolution resolution;
 }
