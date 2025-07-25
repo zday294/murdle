@@ -184,5 +184,9 @@ public class CaseController implements Initializable {
         return headerLabel;
     }
 
+    private void writeClues() {
+        //TODO: the clues should be written to their pane here
+        //TODO: don't forget to add controls to input the guess, check it, and reveal the answer if correct
+    }
 
 }
