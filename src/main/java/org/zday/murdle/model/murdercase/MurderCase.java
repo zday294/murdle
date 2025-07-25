@@ -5,11 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.zday.murdle.model.murdercase.clues.Clue;
 import org.zday.murdle.model.murdercase.resolution.Resolution;
-import org.zday.murdle.model.murdercase.suspect.Location;
-import org.zday.murdle.model.murdercase.suspect.Motive;
-import org.zday.murdle.model.murdercase.suspect.Person;
-import org.zday.murdle.model.murdercase.suspect.Weapon;
+import org.zday.murdle.model.murdercase.suspect.*;
+import org.zday.murdle.model.notebook.Block;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -24,4 +23,15 @@ public class MurderCase {
     private List<Motive> motiveList;
     private List<Clue> cluesList;
     private Resolution resolution;
+
+    public List<Suspect> getSuspectListByType(Block.RowColumnType type) {
+        List<Suspect> suspectList = new ArrayList<>();
+        switch (type) {
+            case PERSON -> suspectList.addAll(personList);
+            case WEAPON -> suspectList.addAll(weaponList);
+            case LOCATION -> suspectList.addAll(locationList);
+            case MOTIVE -> suspectList.addAll(motiveList);
+        }
+        return suspectList;
+    }
 }

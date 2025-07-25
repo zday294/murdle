@@ -61,6 +61,14 @@ public class Block {
 
     }
 
+    public void populatefromBlock(Block fromBlock) {
+        for (int i = 0; i < rowsList.size(); i++) {
+            for (int j = 0; j < rowsList.get(i).size(); j++) {
+                rowsList.get(i).get(j).populateFromBox(fromBlock.getRowsList().get(i).get(j));
+            }
+        }
+    }
+
     public enum RowColumnType {
         PERSON,
         WEAPON,

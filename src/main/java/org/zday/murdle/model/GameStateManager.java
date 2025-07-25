@@ -21,6 +21,7 @@ public final class GameStateManager {
     private MurderCase murderCase;
     private Board gameBoard;
     private Board savedBoard;
+    private Board freshBoard;
     private final static GameStateManager INSTANCE = new GameStateManager();
 
     public static GameStateManager getInstance() {
@@ -37,6 +38,7 @@ public final class GameStateManager {
 
     public void createBoard() {
         gameBoard = new Board(murderCase.getPersonList(), murderCase.getWeaponList(), murderCase.getLocationList());
+        freshBoard = gameBoard.clone();
     }
 
     public void saveBoard() {
@@ -45,11 +47,12 @@ public final class GameStateManager {
 
     public void loadSavedBoard() {
         if (savedBoard != null) {
-            gameBoard = savedBoard.clone();
+            gameBoard.populateFromBoard(savedBoard);
         }
     }
 
 
-
-
+    public void clearBoard() {
+        gameBoard.populateFromBoard(freshBoard);
+    }
 }

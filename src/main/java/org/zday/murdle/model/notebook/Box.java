@@ -1,16 +1,43 @@
 package org.zday.murdle.model.notebook;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 
 @AllArgsConstructor
-@Data
 public class Box {
 
+    @Getter
     private BoxState state;
+
+    private StringProperty stateIcon;
 
     public Box() {
         state = BoxState.UNMARKED;
+        stateIcon = new SimpleStringProperty(state.getIcon());
+    }
+
+    public Box(BoxState newState) {
+        this.state = newState;
+        this.stateIcon = new SimpleStringProperty(newState.getIcon());
+    }
+
+    public void setState(BoxState state){
+        this.state = state;
+        stateIcon.setValue(state.getIcon());
+    }
+
+    public StringProperty stateIconProperty() { return stateIcon; }
+
+    public final String getSateIcon() { return stateIcon.getValue(); }
+
+    public final void setStateIcon(String icon) {
+        stateIcon.setValue(icon);
+    }
+
+    public void populateFromBox(Box box) {
+        this.setState(box.getState());
     }
 
     public enum BoxState {
@@ -90,6 +117,7 @@ public class Box {
 
     public void update() {
         state = state.update();
+        setStateIcon(state.getIcon());
     }
 
 }

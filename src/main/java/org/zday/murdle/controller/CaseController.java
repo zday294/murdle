@@ -3,6 +3,7 @@ package org.zday.murdle.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
@@ -10,10 +11,12 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.zday.murdle.model.GameStateManager;
+import org.zday.murdle.model.murdercase.suspect.Suspect;
 import org.zday.murdle.model.notebook.Block;
 import org.zday.murdle.view.component.StateButton;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -24,13 +27,16 @@ public class CaseController implements Initializable {
 
 //    private Board gameBoard;
 //    private Board savedBoard;
-    private final double boxSize = 35.0;
+    private final double boxSize = 35;
 
     @FXML
     private VBox notebookPane;
 
     @FXML
     private VBox boardPane;
+
+    @FXML
+    private GridPane boardHeaderPane;
 
     @FXML
     private VBox cluesPane;
@@ -61,6 +67,7 @@ public class CaseController implements Initializable {
         VBox newBoardPane = new VBox();
 
         drawBoardHeader();
+        newBoardPane.getChildren().add(boardHeaderPane);
 
         drawBoardRow(
                 GameStateManager.getInstance().getGameBoard().getRowBySuspect(Block.RowColumnType.WEAPON))
@@ -83,9 +90,23 @@ public class CaseController implements Initializable {
     }
 
     private void drawBoardHeader() {
+        boardHeaderPane = new GridPane();
+
         Label bufferLabel = new Label();
         bufferLabel.setMinHeight(boxSize);
         bufferLabel.setMinWidth(boxSize);
+
+        boardHeaderPane.add(bufferLabel, 0, 0);
+
+        List<Suspect> suspects = new ArrayList<>();
+
+        suspects.addAll(GameStateManager.getInstance().getMurderCase().getPersonList());
+        if (GameStateManager.getInstance().getMurderCase().getMotiveList() != null) suspects.addAll(GameStateManager.getInstance().getMurderCase().getMotiveList());
+        suspects.addAll(GameStateManager.getInstance().getMurderCase().getLocationList());
+
+        for(int i = 0; i < suspects.size(); i++) {
+            boardHeaderPane.add(createHeaderLabel(suspects.get(i).getIcon(), suspects.get(i).getName()), i+1, 0);
+        }
     }
 
     private void createBoardControls() {
@@ -112,17 +133,32 @@ public class CaseController implements Initializable {
 
     public void saveBoard() {
         GameStateManager.getInstance().saveBoard();
-        drawBoard();
     }
 
     public void loadSavedBoard() {
         GameStateManager.getInstance().loadSavedBoard();
-        drawBoard();
     }
 
     public void clearBoard() {
-        GameStateManager.getInstance().createBoard();
-        drawBoard();
+        GameStateManager.getInstance().clearBoard();
+    }
+
+    private Optional<HBox> drawBoardRow(List<Optional<Block>> blockOpts ) {
+        if (!blockOpts.isEmpty() && blockOpts.get(0).isPresent()){
+            HBox row = new HBox();
+            GridPane sideHeaderPane = new GridPane();
+
+            List<Suspect> suspects = GameStateManager.getInstance().getMurderCase().getSuspectListByType(blockOpts.get(0).get().getRowType());
+            for (int i = 0; i < suspects.size(); i++) {
+                sideHeaderPane.add(createHeaderLabel(suspects.get(i).getIcon(), suspects.get(i).getName()), 0, i);
+            }
+            row.getChildren().add(sideHeaderPane);
+
+            blockOpts.forEach(blockOpt -> blockOpt.ifPresent(block -> row.getChildren().add(drawBlock(block))));
+            return Optional.of(row);
+        } else {
+            return Optional.empty();
+        }
     }
 
     private GridPane drawBlock(Block block) {
@@ -134,7 +170,7 @@ public class CaseController implements Initializable {
                 StateButton stateButton = new StateButton();
                 stateButton.setBox(block.getRowsList().get(i).get(j));
                 stateButton.setOnAction(e -> stateButton.updateState());
-                stateButton.textProperty().bind(stateButton.stateNameProperty());
+                stateButton.textProperty().bind(stateButton.getBox().stateIconProperty());
                 stateButton.setMinWidth(boxSize);
                 stateButton.setMinHeight(boxSize);
                 gridPane.add(stateButton, i, j);
@@ -144,16 +180,13 @@ public class CaseController implements Initializable {
         return gridPane;
     }
 
-    private Optional<HBox> drawBoardRow(List<Optional<Block>> blockOpts ) {
-        HBox row = new HBox();
-        boolean rowIsNecessary = false;
-        for (Optional<Block> blockOpt : blockOpts) {
-            if (blockOpt.isPresent()){
-                rowIsNecessary = true;
-                row.getChildren().add(drawBlock(blockOpt.get()));
-            }
-        }
-        return rowIsNecessary ? Optional.of(row) : Optional.empty();
+    private Label createHeaderLabel(String icon, String tooltip) {
+        Label headerLabel = new Label(icon);
+        headerLabel.setMinHeight(boxSize);
+        headerLabel.setMinWidth(boxSize);
+        headerLabel.setTooltip(new Tooltip(tooltip));
+        headerLabel.setAlignment(Pos.CENTER);
+        return headerLabel;
     }
 
 

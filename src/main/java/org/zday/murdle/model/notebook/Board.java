@@ -43,4 +43,10 @@ public class Board {
         }
         return blockList;
     }
+
+    public void populateFromBoard(Board fromBoard) {
+        for (int i = 0; i < fromBoard.getBlocks().size(); i++) {
+            this.getBlocks().get(i).populatefromBlock(fromBoard.getBlocks().get(i));
+        }
+    }
 }

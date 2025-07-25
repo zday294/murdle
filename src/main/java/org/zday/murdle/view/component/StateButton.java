@@ -8,31 +8,31 @@ import lombok.Setter;
 import org.zday.murdle.model.notebook.Box;
 import org.zday.murdle.model.notebook.Box.BoxState;
 
+@Setter
+@Getter
 public class StateButton extends Button {
 
-    @Setter
-    @Getter
     private Box box;
 
-    private StringProperty stateName = new SimpleStringProperty(BoxState.UNMARKED.getIcon());
-
-
-    public StringProperty stateNameProperty() {
-        return stateName;
-    }
-
-    public final String getStateName() {
-        return stateName.getValue();
-    }
-
-    public final void setStateName(String name){
-        stateName.setValue(name);
-    }
+//    private StringProperty stateName = new SimpleStringProperty(BoxState.UNMARKED.getIcon());
+//
+//
+//    public StringProperty stateNameProperty() {
+//        return stateName;
+//    }
+//
+//    public final String getStateName() {
+//        return stateName.getValue();
+//    }
+//
+//    public final void setStateName(String name){
+//        stateName.setValue(name);
+//    }
 
 
     public void updateState() {
         box.update();
-        setStateName(box.getState().getIcon());
+//        setStateName(box.getState().getIcon());
     }
 
 }
