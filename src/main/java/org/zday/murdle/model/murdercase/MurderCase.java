@@ -21,11 +21,11 @@ public class MurderCase {
     private List<Location> locationList;
     private List<Weapon> weaponList;
     private List<Motive> motiveList;
-    private List<Clue> cluesList;
+    private List<String> cluesList;
     private String hint;
     private Resolution resolution;
 
-    public List<Suspect> getSuspectListByType(Block.RowColumnType type) {
+    public List<Suspect> getSuspectListByType(SuspectType type) {
         List<Suspect> suspectList = new ArrayList<>();
         switch (type) {
             case PERSON -> suspectList.addAll(personList);

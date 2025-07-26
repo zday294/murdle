@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.GridPane;
@@ -12,17 +13,24 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.zday.murdle.model.GameStateManager;
 import org.zday.murdle.model.murdercase.suspect.Suspect;
+import org.zday.murdle.model.murdercase.suspect.SuspectType;
 import org.zday.murdle.model.notebook.Block;
 import org.zday.murdle.view.component.StateButton;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class CaseController implements Initializable {
-    private final double BOX_SIZE = 35;
+    private final double BOX_SIZE = 40;
+
+    @FXML
+    private HBox suspectCardsPane;
+
+    @FXML
+    private VBox clueListPane;
+
+    @FXML
+    private Label titleLabel;
 
     @FXML
     private VBox notebookPane;
@@ -34,21 +42,22 @@ public class CaseController implements Initializable {
     private GridPane boardHeaderPane;
 
     @FXML
-    private VBox cluesPane;
+    private Label caseDescriptionLabel;
 
     @FXML
-    private Button clearBoardButton;
-
-    @FXML
-    private Button loadBoardButton;
-
-    @FXML
-    private Button saveBoardButton;
+    private VBox solutionInputPane;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         createNotebook();
+        createClueDisplay();
+    }
+
+
+    @FXML
+    public void showHint() {
+
     }
 
     private void createNotebook() {
@@ -65,19 +74,19 @@ public class CaseController implements Initializable {
         newBoardPane.getChildren().add(boardHeaderPane);
 
         drawBoardRow(
-                GameStateManager.getInstance().getGameBoard().getRowBySuspect(Block.RowColumnType.WEAPON))
+                GameStateManager.getInstance().getGameBoard().getRowBySuspect(SuspectType.WEAPON))
                 .ifPresentOrElse(
                         row -> newBoardPane.getChildren().add(row),
                         () -> {throw new IllegalArgumentException("An error has occurred while creating the first row of the board");});
 
         drawBoardRow(
-                GameStateManager.getInstance().getGameBoard().getRowBySuspect(Block.RowColumnType.LOCATION))
+                GameStateManager.getInstance().getGameBoard().getRowBySuspect(SuspectType.LOCATION))
                 .ifPresentOrElse(
                         row -> newBoardPane.getChildren().add(row),
                         () -> {throw new IllegalArgumentException("An error has occurred while creating the second row of the board");});
 
         drawBoardRow(
-                GameStateManager.getInstance().getGameBoard().getRowBySuspect(Block.RowColumnType.MOTIVE))
+                GameStateManager.getInstance().getGameBoard().getRowBySuspect(SuspectType.MOTIVE))
                 .ifPresent(row -> newBoardPane.getChildren().add(row));
 
         boardPane = newBoardPane;
@@ -105,17 +114,17 @@ public class CaseController implements Initializable {
     }
 
     private void createBoardControls() {
-        clearBoardButton = new Button();
+        Button clearBoardButton = new Button();
         clearBoardButton.setText("🗑");
         clearBoardButton.setOnAction(e -> clearBoard());
         clearBoardButton.setTooltip(new Tooltip("Clear board"));
 
-        loadBoardButton = new Button();
+        Button loadBoardButton = new Button();
         loadBoardButton.setText("♻️");
         loadBoardButton.setOnAction(e -> loadSavedBoard());
         loadBoardButton.setTooltip(new Tooltip("Load board"));
 
-        saveBoardButton = new Button();
+        Button saveBoardButton = new Button();
         saveBoardButton.setText("💾");
         saveBoardButton.setOnAction(e -> saveBoard());
         saveBoardButton.setTooltip(new Tooltip("Save board"));
@@ -184,9 +193,45 @@ public class CaseController implements Initializable {
         return headerLabel;
     }
 
-    private void writeClues() {
-        //TODO: the clues should be written to their pane here
-        //TODO: don't forget to add controls to input the guess, check it, and reveal the answer if correct
+    private void createClueDisplay() {
+        titleLabel.setText(GameStateManager.getInstance().getMurderCase().getTitle());
+        caseDescriptionLabel.setText(GameStateManager.getInstance().getMurderCase().getDescription());
+        caseDescriptionLabel.setWrapText(true);
+
+        //TODO: add suspect cards
+
+        writeClues();
+
+        //TODO: check if suspect statements are a thing in vol 1 - yes, suspect statements are a thing in the late part of the book
+        drawSolutionInputs();
     }
+
+
+
+    private void writeClues() {
+        GameStateManager.getInstance().getMurderCase().getCluesList().forEach(clue -> {
+            Label clueLabel = new Label(" - " + clue);
+            clueLabel.setWrapText(true);
+            clueLabel.setPadding(new Insets(5));
+            clueListPane.getChildren().add(clueLabel);
+        });
+    }
+
+    private void drawSolutionInputs() {
+        List<SuspectType> orderedSuspectTypeList = List.of(SuspectType.PERSON, SuspectType.WEAPON, SuspectType.LOCATION);
+        if (GameStateManager.getInstance().getMurderCase().getMotiveList() != null && !GameStateManager.getInstance().getMurderCase().getMotiveList().isEmpty()) {
+            orderedSuspectTypeList.add(SuspectType.MOTIVE);
+        }
+
+        for (SuspectType suspectType : orderedSuspectTypeList) {
+            ComboBox<String> selector = new ComboBox<>();
+            selector.setId(suspectType.name());
+            selector.setPromptText(suspectType.name());
+            selector.setMinWidth(200);
+            GameStateManager.getInstance().getMurderCase().getSuspectListByType(suspectType).forEach(suspect -> selector.getItems().add(suspect.getName()));
+            solutionInputPane.getChildren().add(selector);
+        }
+    }
+
 
 }
