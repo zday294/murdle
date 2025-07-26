@@ -10,4 +10,5 @@ public class Solution {
     private String person;
     private String location;
     private String weapon;
+    private String motive;
 }
