@@ -16,4 +16,8 @@ public class Person extends Suspect{
     private String astrologicalSign;
     private String height;
 
+    @Override
+    public String getDetails() {
+        return hairColor + " hair | " + eyeColor + " eyes | " + handedness + "-handed | " + height  + " | " + astrologicalSign;
+    }
 }

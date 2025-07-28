@@ -1,0 +1,38 @@
+.suspect-cards-pane {
+    -fx-alignment: CENTER;
+    -fx-spacing: 10;
+}
+
+.suspect-card {
+    -fx-font-size: 18px;
+    -fx-background-color: #fff0d4;
+    -fx-max-width: 410;
+    /*-fx-min-width: 270;*/
+    -fx-min-height: 330;
+    -fx-border-color: #101010;
+    -fx-alignment: TOP-CENTER;
+    -fx-padding: 10;
+    /*-fx-spacing: 20;*/
+}
+
+.suspect-label {
+    -fx-wrap-text: true;
+    -fx-padding: 5;
+    -fx-max-width: 410;
+}
+
+.suspect-details {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-alignment: CENTER;
+}
+
+.suspect-icon {
+    -fx-font-size: 50px;
+}
+
+.suspect-name {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+

@@ -11,4 +11,8 @@ public abstract class Suspect {
     private String name;
     private String description;
     private String icon;
+
+    public String getDetails() {
+        return "";
+    }
 }

@@ -4,10 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -21,7 +18,7 @@ import java.net.URL;
 import java.util.*;
 
 public class CaseController implements Initializable {
-    private final double BOX_SIZE = 40;
+    private final double BOX_SIZE = 60;
 
     @FXML
     private HBox suspectCardsPane;
@@ -57,7 +54,10 @@ public class CaseController implements Initializable {
 
     @FXML
     public void showHint() {
-
+        Alert hintAlert = new Alert(Alert.AlertType.INFORMATION);
+        hintAlert.setContentText(GameStateManager.getInstance().getMurderCase().getHint());
+        hintAlert.setTitle("A hint for you...");
+        hintAlert.showAndWait();
     }
 
     private void createNotebook() {
@@ -195,10 +195,12 @@ public class CaseController implements Initializable {
 
     private void createClueDisplay() {
         titleLabel.setText(GameStateManager.getInstance().getMurderCase().getTitle());
+        titleLabel.getStyleClass().add("case-title");
         caseDescriptionLabel.setText(GameStateManager.getInstance().getMurderCase().getDescription());
-        caseDescriptionLabel.setWrapText(true);
+        caseDescriptionLabel.getStyleClass().addAll( "clue-pane","case-description");
 
-        //TODO: add suspect cards
+        createSuspectCards(GameStateManager.getInstance().getMurderCase().getSuspectListByType(SuspectType.PERSON));
+
 
         writeClues();
 
@@ -227,11 +229,42 @@ public class CaseController implements Initializable {
             ComboBox<String> selector = new ComboBox<>();
             selector.setId(suspectType.name());
             selector.setPromptText(suspectType.name());
-            selector.setMinWidth(200);
             GameStateManager.getInstance().getMurderCase().getSuspectListByType(suspectType).forEach(suspect -> selector.getItems().add(suspect.getName()));
             solutionInputPane.getChildren().add(selector);
         }
+
+        Button submitSolutionButton = new Button();
+        submitSolutionButton.setOnAction(e -> submitSolution());
+        submitSolutionButton.setText("Make your accusation!");
+        submitSolutionButton.getStyleClass().add("submit-solution-button");
+        solutionInputPane.getChildren().add(submitSolutionButton);
     }
 
+    private void createSuspectCards(List<Suspect> suspectList) {
+        for (Suspect suspect : suspectList) {
+            VBox suspectCard = new VBox();
+            suspectCard.getStyleClass().add("suspect-card");
+
+            Label suspectIconLabel = new Label(suspect.getIcon());
+            suspectIconLabel.getStyleClass().add("suspect-icon");
+
+            Label suspectNameLabel = new Label(suspect.getName());
+            suspectNameLabel.getStyleClass().add("suspect-name");
+
+            Label suspectDescriptionLabel = new Label(suspect.getDescription());
+            suspectDescriptionLabel.getStyleClass().add("suspect-label");
+
+            Label suspectDetailsLabel = new Label(suspect.getDetails());
+            suspectDetailsLabel.getStyleClass().addAll("suspect-label", "suspect-details");
+
+            suspectCard.getChildren().addAll(suspectIconLabel, suspectNameLabel, suspectDescriptionLabel, suspectDetailsLabel);
+
+            suspectCardsPane.getChildren().add(suspectCard);
+        }
+    }
+
+    private void submitSolution() {
+
+    }
 
 }

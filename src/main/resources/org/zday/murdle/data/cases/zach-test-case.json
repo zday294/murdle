@@ -8,7 +8,7 @@
             "icon": "👱",
             "hairColor": "Black",
             "eyeColor": "Blue",
-            "handedness": "Left-handed",
+            "handedness": "Left",
             "astrologicalSign": "Cancer",
             "height": "5'1\""
         },
@@ -18,7 +18,7 @@
             "icon": "🦮",
             "hairColor": "Red",
             "eyeColor": "Brown",
-            "handedness": "Right-handed",
+            "handedness": "Right",
             "astrologicalSign": "Taurus",
             "height": "6'3\""
         },
@@ -28,7 +28,7 @@
             "icon": "🤦",
             "hairColor": "Green",
             "eyeColor": "Green",
-            "handedness": "Left-handed",
+            "handedness": "Left",
             "astrologicalSign": "Pisces",
             "height": "5'4\""
         }
