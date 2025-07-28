@@ -1,3 +1,18 @@
 .root {
   -fx-font: 20px "American Typewriter";
 }
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+/*.board-block {
+    -fx-border-color:black;
+}*/
+
+.state-button {
+    -fx-min-width: 60;
+    -fx-min-height: 60;
+    -fx-background-color: transparent;
+    -fx-border-color: black;
+}

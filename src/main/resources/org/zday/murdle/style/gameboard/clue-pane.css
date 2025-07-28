@@ -1,6 +1,6 @@
 .clue-pane {
-    -fx-max-width: 800;
-    -fx-spacing: 5;
+    -fx-max-width: 600;
+    -fx-spacing: 5 15 5 15;
     -fx-alignment: CENTER;
 }
 
@@ -12,11 +12,13 @@
 .case-title {
     -fx-font-size: 40px;
     -fx-font-weight: bold;
+    -fx-spacing: 10 10 10 10;
 }
 
 .case-description {
     -fx-wrap-text: true;
-    -fx-max-width: 500
+    -fx-max-width: 500;
+    -fx-padding: 10 0 10 0;
 }
 
 .case-clues {

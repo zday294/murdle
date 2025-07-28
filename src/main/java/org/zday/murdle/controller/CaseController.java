@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.*;
 
 public class CaseController implements Initializable {
-    private final double BOX_SIZE = 60;
+//    private final double BOX_SIZE = 60;
 
     @FXML
     private HBox suspectCardsPane;
@@ -97,8 +97,8 @@ public class CaseController implements Initializable {
         boardHeaderPane = new GridPane();
 
         Label bufferLabel = new Label();
-        bufferLabel.setMinHeight(BOX_SIZE);
-        bufferLabel.setMinWidth(BOX_SIZE);
+        bufferLabel.setMinHeight(60);
+        bufferLabel.setMinWidth(60);
 
         boardHeaderPane.add(bufferLabel, 0, 0);
 
@@ -168,6 +168,7 @@ public class CaseController implements Initializable {
     private GridPane drawBlock(Block block) {
         //create grid
         GridPane gridPane = new GridPane();
+        gridPane.getStyleClass().add("board-block");
 
         for (int i = 0; i < block.getRowsList().size(); i++) {
             for (int j = 0; j < block.getRowsList().get(i).getBoxes().size(); j++) {
@@ -175,8 +176,9 @@ public class CaseController implements Initializable {
                 stateButton.setBox(block.getRowsList().get(i).getBoxes().get(j));
                 stateButton.setOnAction(e -> stateButton.updateState());
                 stateButton.textProperty().bind(stateButton.getBox().stateIconProperty());
-                stateButton.setMinWidth(BOX_SIZE);
-                stateButton.setMinHeight(BOX_SIZE);
+                stateButton.getStyleClass().add("state-button");
+//                stateButton.setMinWidth(BOX_SIZE);
+//                stateButton.setMinHeight(BOX_SIZE);
                 gridPane.add(stateButton, i, j);
             }
         }
@@ -187,14 +189,14 @@ public class CaseController implements Initializable {
     private Label createHeaderLabel(String icon, String tooltip) {
         Label headerLabel = new Label(icon);
         headerLabel.setTooltip(new Tooltip(tooltip));
-        headerLabel.getStyleClass().add("suspect-icon");
+        headerLabel.getStyleClass().add("suspect-header-icon");
 
         return headerLabel;
     }
 
     private void createClueDisplay() {
         titleLabel.setText(GameStateManager.getInstance().getMurderCase().getTitle());
-        titleLabel.getStyleClass().add("case-title");
+//        titleLabel.getStyleClass().add("case-title");
         caseDescriptionLabel.setText(GameStateManager.getInstance().getMurderCase().getDescription());
         caseDescriptionLabel.getStyleClass().addAll( "clue-pane","case-description");
 

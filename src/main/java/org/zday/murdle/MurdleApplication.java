@@ -15,7 +15,7 @@ public class MurdleApplication extends Application {
     public void start(Stage stage) throws IOException {
         GameStateManager.getInstance().loadMurderCase("/org/zday/murdle/data/cases/zach-test-case.json");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("view/case-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1600, 1000);
+        Scene scene = new Scene(fxmlLoader.load(), 1800, 1200);
         scene.getStylesheets().addAll(
                 getClass().getResource("style/application.css").toExternalForm(),
                 getClass().getResource("style/gameboard/suspect-card.css").toExternalForm(),

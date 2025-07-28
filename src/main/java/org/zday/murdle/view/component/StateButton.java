@@ -18,4 +18,9 @@ public class StateButton extends Button {
         box.update();
     }
 
+    public StateButton() {
+        super();
+//        getStyleClass().add("state-button");
+    }
+
 }
