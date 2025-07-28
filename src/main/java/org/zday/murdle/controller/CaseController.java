@@ -186,10 +186,9 @@ public class CaseController implements Initializable {
 
     private Label createHeaderLabel(String icon, String tooltip) {
         Label headerLabel = new Label(icon);
-        headerLabel.setMinHeight(BOX_SIZE);
-        headerLabel.setMinWidth(BOX_SIZE);
         headerLabel.setTooltip(new Tooltip(tooltip));
-        headerLabel.setAlignment(Pos.CENTER);
+        headerLabel.getStyleClass().add("suspect-icon");
+
         return headerLabel;
     }
 
@@ -235,7 +234,7 @@ public class CaseController implements Initializable {
 
         Button submitSolutionButton = new Button();
         submitSolutionButton.setOnAction(e -> submitSolution());
-        submitSolutionButton.setText("Make your accusation!");
+        submitSolutionButton.setText("MAKE YOUR ACCUSATION");
         submitSolutionButton.getStyleClass().add("submit-solution-button");
         solutionInputPane.getChildren().add(submitSolutionButton);
     }

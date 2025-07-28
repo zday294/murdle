@@ -12,6 +12,7 @@
     -fx-border-color: #101010;
     -fx-alignment: TOP-CENTER;
     -fx-padding: 10;
+    -fx-border-radius: 5;
     /*-fx-spacing: 20;*/
 }
 

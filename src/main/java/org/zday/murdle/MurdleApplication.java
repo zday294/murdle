@@ -19,7 +19,8 @@ public class MurdleApplication extends Application {
         scene.getStylesheets().addAll(
                 getClass().getResource("style/application.css").toExternalForm(),
                 getClass().getResource("style/gameboard/suspect-card.css").toExternalForm(),
-                getClass().getResource("style/gameboard/clue-pane.css").toExternalForm()
+                getClass().getResource("style/gameboard/clue-pane.css").toExternalForm(),
+                getClass().getResource("style/gameboard/notebook-pane.css").toExternalForm()
         );
         stage.setTitle("Murdle: digivolution");
         stage.setScene(scene);
