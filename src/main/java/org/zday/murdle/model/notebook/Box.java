@@ -52,12 +52,11 @@ public class Box {
     }
 
     public void update() {
-        state = state.update();
+        state = state.update(eliminationListeners);
 
         switch (state) {
             case TRUE -> eliminationListeners.forEach(EliminationListener::eliminate);
             case UNSURE -> eliminationListeners.forEach(EliminationListener::uneliminate);
-            case UNMARKED -> state = checkEliminable() ? BoxState.FALSE_BY_ELIMINATION : state;
         }
 
         setStateIcon(state.getIcon());
@@ -70,21 +69,15 @@ public class Box {
     }
 
     public void uneliminate() {
-        if (!checkEliminable()) {
-            state = state.onUneliminated();
-            stateIcon.setValue(state.getIcon());
-        }
-    }
-
-    private boolean checkEliminable() {
-        return eliminationListeners.stream().anyMatch(EliminationListener::checkEliminable);
+        state = state.onUneliminated(eliminationListeners);
+        stateIcon.setValue(state.getIcon());
     }
 
     public enum BoxState {
         UNMARKED{
 
             @Override
-            public BoxState update() {
+            public BoxState update(List<EliminationListener> eliminationListeners) {
                 return BoxState.FALSE;
             }
 
@@ -97,10 +90,9 @@ public class Box {
             public String getIcon() { return ""; }
         },
         FALSE {
-
             @Override
-            public BoxState update() {
-                return BoxState.TRUE;
+            public BoxState update(List<EliminationListener> eliminationListeners) {
+                return checkEliminable(eliminationListeners) ? BoxState.FALSE : BoxState.TRUE;
             }
 
             @Override
@@ -109,7 +101,7 @@ public class Box {
         TRUE {
 
             @Override
-            public BoxState update() {
+            public BoxState update(List<EliminationListener> eliminationListeners) {
                 return BoxState.UNSURE;
             }
 
@@ -119,8 +111,8 @@ public class Box {
         UNSURE {
 
             @Override
-            public BoxState update() {
-                return BoxState.UNMARKED;
+            public BoxState update(List<EliminationListener> eliminationListeners) {
+                return checkEliminable(eliminationListeners) ? BoxState.FALSE_BY_ELIMINATION : BoxState.UNMARKED; //good
             }
 
             @Override
@@ -129,24 +121,28 @@ public class Box {
         FALSE_BY_ELIMINATION {
 
             @Override
-            public BoxState onUneliminated() {
-                return BoxState.UNMARKED;
+            public BoxState onUneliminated(List<EliminationListener> eliminationListeners) {
+                return !checkEliminable(eliminationListeners) ? BoxState.UNMARKED : BoxState.FALSE_BY_ELIMINATION;
             }
 
             @Override
             public String getIcon() { return "ⅹ"; }
         };
 
-        public BoxState update() {
+        public BoxState update(List<EliminationListener> eliminationListeners) {
             return this;
         }
         public BoxState onEliminated() {
             return this;
         }
-        public BoxState onUneliminated() {
+        public BoxState onUneliminated(List<EliminationListener> eliminationListeners) {
             return this;
         }
         public abstract String getIcon();
+
+        private static boolean checkEliminable(List<EliminationListener> eliminationListeners) {
+            return eliminationListeners.stream().anyMatch(EliminationListener::checkEliminable);
+        }
     }
 
 }
