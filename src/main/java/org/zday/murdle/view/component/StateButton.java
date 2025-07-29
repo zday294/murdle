@@ -20,7 +20,7 @@ public class StateButton extends Button {
 
     public StateButton() {
         super();
-//        getStyleClass().add("state-button");
+        getStyleClass().add("state-button");
     }
 
 }

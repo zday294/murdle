@@ -7,6 +7,10 @@
 .clue-list-pane {
     -fx-max-width: 500;
     -fx-alignment: CENTER-LEFT;
+    -fx-background-color: #fff0d4;
+    -fx-border-radius: 10;
+    -fx-border-color: black;
+    -fx-spacing: 10;
 }
 
 .case-title {
@@ -21,36 +25,13 @@
     -fx-padding: 10 0 10 0;
 }
 
-.case-clues {
+.case-clue {
     -fx-wrap-text: true;
     -fx-padding: 5;
 }
 
-.combo-box{
-    -fx-min-width: 400;
-    -fx-border-color: #101010;
-    -fx-background-color: white;
-}
-
-.combo-box .list-cell {
+.suspect-type-selection-pane {
     -fx-alignment: CENTER;
-    -fx-text-fill: black;
-    -fx-font-weight: bold;
-}
-
-.combo-box .list-view .list-cell {
-    -fx-text-fill: black;
-}
-
-.solution-input-pane {
-    -fx-spacing: 5;
-    -fx-alignment: CENTER;
-}
-
-.submit-solution-button {
-    -fx-min-width: 400;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-background-color: #7d0000;
-    -fx-border-color: black;
+    -fx-padding: 15;
+    -fx-spacing: 10;
 }

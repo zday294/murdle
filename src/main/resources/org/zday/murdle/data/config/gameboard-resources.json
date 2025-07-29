@@ -1,0 +1,9 @@
+{
+  "prefix": "style/gameboard/",
+  "resourceList": [
+    "suspect-card.css",
+    "clue-pane.css",
+    "notebook-pane.css",
+    "solution.css"
+  ]
+}

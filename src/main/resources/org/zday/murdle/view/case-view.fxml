@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -10,14 +9,19 @@
     <!--        todo make this pane scrollable-->
             <Label fx:id="titleLabel" styleClass="case-title"/>
 
-            <Label fx:id="caseDescriptionLabel" styleClass="case-description"/>
+            <Label fx:id="caseDescriptionLabel"/>
 
             <HBox fx:id="suspectCardsPane" styleClass="suspect-cards-pane"/>
-            <HBox fx:id="suspectTypeCardSelectionPane" />
+            <HBox fx:id="suspectTypeSelectionPane" styleClass="suspect-type-selection-pane" />
 
 
             <VBox fx:id="clueListPane" styleClass="clue-list-pane">
                 <Label text="Clues and Evidence"/>
+            </VBox>
+
+            <VBox fx:id="suspectStatementsPane" styleClass="clue-list-pane">
+                <Label text="Suspect Statements"/>
+                <Label text="(Remember: The murderer is lying. The others are telling the truth.)"/>
             </VBox>
 
             <Button onAction="#showHint" text="Hint" />

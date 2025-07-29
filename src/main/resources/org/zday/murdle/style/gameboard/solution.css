@@ -1,0 +1,29 @@
+.combo-box{
+    -fx-min-width: 400;
+    -fx-border-color: #101010;
+    -fx-background-color: white;
+}
+
+.combo-box .list-cell {
+    -fx-alignment: CENTER;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+}
+
+.combo-box .list-view .list-cell {
+    -fx-text-fill: black;
+}
+
+.solution-input-pane {
+    -fx-spacing: 5;
+    -fx-alignment: CENTER;
+    -fx-padding: 10 0 20 0;
+}
+
+.submit-solution-button {
+    -fx-min-width: 400;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-color: #7d0000;
+    -fx-border-color: black;
+}

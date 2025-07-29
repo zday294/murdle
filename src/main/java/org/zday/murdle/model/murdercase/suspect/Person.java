@@ -15,6 +15,7 @@ public class Person extends Suspect{
     private String handedness;
     private String astrologicalSign;
     private String height;
+    private String statement;
 
     @Override
     public String getDetails() {

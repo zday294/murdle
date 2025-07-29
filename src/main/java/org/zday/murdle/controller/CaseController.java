@@ -1,5 +1,7 @@
 package org.zday.murdle.controller;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -9,6 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.zday.murdle.model.GameStateManager;
+import org.zday.murdle.model.murdercase.suspect.Person;
 import org.zday.murdle.model.murdercase.suspect.Suspect;
 import org.zday.murdle.model.murdercase.suspect.SuspectType;
 import org.zday.murdle.model.notebook.Block;
@@ -43,6 +46,12 @@ public class CaseController implements Initializable {
 
     @FXML
     private VBox solutionInputPane;
+
+    @FXML
+    private HBox suspectTypeSelectionPane;
+
+    @FXML
+    private VBox suspectStatementsPane;
 
 
     @Override
@@ -176,9 +185,6 @@ public class CaseController implements Initializable {
                 stateButton.setBox(block.getRowsList().get(i).getBoxes().get(j));
                 stateButton.setOnAction(e -> stateButton.updateState());
                 stateButton.textProperty().bind(stateButton.getBox().stateIconProperty());
-                stateButton.getStyleClass().add("state-button");
-//                stateButton.setMinWidth(BOX_SIZE);
-//                stateButton.setMinHeight(BOX_SIZE);
                 gridPane.add(stateButton, i, j);
             }
         }
@@ -196,26 +202,57 @@ public class CaseController implements Initializable {
 
     private void createClueDisplay() {
         titleLabel.setText(GameStateManager.getInstance().getMurderCase().getTitle());
-//        titleLabel.getStyleClass().add("case-title");
         caseDescriptionLabel.setText(GameStateManager.getInstance().getMurderCase().getDescription());
         caseDescriptionLabel.getStyleClass().addAll( "clue-pane","case-description");
 
         createSuspectCards(GameStateManager.getInstance().getMurderCase().getSuspectListByType(SuspectType.PERSON));
-
+        drawSuspectCardControls();
 
         writeClues();
 
-        //TODO: check if suspect statements are a thing in vol 1 - yes, suspect statements are a thing in the late part of the book
+        addSuspectStatements();
+
         drawSolutionInputs();
     }
 
+    private void addSuspectStatements() {
+        String checkStatement = GameStateManager.getInstance().getMurderCase().getPersonList().get(0).getStatement();
+        if (checkStatement != null && !checkStatement.isEmpty()) {
+            for (Person person: GameStateManager.getInstance().getMurderCase().getPersonList()) {
+                Label statementLabel = new Label(person.getName() + ": " + person.getStatement());
+                statementLabel.getStyleClass().add("case-clue");
+                suspectStatementsPane.getChildren().add(statementLabel);
+            }
+        } else {
+            suspectStatementsPane.getChildren().clear();
+        }
+    }
 
+    private void drawSuspectCardControls() {
+        ToggleGroup suspectTypeToggleGroup = new ToggleGroup();
+        suspectTypeToggleGroup.selectedToggleProperty().addListener((observableValue, toggle, t1) -> {
+            RadioButton selectedSuspectTypeRB = (RadioButton) suspectTypeToggleGroup.getSelectedToggle();
+
+            if (selectedSuspectTypeRB != null) {
+                createSuspectCards(GameStateManager.getInstance().getMurderCase().getSuspectListByType(SuspectType.valueOf(selectedSuspectTypeRB.getId())));
+            }
+        });
+
+        for (SuspectType suspectType : SuspectType.values()) {
+            if (!suspectType.equals(SuspectType.MOTIVE) || GameStateManager.getInstance().getMurderCase().getMotiveList() != null ){
+                RadioButton rb = new RadioButton();
+                rb.setText(suspectType.name());
+                rb.setId(suspectType.name());
+                rb.setToggleGroup(suspectTypeToggleGroup);
+                suspectTypeSelectionPane.getChildren().add(rb);
+            }
+        }
+    }
 
     private void writeClues() {
         GameStateManager.getInstance().getMurderCase().getCluesList().forEach(clue -> {
             Label clueLabel = new Label(" - " + clue);
-            clueLabel.setWrapText(true);
-            clueLabel.setPadding(new Insets(5));
+            clueLabel.getStyleClass().add("case-clue");
             clueListPane.getChildren().add(clueLabel);
         });
     }
@@ -242,6 +279,10 @@ public class CaseController implements Initializable {
     }
 
     private void createSuspectCards(List<Suspect> suspectList) {
+        if (!suspectCardsPane.getChildren().isEmpty()) {
+            suspectCardsPane.getChildren().clear();
+        }
+
         for (Suspect suspect : suspectList) {
             VBox suspectCard = new VBox();
             suspectCard.getStyleClass().add("suspect-card");

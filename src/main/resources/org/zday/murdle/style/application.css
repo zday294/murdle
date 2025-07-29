@@ -1,5 +1,6 @@
 .root {
-  -fx-font: 20px "American Typewriter";
+  -fx-font-size: 20px;
+  -fx-font-family: "Courier New"
 }
 
 .scroll-pane {
@@ -15,4 +16,8 @@
     -fx-min-height: 60;
     -fx-background-color: transparent;
     -fx-border-color: black;
+}
+
+.scroll-pane .scroll-bar {
+    -fx-opacity: 0;
 }
