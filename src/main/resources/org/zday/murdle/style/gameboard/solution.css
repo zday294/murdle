@@ -2,6 +2,11 @@
     -fx-min-width: 400;
     -fx-border-color: #101010;
     -fx-background-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(one-pass-box, rgb(84,170,212), 2, 1, 2, 2);
+
 }
 
 .combo-box .list-cell {
@@ -24,6 +29,9 @@
     -fx-min-width: 400;
     -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-background-color: #7d0000;
+    -fx-background-color: #942738;
     -fx-border-color: black;
+    -fx-border-width: 2 2 2 2;
+    -fx-effect: dropshadow(one-pass-box, rgb(84,170,212), 2, 1, 2, 2);
+
 }

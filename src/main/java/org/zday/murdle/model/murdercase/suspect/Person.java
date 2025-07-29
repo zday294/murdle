@@ -19,6 +19,6 @@ public class Person extends Suspect{
 
     @Override
     public String getDetails() {
-        return hairColor + " hair | " + eyeColor + " eyes | " + handedness + "-handed | " + height  + " | " + astrologicalSign;
+        return height + " | " + handedness + "-handed | " + eyeColor + " eyes | " + hairColor + " hair | " +   astrologicalSign;
     }
 }

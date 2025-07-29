@@ -17,8 +17,6 @@ public class ResourceDirectoryLoader {
     private List<String> resourceList;
 
     public List<String> load() {
-        List<String> resourceURLs = new ArrayList<>();
-        resourceList.forEach(resource -> resourceURLs.add(getClass().getResource(BASE + prefix + resource).toExternalForm()));
-        return resourceURLs;
+        return resourceList.stream().map(resource -> getClass().getResource(BASE + prefix + resource).toExternalForm()).toList();
     }
 }

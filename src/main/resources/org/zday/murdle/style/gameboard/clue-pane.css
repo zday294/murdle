@@ -1,6 +1,6 @@
 .clue-pane {
-    -fx-max-width: 600;
-    -fx-spacing: 5 15 5 15;
+    -fx-max-width: 800;
+    /*-fx-spacing: 5 15 5 15;*/
     -fx-alignment: CENTER;
 }
 
@@ -10,7 +10,10 @@
     -fx-background-color: #fff0d4;
     -fx-border-radius: 10;
     -fx-border-color: black;
+    -fx-background-radius: 10;
     -fx-spacing: 10;
+    -fx-effect: dropshadow(one-pass-box, rgb(84,170,212), 2, 1, 2, 2);
+
 }
 
 .case-title {

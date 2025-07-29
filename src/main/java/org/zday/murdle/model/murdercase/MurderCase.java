@@ -9,6 +9,7 @@ import org.zday.murdle.model.murdercase.suspect.*;
 import org.zday.murdle.model.notebook.Block;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Data
@@ -35,4 +36,12 @@ public class MurderCase {
         }
         return suspectList;
     }
+
+    public List<SuspectType> getSuspectTypes() {
+        return Arrays.stream(SuspectType.values())
+                .filter(suspectType -> suspectType != SuspectType.MOTIVE || ( motiveList != null && !motiveList.isEmpty()))
+                .toList();
+    }
+
+
 }

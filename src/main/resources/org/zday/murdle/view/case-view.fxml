@@ -4,9 +4,8 @@
 <?import javafx.scene.layout.*?>
 
 <HBox alignment="CENTER" spacing="30.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.zday.murdle.controller.CaseController">
-    <ScrollPane maxWidth="800">
+    <ScrollPane maxWidth="900">
         <VBox styleClass="clue-pane">
-    <!--        todo make this pane scrollable-->
             <Label fx:id="titleLabel" styleClass="case-title"/>
 
             <Label fx:id="caseDescriptionLabel"/>
@@ -21,7 +20,7 @@
 
             <VBox fx:id="suspectStatementsPane" styleClass="clue-list-pane">
                 <Label text="Suspect Statements"/>
-                <Label text="(Remember: The murderer is lying. The others are telling the truth.)"/>
+                <Label text="(Remember: The murderer is lying. The others are telling the truth.)" wrapText="true"/>
             </VBox>
 
             <Button onAction="#showHint" text="Hint" />
@@ -30,5 +29,4 @@
         </VBox>
     </ScrollPane>
     <VBox fx:id="notebookPane" alignment="CENTER"/>
-
 </HBox>

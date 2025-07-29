@@ -39,7 +39,8 @@ public class Board {
 
     public List<Optional<Block>> getRowBySuspect(SuspectType rowType){
         List<Optional<Block>> blockList = new ArrayList<>();
-        for (SuspectType columnType : Arrays.stream(SuspectType.values()).filter(e -> !e.equals(rowType)).toList()) {
+        List<SuspectType> suspectTypesInColumnOrder = List.of(SuspectType.PERSON, SuspectType.WEAPON, SuspectType.MOTIVE, SuspectType.LOCATION);
+        for (SuspectType columnType : suspectTypesInColumnOrder.stream().filter(e -> !e.equals(rowType)).toList()) {
             blockList.add(findBlockByRowAndColumnSuspectTypes(rowType, columnType));
         }
         return blockList;

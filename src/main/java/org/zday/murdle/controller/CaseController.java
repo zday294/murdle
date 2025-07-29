@@ -1,11 +1,8 @@
 package org.zday.murdle.controller;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -53,7 +50,6 @@ public class CaseController implements Initializable {
     @FXML
     private VBox suspectStatementsPane;
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         createNotebook();
@@ -61,7 +57,6 @@ public class CaseController implements Initializable {
     }
 
 
-    @FXML
     public void showHint() {
         Alert hintAlert = new Alert(Alert.AlertType.INFORMATION);
         hintAlert.setContentText(GameStateManager.getInstance().getMurderCase().getHint());
@@ -238,12 +233,13 @@ public class CaseController implements Initializable {
             }
         });
 
-        for (SuspectType suspectType : SuspectType.values()) {
+        for (SuspectType suspectType : List.of(SuspectType.PERSON, SuspectType.WEAPON, SuspectType.MOTIVE, SuspectType.LOCATION)) {
             if (!suspectType.equals(SuspectType.MOTIVE) || GameStateManager.getInstance().getMurderCase().getMotiveList() != null ){
                 RadioButton rb = new RadioButton();
                 rb.setText(suspectType.name());
                 rb.setId(suspectType.name());
                 rb.setToggleGroup(suspectTypeToggleGroup);
+                if (suspectType.equals(SuspectType.PERSON)) rb.selectedProperty().setValue(true);
                 suspectTypeSelectionPane.getChildren().add(rb);
             }
         }
@@ -306,7 +302,16 @@ public class CaseController implements Initializable {
     }
 
     private void submitSolution() {
+        Map<String, String> guess = new HashMap<>();
+        for (SuspectType suspectType : GameStateManager.getInstance().getMurderCase().getSuspectTypes()) {
+            guess.put(suspectType.name(), ((ComboBox<String>) solutionInputPane.lookup(suspectType.name())).getValue());
+        }
 
+        GameStateManager.getInstance().getMurderCase().getResolution().checkGuess(guess);
     }
+
+    //when a solution is submitted, the solution controls disappear and ar
+    // e replaced with guess cards
+
 
 }
