@@ -4,16 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@AllArgsConstructor
 @NoArgsConstructor
 public class Location extends Suspect{
 
     private Doorness doorness;
 
-    protected enum Doorness {
+    public enum Doorness {
         INDOORS,
         OUTDOORS
     }
@@ -21,5 +21,10 @@ public class Location extends Suspect{
     @Override
     public String getDetails() {
         return doorness.toString();
+    }
+
+    public Location(String name, String description, String icon, Doorness doorness) {
+        super(name, description, icon);
+        this.doorness = doorness;
     }
 }
