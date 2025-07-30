@@ -6,13 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.zday.murdle.model.murdercase.MurderCase;
-import org.zday.murdle.model.notebook.Block;
 import org.zday.murdle.model.notebook.Board;
 
 import java.io.InputStream;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
 
 @Data
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -50,7 +46,6 @@ public final class GameStateManager {
             gameBoard.populateFromBoard(savedBoard);
         }
     }
-
 
     public void clearBoard() {
         gameBoard.populateFromBoard(freshBoard);

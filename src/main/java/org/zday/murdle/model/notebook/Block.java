@@ -2,10 +2,7 @@ package org.zday.murdle.model.notebook;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.zday.murdle.model.murdercase.suspect.Location;
-import org.zday.murdle.model.murdercase.suspect.Person;
-import org.zday.murdle.model.murdercase.suspect.Suspect;
-import org.zday.murdle.model.murdercase.suspect.Weapon;
+import org.zday.murdle.model.murdercase.suspect.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +12,8 @@ import java.util.List;
 public class Block {
     private List<RowColumn> rowsList;
     private List<RowColumn> columnsList;
-    private RowColumnType rowType;
-    private RowColumnType columnType;
+    private SuspectType rowType;
+    private SuspectType columnType;
 
     public Block(List<? extends Suspect> rowSuspects, List<? extends Suspect> columnSuspects)  {
         if (rowSuspects.isEmpty() || columnSuspects.isEmpty()){
@@ -48,13 +45,15 @@ public class Block {
         }
     }
 
-    private RowColumnType determineType(Suspect suspect) {
+    private SuspectType determineType(Suspect suspect) {
         if (suspect instanceof Person) {
-            return RowColumnType.PERSON;
+            return SuspectType.PERSON;
         } else if (suspect instanceof Location) {
-            return RowColumnType.LOCATION;
+            return SuspectType.LOCATION;
         } else if (suspect instanceof Weapon) {
-            return RowColumnType.WEAPON;
+            return SuspectType.WEAPON;
+        } else if (suspect instanceof Motive) {
+            return SuspectType.MOTIVE;
         } else {
             throw new IllegalArgumentException("Unknown suspect type: " + suspect.getClass().getName());
         }
@@ -67,13 +66,6 @@ public class Block {
                 rowsList.get(i).getBoxes().get(j).populateFromBox(fromBlock.getRowsList().get(i).getBoxes().get(j));
             }
         }
-    }
-
-    public enum RowColumnType {
-        PERSON,
-        WEAPON,
-        MOTIVE,
-        LOCATION
     }
 
     public Block clone() {

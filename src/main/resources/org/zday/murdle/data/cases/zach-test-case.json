@@ -1,34 +1,34 @@
 {
     "title": "House on Wilson Street",
-    "description": "It was a lovely day when the detective went to the estate to visit an old foe. Unfortunately said old foe was now dead. Plenty of people had every right to be upset with the doctor, but the Detective had hoped to deliver him to prison rather than the morgue. Oh well, you take what you can get. Which in this case was a murderer. That was often the case.",
+    "description": "It was a lovely day when the detective went to the estate to visit an old foe. Unfortunately said old foe was now dead. Plenty of people had every right to be upset with the doctor, but the Detective had hoped to deliver him to prison rather than the morgue. Oh well, you take what you can get. Which in this case was a murderer. This was often the case.",
     "personList": [
         {
             "name": "Blue",
             "description": "A sad, sad man. Or at least that's the impression you'd get from his music. It was the number one hit for like 2 days back in '86",
-            "icon": "👨‍🎤",
+            "icon": "👱",
             "hairColor": "Black",
             "eyeColor": "Blue",
-            "handedness": "Left-handed",
+            "handedness": "Left",
             "astrologicalSign": "Cancer",
             "height": "5'1\""
         },
         {
             "name": "Red",
-            "description": "He was a champion fighter for a long time. Unfortunately for him, it was dog fighting, so he's been in prison. He's out now, and pretty pissed about the whole arrest thing. RIP Poochie-poo",
+            "description": "He was a champion fighter for a long time. Unfortunately for him, it was dog fighting, so he's been in prison. He's out now, and pretty pissed about the whole arrest thing. RIP Pika-pooch",
             "icon": "🦮",
             "hairColor": "Red",
             "eyeColor": "Brown",
-            "handedness": "Right-handed",
+            "handedness": "Right",
             "astrologicalSign": "Taurus",
             "height": "6'3\""
         },
         {
             "name": "Green",
             "description": "She's a hacker, though her haters would tell you she's just a hack. Hard to argue with millions of dollars that she definitely got from that bank legally though.",
-            "icon": "🤦‍♂️",
+            "icon": "🤦",
             "hairColor": "Green",
             "eyeColor": "Green",
-            "handedness": "Left-handed",
+            "handedness": "Left",
             "astrologicalSign": "Pisces",
             "height": "5'4\""
         }
@@ -77,21 +77,11 @@
         }
     ],
     "cluesList": [
-        {
-            "description": "The Axe had recently been used properly"
-        },
-        { 
-            "description": "Blue was not outside"
-        },
-        {
-            "description": "The Fork was held by someone named after a long wavelength of light"
-        },
-        {
-            "description": "All silverware was where it belonged"
-        },
-        {
-            "description": "The corpse smelled lightly explosive"
-        }
+        "The Axe had recently been used properly",
+        "Blue was not outside",
+        "The Fork was held by someone named after a long wavelength of light",
+        "All silverware was where it belonged",
+        "The corpse smelled lightly explosive"
     ],
     "hint": "There would be a really good hint here if I knew how to write a good hint.",
     "resolution": {

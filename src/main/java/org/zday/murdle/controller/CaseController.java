@@ -3,26 +3,36 @@ package org.zday.murdle.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
+import javafx.scene.Node;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.zday.murdle.model.GameStateManager;
+import org.zday.murdle.model.murdercase.suspect.Person;
 import org.zday.murdle.model.murdercase.suspect.Suspect;
+import org.zday.murdle.model.murdercase.suspect.SuspectType;
 import org.zday.murdle.model.notebook.Block;
 import org.zday.murdle.view.component.StateButton;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class CaseController implements Initializable {
-    private final double BOX_SIZE = 35;
+//    private final double BOX_SIZE = 60;
+
+    @FXML
+    private VBox cluePane;
+
+    @FXML
+    private HBox suspectCardsPane;
+
+    @FXML
+    private VBox clueListPane;
+
+    @FXML
+    private Label titleLabel;
 
     @FXML
     private VBox notebookPane;
@@ -34,21 +44,32 @@ public class CaseController implements Initializable {
     private GridPane boardHeaderPane;
 
     @FXML
-    private VBox cluesPane;
+    private Label caseDescriptionLabel;
 
     @FXML
-    private Button clearBoardButton;
+    private VBox solutionInputPane;
 
     @FXML
-    private Button loadBoardButton;
+    private HBox suspectTypeSelectionPane;
 
     @FXML
-    private Button saveBoardButton;
+    private VBox suspectStatementsPane;
 
+    @FXML
+    private Label resolutionLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         createNotebook();
+        createClueDisplay();
+    }
+
+
+    public void showHint() {
+        Alert hintAlert = new Alert(Alert.AlertType.INFORMATION);
+        hintAlert.setContentText(GameStateManager.getInstance().getMurderCase().getHint());
+        hintAlert.setTitle("A hint for you...");
+        hintAlert.showAndWait();
     }
 
     private void createNotebook() {
@@ -65,19 +86,19 @@ public class CaseController implements Initializable {
         newBoardPane.getChildren().add(boardHeaderPane);
 
         drawBoardRow(
-                GameStateManager.getInstance().getGameBoard().getRowBySuspect(Block.RowColumnType.WEAPON))
+                GameStateManager.getInstance().getGameBoard().getRowBySuspect(SuspectType.WEAPON))
                 .ifPresentOrElse(
                         row -> newBoardPane.getChildren().add(row),
                         () -> {throw new IllegalArgumentException("An error has occurred while creating the first row of the board");});
 
         drawBoardRow(
-                GameStateManager.getInstance().getGameBoard().getRowBySuspect(Block.RowColumnType.LOCATION))
+                GameStateManager.getInstance().getGameBoard().getRowBySuspect(SuspectType.LOCATION))
                 .ifPresentOrElse(
                         row -> newBoardPane.getChildren().add(row),
                         () -> {throw new IllegalArgumentException("An error has occurred while creating the second row of the board");});
 
         drawBoardRow(
-                GameStateManager.getInstance().getGameBoard().getRowBySuspect(Block.RowColumnType.MOTIVE))
+                GameStateManager.getInstance().getGameBoard().getRowBySuspect(SuspectType.MOTIVE))
                 .ifPresent(row -> newBoardPane.getChildren().add(row));
 
         boardPane = newBoardPane;
@@ -88,8 +109,8 @@ public class CaseController implements Initializable {
         boardHeaderPane = new GridPane();
 
         Label bufferLabel = new Label();
-        bufferLabel.setMinHeight(BOX_SIZE);
-        bufferLabel.setMinWidth(BOX_SIZE);
+        bufferLabel.setMinHeight(60);
+        bufferLabel.setMinWidth(60);
 
         boardHeaderPane.add(bufferLabel, 0, 0);
 
@@ -105,17 +126,17 @@ public class CaseController implements Initializable {
     }
 
     private void createBoardControls() {
-        clearBoardButton = new Button();
+        Button clearBoardButton = new Button();
         clearBoardButton.setText("🗑");
         clearBoardButton.setOnAction(e -> clearBoard());
         clearBoardButton.setTooltip(new Tooltip("Clear board"));
 
-        loadBoardButton = new Button();
+        Button loadBoardButton = new Button();
         loadBoardButton.setText("♻️");
         loadBoardButton.setOnAction(e -> loadSavedBoard());
         loadBoardButton.setTooltip(new Tooltip("Load board"));
 
-        saveBoardButton = new Button();
+        Button saveBoardButton = new Button();
         saveBoardButton.setText("💾");
         saveBoardButton.setOnAction(e -> saveBoard());
         saveBoardButton.setTooltip(new Tooltip("Save board"));
@@ -159,6 +180,7 @@ public class CaseController implements Initializable {
     private GridPane drawBlock(Block block) {
         //create grid
         GridPane gridPane = new GridPane();
+        gridPane.getStyleClass().add("board-block");
 
         for (int i = 0; i < block.getRowsList().size(); i++) {
             for (int j = 0; j < block.getRowsList().get(i).getBoxes().size(); j++) {
@@ -166,8 +188,6 @@ public class CaseController implements Initializable {
                 stateButton.setBox(block.getRowsList().get(i).getBoxes().get(j));
                 stateButton.setOnAction(e -> stateButton.updateState());
                 stateButton.textProperty().bind(stateButton.getBox().stateIconProperty());
-                stateButton.setMinWidth(BOX_SIZE);
-                stateButton.setMinHeight(BOX_SIZE);
                 gridPane.add(stateButton, i, j);
             }
         }
@@ -177,12 +197,145 @@ public class CaseController implements Initializable {
 
     private Label createHeaderLabel(String icon, String tooltip) {
         Label headerLabel = new Label(icon);
-        headerLabel.setMinHeight(BOX_SIZE);
-        headerLabel.setMinWidth(BOX_SIZE);
         headerLabel.setTooltip(new Tooltip(tooltip));
-        headerLabel.setAlignment(Pos.CENTER);
+        headerLabel.getStyleClass().add("suspect-header-icon");
+
         return headerLabel;
     }
+
+    private void createClueDisplay() {
+        titleLabel.setText(GameStateManager.getInstance().getMurderCase().getTitle());
+        caseDescriptionLabel.setText(GameStateManager.getInstance().getMurderCase().getDescription());
+        caseDescriptionLabel.getStyleClass().addAll( "clue-pane","case-description");
+
+        createSuspectCards(GameStateManager.getInstance().getMurderCase().getSuspectListByType(SuspectType.PERSON));
+        drawSuspectCardControls();
+
+        writeClues();
+
+        addSuspectStatements();
+
+        drawSolutionInputs();
+    }
+
+    private void addSuspectStatements() {
+        String checkStatement = GameStateManager.getInstance().getMurderCase().getPersonList().get(0).getStatement();
+        if (checkStatement != null && !checkStatement.isEmpty()) {
+            for (Person person: GameStateManager.getInstance().getMurderCase().getPersonList()) {
+                Label statementLabel = new Label(person.getName() + ": " + person.getStatement());
+                statementLabel.getStyleClass().add("case-clue");
+                suspectStatementsPane.getChildren().add(statementLabel);
+            }
+        } else {
+            suspectStatementsPane.getChildren().clear();
+        }
+    }
+
+    private void drawSuspectCardControls() {
+        ToggleGroup suspectTypeToggleGroup = new ToggleGroup();
+        suspectTypeToggleGroup.selectedToggleProperty().addListener((observableValue, toggle, t1) -> {
+            RadioButton selectedSuspectTypeRB = (RadioButton) suspectTypeToggleGroup.getSelectedToggle();
+
+            if (selectedSuspectTypeRB != null) {
+                createSuspectCards(GameStateManager.getInstance().getMurderCase().getSuspectListByType(SuspectType.valueOf(selectedSuspectTypeRB.getId())));
+            }
+        });
+
+        for (SuspectType suspectType : List.of(SuspectType.PERSON, SuspectType.WEAPON, SuspectType.MOTIVE, SuspectType.LOCATION)) {
+            if (!suspectType.equals(SuspectType.MOTIVE) || GameStateManager.getInstance().getMurderCase().getMotiveList() != null ){
+                RadioButton rb = new RadioButton();
+                rb.setText(suspectType.name());
+                rb.setId(suspectType.name());
+                rb.setToggleGroup(suspectTypeToggleGroup);
+                if (suspectType.equals(SuspectType.PERSON)) rb.selectedProperty().setValue(true);
+                suspectTypeSelectionPane.getChildren().add(rb);
+            }
+        }
+    }
+
+    private void writeClues() {
+        GameStateManager.getInstance().getMurderCase().getCluesList().forEach(clue -> {
+            Label clueLabel = new Label(" - " + clue);
+            clueLabel.getStyleClass().add("case-clue");
+            clueListPane.getChildren().add(clueLabel);
+        });
+        if (GameStateManager.getInstance().getMurderCase().getPersonList().get(0).getStatement() == null) {
+            clueListPane.getChildren().get(clueListPane.getChildren().size()-1).getStyleClass().add("last-clue");
+            cluePane.getChildren().remove(suspectStatementsPane);
+        }
+    }
+
+    private void drawSolutionInputs() {
+        List<SuspectType> orderedSuspectTypeList = List.of(SuspectType.PERSON, SuspectType.WEAPON, SuspectType.LOCATION);
+        if (GameStateManager.getInstance().getMurderCase().getMotiveList() != null && !GameStateManager.getInstance().getMurderCase().getMotiveList().isEmpty()) {
+            orderedSuspectTypeList.add(SuspectType.MOTIVE);
+        }
+
+        for (SuspectType suspectType : orderedSuspectTypeList) {
+            ComboBox<String> selector = new ComboBox<>();
+            selector.setId(suspectType.name());
+            selector.setPromptText(suspectType.name());
+            GameStateManager.getInstance().getMurderCase().getSuspectListByType(suspectType).forEach(suspect -> selector.getItems().add(suspect.getName()));
+            solutionInputPane.getChildren().add(selector);
+        }
+
+        Button submitSolutionButton = new Button();
+        submitSolutionButton.setOnAction(e -> submitSolution());
+        submitSolutionButton.setText("MAKE YOUR ACCUSATION");
+        submitSolutionButton.getStyleClass().add("submit-solution-button");
+        solutionInputPane.getChildren().add(submitSolutionButton);
+    }
+
+    private void createSuspectCards(List<Suspect> suspectList) {
+        if (!suspectCardsPane.getChildren().isEmpty()) {
+            suspectCardsPane.getChildren().clear();
+        }
+
+        for (Suspect suspect : suspectList) {
+            VBox suspectCard = new VBox();
+            suspectCard.getStyleClass().add("suspect-card");
+
+            Label suspectIconLabel = new Label(suspect.getIcon());
+            suspectIconLabel.getStyleClass().add("suspect-icon");
+
+            Label suspectNameLabel = new Label(suspect.getName());
+            suspectNameLabel.getStyleClass().add("suspect-name");
+
+            Label suspectDescriptionLabel = new Label(suspect.getDescription());
+            suspectDescriptionLabel.getStyleClass().add("suspect-label");
+
+            Label suspectDetailsLabel = new Label(suspect.getDetails());
+            suspectDetailsLabel.getStyleClass().addAll("suspect-label", "suspect-details");
+
+            suspectCard.getChildren().addAll(suspectIconLabel, suspectNameLabel, suspectDescriptionLabel, suspectDetailsLabel);
+
+            suspectCardsPane.getChildren().add(suspectCard);
+        }
+    }
+
+    private void submitSolution() {
+        Map<String, String> guess = new HashMap<>();
+        for (SuspectType suspectType : GameStateManager.getInstance().getMurderCase().getSuspectTypes()) {
+            Optional<Node> guessBoxOpt = solutionInputPane.getChildren().stream().filter(node -> node.getId().equals(suspectType.name())).findFirst();
+            guessBoxOpt.ifPresent(node -> guess.put(suspectType.name(), ((ComboBox<String>) node).getValue()));
+        }
+
+        Map<String, Boolean> solutionMap = GameStateManager.getInstance().getMurderCase().getResolution().checkGuess(guess);
+
+        if (solutionMap.values().stream().allMatch(e -> e)){
+            String deductiveLogicoSays = "Deductive Logico came to the only reasonable conclusion. \"It was " + guess.get(SuspectType.PERSON.name()) + " in the " + guess.get(SuspectType.LOCATION.name()) + " with the " + guess.get(SuspectType.WEAPON.name());
+            if (guess.get(SuspectType.MOTIVE.name()) != null) {
+                deductiveLogicoSays += "! Why? " + guess.get(SuspectType.MOTIVE.name());
+            }
+            resolutionLabel.setText(deductiveLogicoSays + "!\" he declared.\n\n" + GameStateManager.getInstance().getMurderCase().getResolution().getResolutionText());
+        } else {
+            resolutionLabel.setText(GameStateManager.getInstance().getMurderCase().askInspectorIrratino(solutionMap));
+        }
+
+    }
+
+
+
 
 
 }

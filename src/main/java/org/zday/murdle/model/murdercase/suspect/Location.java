@@ -17,4 +17,9 @@ public class Location extends Suspect{
         INDOORS,
         OUTDOORS
     }
+
+    @Override
+    public String getDetails() {
+        return doorness.toString();
+    }
 }

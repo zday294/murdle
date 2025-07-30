@@ -18,7 +18,7 @@ module org.zday.murdle {
     opens org.zday.murdle.model.murdercase.suspect to com.fasterxml.jackson.databind;
     exports org.zday.murdle.model.murdercase.clues;
     opens org.zday.murdle.model.murdercase.clues to com.fasterxml.jackson.databind;
-    exports org.zday.murdle.model.murdercase.resolution;
-    opens org.zday.murdle.model.murdercase.resolution to com.fasterxml.jackson.databind;
+    exports org.zday.murdle.util;
+    opens org.zday.murdle.util to com.fasterxml.jackson.databind;
 
 }

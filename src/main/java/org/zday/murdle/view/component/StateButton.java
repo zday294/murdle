@@ -14,25 +14,13 @@ public class StateButton extends Button {
 
     private Box box;
 
-//    private StringProperty stateName = new SimpleStringProperty(BoxState.UNMARKED.getIcon());
-//
-//
-//    public StringProperty stateNameProperty() {
-//        return stateName;
-//    }
-//
-//    public final String getStateName() {
-//        return stateName.getValue();
-//    }
-//
-//    public final void setStateName(String name){
-//        stateName.setValue(name);
-//    }
-
-
     public void updateState() {
         box.update();
-//        setStateName(box.getState().getIcon());
+    }
+
+    public StateButton() {
+        super();
+        getStyleClass().add("state-button");
     }
 
 }

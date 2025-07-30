@@ -1,0 +1,6 @@
+.suspect-header-icon {
+    -fx-font-size: 30px;
+    -fx-alignment: CENTER;
+    -fx-min-height: 60;
+    -fx-min-width: 60;
+}

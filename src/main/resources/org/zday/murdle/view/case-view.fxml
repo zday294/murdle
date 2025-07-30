@@ -2,18 +2,33 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<HBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.zday.murdle.controller.CaseController">
-    <VBox alignment="CENTER" fx:id="cluesPane">
-        <Label text="Clues pane"/>
+
+<HBox alignment="CENTER" spacing="30.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.zday.murdle.controller.CaseController">
+    <ScrollPane maxWidth="900">
+        <VBox fx:id="cluePane" styleClass="clue-pane">
+            <Label fx:id="titleLabel" styleClass="case-title"/>
+
+            <Label fx:id="caseDescriptionLabel"/>
+
+            <HBox fx:id="suspectCardsPane" styleClass="suspect-cards-pane"/>
+            <HBox fx:id="suspectTypeSelectionPane" styleClass="suspect-type-selection-pane" />
 
 
-    </VBox>
-    <VBox alignment="CENTER" fx:id="notebookPane">
-        <Label text="Notebook Pane"/>
+            <VBox fx:id="clueListPane" styleClass="clue-list-pane">
+                <Label text="Clues and Evidence" styleClass="clue-list-title"/>
+            </VBox>
 
+            <VBox fx:id="suspectStatementsPane" styleClass="clue-list-pane">
+                <Label text="Suspect Statements" styleClass="clue-list-title"/>
+                <Label text="(Remember: The murderer is lying. The others are telling the truth.)" styleClass="suspect-statement-hint"/>
+            </VBox>
 
-    </VBox>
+            <Button onAction="#showHint" text="Hint" />
 
+            <VBox fx:id="solutionInputPane" styleClass="solution-input-pane"/>
+
+            <Label fx:id="resolutionLabel" wrapText="true"/>
+        </VBox>
+    </ScrollPane>
+    <VBox fx:id="notebookPane" alignment="CENTER"/>
 </HBox>

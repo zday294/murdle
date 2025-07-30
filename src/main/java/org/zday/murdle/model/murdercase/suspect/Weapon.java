@@ -19,4 +19,9 @@ public class Weapon extends Suspect {
         MEDIUM,
         HEAVY
     }
+
+    @Override
+    public String getDetails() {
+        return weight  + " | Made of " + madeOf;
+    }
 }

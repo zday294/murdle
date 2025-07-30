@@ -1,0 +1,37 @@
+.combo-box{
+    -fx-min-width: 400;
+    -fx-border-color: black;
+    -fx-background-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(one-pass-box, -dropshadow-blue, 2, 1, 2, 2);
+
+}
+
+.combo-box .list-cell {
+    -fx-alignment: CENTER;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+}
+
+.combo-box .list-view .list-cell {
+    -fx-text-fill: black;
+}
+
+.solution-input-pane {
+    -fx-spacing: 5;
+    -fx-alignment: CENTER;
+    -fx-padding: 10 0 20 0;
+}
+
+.submit-solution-button {
+    -fx-min-width: 400;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-color: -murdle-red;
+    -fx-border-color: black;
+    -fx-border-width: 2 2 2 2;
+    -fx-effect: dropshadow(one-pass-box, -dropshadow-blue, 2, 1, 2, 2);
+
+}

@@ -1,0 +1,57 @@
+.clue-pane {
+    -fx-max-width: 800;
+    -fx-spacing: 10;
+    -fx-alignment: CENTER;
+}
+
+.clue-list-pane {
+    -fx-max-width: 500;
+    -fx-alignment: CENTER-LEFT;
+    -fx-background-color: -card-background-cream;
+    -fx-border-radius: 10;
+    -fx-border-color: black;
+    -fx-background-radius: 10;
+    -fx-spacing: 5;
+    -fx-effect: dropshadow(one-pass-box, -dropshadow-blue, 2, 1, 2, 2);
+    -fx-padding: 10 10 10 10;
+    -fx-font-size: 16;
+
+}
+
+.case-title {
+    -fx-font-size: 40px;
+    -fx-font-weight: bold;
+    -fx-spacing: 10 10 10 10;
+}
+
+.case-description {
+    -fx-wrap-text: true;
+    -fx-pref-width: 500;
+    -fx-padding: 10 0 10 0;
+}
+
+.case-clue {
+    -fx-wrap-text: true;
+    -fx-padding: 5;
+}
+
+.suspect-type-selection-pane {
+    -fx-alignment: CENTER;
+    -fx-padding: 15;
+    -fx-spacing: 10;
+}
+
+.clue-list-title {
+    -fx-pref-width: 500;
+    -fx-underline: true;
+    -fx-alignment: CENTER;
+}
+
+.suspect-statement-hint {
+    -fx-font-size: 14;
+    -fx-text-fill: -hint-grey;
+    -fx-wrap-text: true;
+}
+.last-clue {
+    -fx-text-fill: -murdle-red;
+}
