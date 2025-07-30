@@ -1,18 +1,20 @@
 .clue-pane {
     -fx-max-width: 800;
-    /*-fx-spacing: 5 15 5 15;*/
+    -fx-spacing: 10;
     -fx-alignment: CENTER;
 }
 
 .clue-list-pane {
     -fx-max-width: 500;
     -fx-alignment: CENTER-LEFT;
-    -fx-background-color: #fff0d4;
+    -fx-background-color: -card-background-cream;
     -fx-border-radius: 10;
     -fx-border-color: black;
     -fx-background-radius: 10;
-    -fx-spacing: 10;
-    -fx-effect: dropshadow(one-pass-box, rgb(84,170,212), 2, 1, 2, 2);
+    -fx-spacing: 5;
+    -fx-effect: dropshadow(one-pass-box, -dropshadow-blue, 2, 1, 2, 2);
+    -fx-padding: 10 10 10 10;
+    -fx-font-size: 16;
 
 }
 
@@ -37,4 +39,15 @@
     -fx-alignment: CENTER;
     -fx-padding: 15;
     -fx-spacing: 10;
+}
+
+.clue-list-title {
+    -fx-underline: true;
+    -fx-alignment: CENTER;
+}
+
+.suspect-statement-hint {
+    -fx-font-size: 14;
+    -fx-text-fill: -hint-grey;
+    -fx-wrap-text: true;
 }

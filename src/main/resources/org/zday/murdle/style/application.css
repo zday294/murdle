@@ -7,10 +7,6 @@
     -fx-background-color: transparent;
 }
 
-/*.board-block {
-    -fx-border-color:black;
-}*/
-
 .state-button {
     -fx-min-width: 60;
     -fx-min-height: 60;
@@ -20,4 +16,11 @@
 
 .scroll-pane .scroll-bar {
     -fx-opacity: 0;
+}
+
+* {
+    -murdle-red: rgb(147,39,56);
+    -dropshadow-blue: rgb(84,170,212);
+    -card-background-cream: rgb(253,245,228);
+    -hint-grey: rgb(60,60,60);
 }

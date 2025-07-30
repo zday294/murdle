@@ -15,12 +15,12 @@
 
 
             <VBox fx:id="clueListPane" styleClass="clue-list-pane">
-                <Label text="Clues and Evidence"/>
+                <Label text="Clues and Evidence" styleClass="clue-list-title"/>
             </VBox>
 
             <VBox fx:id="suspectStatementsPane" styleClass="clue-list-pane">
-                <Label text="Suspect Statements"/>
-                <Label text="(Remember: The murderer is lying. The others are telling the truth.)" wrapText="true"/>
+                <Label text="Suspect Statements" styleClass="clue-list-title"/>
+                <Label text="(Remember: The murderer is lying. The others are telling the truth.)" styleClass="suspect-statement-hint"/>
             </VBox>
 
             <Button onAction="#showHint" text="Hint" />
