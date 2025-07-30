@@ -3,14 +3,12 @@ package org.zday.murdle.model.murdercase;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.zday.murdle.model.murdercase.clues.Clue;
-import org.zday.murdle.model.murdercase.resolution.Resolution;
 import org.zday.murdle.model.murdercase.suspect.*;
-import org.zday.murdle.model.notebook.Block;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 @Data
 @NoArgsConstructor
@@ -43,5 +41,27 @@ public class MurderCase {
                 .toList();
     }
 
+    public String askInspectorIrratino(Map<String, Boolean> solutionMap) {
+        final String IS_CORRECT = "Inspector Irratino believes that you're right about the ";
+        final String IS_WRONG = "Inspector Irratino is confident that you're wrong about everything.";
+
+        List<String> correctAnswers = solutionMap.keySet().stream().filter(solutionMap::get).map(String::toLowerCase).toList();
+
+        int numCorrectAnswers = correctAnswers.size();
+        switch (numCorrectAnswers) {
+            case 1 -> {
+                return IS_CORRECT + correctAnswers.get(0);
+            }
+            case 2 -> {
+                return IS_CORRECT + correctAnswers.get(0) + " and the " + correctAnswers.get(1) + ".";
+            }
+            case 3 -> {
+                return IS_CORRECT + correctAnswers.get(0) + ", the " + correctAnswers.get(1) + ", and the " + correctAnswers.get(2) + ".";
+            }
+            default -> {
+                return IS_WRONG;
+            }
+        }
+    }
 
 }

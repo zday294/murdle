@@ -3,6 +3,7 @@ package org.zday.murdle.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -16,6 +17,7 @@ import org.zday.murdle.view.component.StateButton;
 
 import java.net.URL;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class CaseController implements Initializable {
 //    private final double BOX_SIZE = 60;
@@ -49,6 +51,9 @@ public class CaseController implements Initializable {
 
     @FXML
     private VBox suspectStatementsPane;
+
+    @FXML
+    private Label resolutionLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -304,14 +309,25 @@ public class CaseController implements Initializable {
     private void submitSolution() {
         Map<String, String> guess = new HashMap<>();
         for (SuspectType suspectType : GameStateManager.getInstance().getMurderCase().getSuspectTypes()) {
-            guess.put(suspectType.name(), ((ComboBox<String>) solutionInputPane.lookup(suspectType.name())).getValue());
+            Optional<Node> guessBoxOpt = solutionInputPane.getChildren().stream().filter(node -> node.getId().equals(suspectType.name())).findFirst();
+            guessBoxOpt.ifPresent(node -> guess.put(suspectType.name(), ((ComboBox<String>) node).getValue()));
+            // todo: figure out what needs to happen if the combo box for a suspect type isn't present.
+            //  though the answer might just be that we've encountered a problem and need to fix something else
         }
 
-        GameStateManager.getInstance().getMurderCase().getResolution().checkGuess(guess);
+        Map<String, Boolean> solutionMap = GameStateManager.getInstance().getMurderCase().getResolution().checkGuess(guess);
+
+        if (solutionMap.values().stream().allMatch(e -> e)){
+            //todo: write better resolution boilerplate text
+            resolutionLabel.setText("You did it!\n\n" + GameStateManager.getInstance().getMurderCase().getResolution().getResolutionText());
+        } else {
+            resolutionLabel.setText(GameStateManager.getInstance().getMurderCase().askInspectorIrratino(solutionMap));
+        }
+
     }
 
-    //when a solution is submitted, the solution controls disappear and ar
-    // e replaced with guess cards
+
+
 
 
 }

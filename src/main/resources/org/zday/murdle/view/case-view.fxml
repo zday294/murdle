@@ -26,6 +26,8 @@
             <Button onAction="#showHint" text="Hint" />
 
             <VBox fx:id="solutionInputPane" styleClass="solution-input-pane"/>
+
+            <Label fx:id="resolutionLabel" wrapText="true"/>
         </VBox>
     </ScrollPane>
     <VBox fx:id="notebookPane" alignment="CENTER"/>
