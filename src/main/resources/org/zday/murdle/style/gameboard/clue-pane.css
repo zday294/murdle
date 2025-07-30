@@ -26,7 +26,7 @@
 
 .case-description {
     -fx-wrap-text: true;
-    -fx-max-width: 500;
+    -fx-pref-width: 500;
     -fx-padding: 10 0 10 0;
 }
 
@@ -42,6 +42,7 @@
 }
 
 .clue-list-title {
+    -fx-pref-width: 500;
     -fx-underline: true;
     -fx-alignment: CENTER;
 }
@@ -50,4 +51,7 @@
     -fx-font-size: 14;
     -fx-text-fill: -hint-grey;
     -fx-wrap-text: true;
+}
+.last-clue {
+    -fx-text-fill: -murdle-red;
 }

@@ -5,7 +5,7 @@
 
 <HBox alignment="CENTER" spacing="30.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.zday.murdle.controller.CaseController">
     <ScrollPane maxWidth="900">
-        <VBox styleClass="clue-pane">
+        <VBox fx:id="cluePane" styleClass="clue-pane">
             <Label fx:id="titleLabel" styleClass="case-title"/>
 
             <Label fx:id="caseDescriptionLabel"/>

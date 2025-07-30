@@ -23,6 +23,9 @@ public class CaseController implements Initializable {
 //    private final double BOX_SIZE = 60;
 
     @FXML
+    private VBox cluePane;
+
+    @FXML
     private HBox suspectCardsPane;
 
     @FXML
@@ -256,6 +259,10 @@ public class CaseController implements Initializable {
             clueLabel.getStyleClass().add("case-clue");
             clueListPane.getChildren().add(clueLabel);
         });
+        if (GameStateManager.getInstance().getMurderCase().getPersonList().get(0).getStatement() == null) {
+            clueListPane.getChildren().get(clueListPane.getChildren().size()-1).getStyleClass().add("last-clue");
+            cluePane.getChildren().remove(suspectStatementsPane);
+        }
     }
 
     private void drawSolutionInputs() {
@@ -311,15 +318,16 @@ public class CaseController implements Initializable {
         for (SuspectType suspectType : GameStateManager.getInstance().getMurderCase().getSuspectTypes()) {
             Optional<Node> guessBoxOpt = solutionInputPane.getChildren().stream().filter(node -> node.getId().equals(suspectType.name())).findFirst();
             guessBoxOpt.ifPresent(node -> guess.put(suspectType.name(), ((ComboBox<String>) node).getValue()));
-            // todo: figure out what needs to happen if the combo box for a suspect type isn't present.
-            //  though the answer might just be that we've encountered a problem and need to fix something else
         }
 
         Map<String, Boolean> solutionMap = GameStateManager.getInstance().getMurderCase().getResolution().checkGuess(guess);
 
         if (solutionMap.values().stream().allMatch(e -> e)){
-            //todo: write better resolution boilerplate text
-            resolutionLabel.setText("You did it!\n\n" + GameStateManager.getInstance().getMurderCase().getResolution().getResolutionText());
+            String deductiveLogicoSays = "Deductive Logico came to the only reasonable conclusion. \"It was " + guess.get(SuspectType.PERSON.name()) + " in the " + guess.get(SuspectType.LOCATION.name()) + " with the " + guess.get(SuspectType.WEAPON.name());
+            if (guess.get(SuspectType.MOTIVE.name()) != null) {
+                deductiveLogicoSays += "! Why? " + guess.get(SuspectType.MOTIVE.name());
+            }
+            resolutionLabel.setText(deductiveLogicoSays + "!\" he declared.\n\n" + GameStateManager.getInstance().getMurderCase().getResolution().getResolutionText());
         } else {
             resolutionLabel.setText(GameStateManager.getInstance().getMurderCase().askInspectorIrratino(solutionMap));
         }

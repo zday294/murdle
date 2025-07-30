@@ -14,7 +14,7 @@ import java.io.InputStream;
 public class MurdleApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        GameStateManager.getInstance().loadMurderCase("/org/zday/murdle/data/cases/zach-test-case-3-statements.json");
+        GameStateManager.getInstance().loadMurderCase("/org/zday/murdle/data/cases/zach-test-case.json");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("view/case-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1800, 1200);
         scene.getStylesheets().add(getClass().getResource("style/application.css").toExternalForm());

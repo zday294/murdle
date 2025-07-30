@@ -18,6 +18,7 @@
     -fx-opacity: 0;
 }
 
+/*color palate*/
 * {
     -murdle-red: rgb(147,39,56);
     -dropshadow-blue: rgb(84,170,212);
