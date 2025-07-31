@@ -92,4 +92,10 @@ class BoxTest {
         unsureBox.uneliminate();
         assertEquals(Box.BoxState.UNSURE, unsureBox.getState());
     }
+
+    @Test
+    void populateFromBox() {
+        trueBox.populateFromBox(falseBox);
+        assertEquals(Box.BoxState.FALSE, trueBox.getState());
+    }
 }
