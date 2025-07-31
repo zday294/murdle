@@ -19,8 +19,6 @@ import java.net.URL;
 import java.util.*;
 
 public class CaseController implements Initializable {
-//    private final double BOX_SIZE = 60;
-
     @FXML
     private VBox cluePane;
 
