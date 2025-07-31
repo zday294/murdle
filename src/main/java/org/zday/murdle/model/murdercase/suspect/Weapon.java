@@ -4,20 +4,26 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@AllArgsConstructor
 @NoArgsConstructor
 public class Weapon extends Suspect {
 
     private Weight weight;
     private String madeOf;
 
-    protected enum Weight {
+    public enum Weight {
         LIGHT,
         MEDIUM,
         HEAVY
+    }
+
+public Weapon(String name, String description, String icon, Weight weight, String madeOf) {
+        super(name, description, icon);
+        this.weight = weight;
+        this.madeOf = madeOf;
     }
 
     @Override

@@ -16,6 +16,7 @@
         <javafx.version>21.0.8</javafx.version>
         <controlsfx.version>11.1.2</controlsfx.version>
         <lombok.version>1.18.38</lombok.version>
+        <maven-surefire-plugin.version>3.5.3</maven-surefire-plugin.version>
     </properties>
 
     <dependencies>
@@ -106,6 +107,11 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
             </plugin>
         </plugins>
     </build>

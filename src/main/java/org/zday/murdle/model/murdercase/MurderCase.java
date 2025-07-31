@@ -45,7 +45,10 @@ public class MurderCase {
         final String IS_CORRECT = "Inspector Irratino believes that you're right about the ";
         final String IS_WRONG = "Inspector Irratino is confident that you're wrong about everything.";
 
-        List<String> correctAnswers = solutionMap.keySet().stream().filter(solutionMap::get).map(String::toLowerCase).toList();
+        List<String> correctAnswers = getSuspectTypes().stream()
+                .map(type -> type.name().toLowerCase())
+                .filter(solutionMap::get)
+                .toList();
 
         int numCorrectAnswers = correctAnswers.size();
         switch (numCorrectAnswers) {
