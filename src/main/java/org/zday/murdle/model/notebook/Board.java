@@ -17,6 +17,7 @@ import java.util.Optional;
 public class Board {
     List<Block> blocks;
 
+    //todo: need to add functionality for motives
     public Board(List<Person> persons, List<Weapon> weapons, List<Location> locations) {
         blocks = List.of(new Block(weapons, persons), new Block(weapons, locations), new Block(locations, persons));
     }
