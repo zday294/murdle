@@ -33,7 +33,10 @@ public final class GameStateManager {
     }
 
     public void createBoard() {
-        gameBoard = new Board(murderCase.getPersonList(), murderCase.getWeaponList(), murderCase.getLocationList());
+
+        gameBoard = murderCase.getMotiveList().isEmpty() ?
+                new Board(murderCase.getPersonList(), murderCase.getWeaponList(), murderCase.getLocationList())
+                : new Board(murderCase.getPersonList(), murderCase.getWeaponList(), murderCase.getLocationList(), murderCase.getMotiveList());
         freshBoard = gameBoard.clone();
     }
 
