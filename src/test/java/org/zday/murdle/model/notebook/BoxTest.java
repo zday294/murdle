@@ -1,10 +1,25 @@
 package org.zday.murdle.model.notebook;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class BoxTest {
+    Box unmarkedBox;
+    Box falseBox;
+    Box trueBox;
+    Box unsureBox;
+    Box fbeBox;
+
+    @BeforeEach
+    void setup() {
+        unmarkedBox = new Box();
+        falseBox = new Box(Box.BoxState.FALSE);
+        trueBox = new Box(Box.BoxState.TRUE);
+        unsureBox = new Box(Box.BoxState.UNSURE);
+        fbeBox = new Box(Box.BoxState.FALSE_BY_ELIMINATION);
+    }
 
     @Test
     void testClone() {
@@ -36,16 +51,13 @@ class BoxTest {
 
     @Test
     void update_eliminable() {
-        Box trueBox = new Box(Box.BoxState.TRUE);
         RowColumn rc = new RowColumn();
         rc.add(trueBox);
 
-        Box falseBox = new Box(Box.BoxState.FALSE);
         falseBox.addEliminationListener(rc);
         falseBox.update();
         assertEquals(Box.BoxState.FALSE, falseBox.getState());
 
-        Box unsureBox = new Box(Box.BoxState.UNSURE);
         unsureBox.addEliminationListener(rc);
         unsureBox.update();
         assertEquals(Box.BoxState.FALSE_BY_ELIMINATION, unsureBox.getState());
@@ -53,21 +65,17 @@ class BoxTest {
 
     @Test
     void eliminate() {
-        Box trueBox = new Box(Box.BoxState.TRUE);
         RowColumn rc = new RowColumn();
         rc.add(trueBox);
 
-        Box unmarkedBox = new Box(Box.BoxState.UNMARKED);
         unmarkedBox.addEliminationListener(rc);
         unmarkedBox.eliminate();
         assertEquals(Box.BoxState.FALSE_BY_ELIMINATION, unmarkedBox.getState());
 
-        Box falseBox = new Box(Box.BoxState.FALSE);
         falseBox.addEliminationListener(rc);
         falseBox.eliminate();
         assertEquals(Box.BoxState.FALSE, falseBox.getState());
 
-        Box unsureBox = new Box(Box.BoxState.UNSURE);
         unsureBox.addEliminationListener(rc);
         unsureBox.eliminate();
         assertEquals(Box.BoxState.UNSURE, unsureBox.getState());
@@ -75,15 +83,12 @@ class BoxTest {
 
     @Test
     void uneliminate() {
-        Box fbeBox = new Box(Box.BoxState.FALSE_BY_ELIMINATION);
         fbeBox.uneliminate();
         assertEquals(Box.BoxState.UNMARKED, fbeBox.getState());
 
-        Box falseBox = new Box(Box.BoxState.FALSE);
         falseBox.uneliminate();
         assertEquals(Box.BoxState.FALSE, falseBox.getState());
 
-        Box unsureBox = new Box(Box.BoxState.UNSURE);
         unsureBox.uneliminate();
         assertEquals(Box.BoxState.UNSURE, unsureBox.getState());
     }
