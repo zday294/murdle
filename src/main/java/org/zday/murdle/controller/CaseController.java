@@ -17,7 +17,6 @@ import org.zday.murdle.view.component.StateButton;
 
 import java.net.URL;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class CaseController implements Initializable {
 //    private final double BOX_SIZE = 60;
@@ -86,19 +85,19 @@ public class CaseController implements Initializable {
         newBoardPane.getChildren().add(boardHeaderPane);
 
         drawBoardRow(
-                GameStateManager.getInstance().getGameBoard().getRowBySuspect(SuspectType.WEAPON))
+                GameStateManager.getInstance().getGameBoard().getRowBySuspectType(SuspectType.WEAPON))
                 .ifPresentOrElse(
                         row -> newBoardPane.getChildren().add(row),
                         () -> {throw new IllegalArgumentException("An error has occurred while creating the first row of the board");});
 
         drawBoardRow(
-                GameStateManager.getInstance().getGameBoard().getRowBySuspect(SuspectType.LOCATION))
+                GameStateManager.getInstance().getGameBoard().getRowBySuspectType(SuspectType.LOCATION))
                 .ifPresentOrElse(
                         row -> newBoardPane.getChildren().add(row),
                         () -> {throw new IllegalArgumentException("An error has occurred while creating the second row of the board");});
 
         drawBoardRow(
-                GameStateManager.getInstance().getGameBoard().getRowBySuspect(SuspectType.MOTIVE))
+                GameStateManager.getInstance().getGameBoard().getRowBySuspectType(SuspectType.MOTIVE))
                 .ifPresent(row -> newBoardPane.getChildren().add(row));
 
         boardPane = newBoardPane;

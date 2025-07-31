@@ -2,13 +2,9 @@ package org.zday.murdle.model.notebook;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.zday.murdle.model.murdercase.suspect.Location;
-import org.zday.murdle.model.murdercase.suspect.Person;
-import org.zday.murdle.model.murdercase.suspect.SuspectType;
-import org.zday.murdle.model.murdercase.suspect.Weapon;
+import org.zday.murdle.model.murdercase.suspect.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,15 +13,21 @@ import java.util.Optional;
 public class Board {
     List<Block> blocks;
 
-    //todo: need to add functionality for motives
     public Board(List<Person> persons, List<Weapon> weapons, List<Location> locations) {
         blocks = List.of(new Block(weapons, persons), new Block(weapons, locations), new Block(locations, persons));
+    }
+
+    public Board(List<Person> persons, List<Weapon> weapons, List<Location> locations, List<Motive> motives) {
+        blocks = List.of(
+                new Block(weapons, persons), new Block(weapons, motives),new Block(weapons, locations),
+                new Block(locations, persons), new Block(locations, motives),
+                new Block(motives, persons)
+        );
     }
 
     public Optional<Block> findBlockByRowAndColumnSuspectTypes(SuspectType rowType, SuspectType columnType) {
         return blocks.stream().filter(block -> block.getRowType() == rowType && block.getColumnType() == columnType)
                 .findFirst();
-//                .orElseThrow(() -> new IllegalArgumentException("No block found with row type " + rowType + " and column type " + columnType));
     }
 
     public Board clone() {
@@ -38,7 +40,7 @@ public class Board {
         return new Board(cloneBlocks);
     }
 
-    public List<Optional<Block>> getRowBySuspect(SuspectType rowType){
+    public List<Optional<Block>> getRowBySuspectType(SuspectType rowType){
         List<Optional<Block>> blockList = new ArrayList<>();
         List<SuspectType> suspectTypesInColumnOrder = List.of(SuspectType.PERSON, SuspectType.WEAPON, SuspectType.MOTIVE, SuspectType.LOCATION);
         for (SuspectType columnType : suspectTypesInColumnOrder.stream().filter(e -> !e.equals(rowType)).toList()) {
