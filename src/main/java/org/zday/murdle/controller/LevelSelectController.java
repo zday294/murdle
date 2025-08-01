@@ -31,13 +31,23 @@ public class LevelSelectController implements Initializable {
     @FXML
     Button nextButton;
 
-    Image testImage = new Image(getClass().getResourceAsStream("/org/zday/murdle/data/images/testImage.png"));
+    @FXML
+    ImageView testImageView1;
 
     @FXML
-    ImageView testImageView;
+    ImageView testImageView2;
+
+    @FXML
+    ImageView testImageView3;
 
     @FXML
     ImageView testImageView4;
+
+    @FXML
+    ImageView testImageView5;
+
+    @FXML
+    ImageView testImageView6;
 
     public void goToPreviousPage() {
 
@@ -49,7 +59,19 @@ public class LevelSelectController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        testImageView.setImage(testImage);
+        Image testImage = new Image(getClass().getResourceAsStream("/org/zday/murdle/data/images/testImage.png"));
+        Image lockedImage = new Image(getClass().getResourceAsStream("/org/zday/murdle/data/images/magnifying-glass.png"));
+
+        testImageView1.setImage(testImage);
+        testImageView2.setImage(testImage);
+        testImageView3.setImage(testImage);
         testImageView4.setImage(testImage);
+        testImageView5.setImage(lockedImage);
+        testImageView6.setImage(lockedImage);
+
+        //load levels
+
+        //create level presentation
+
     }
 }

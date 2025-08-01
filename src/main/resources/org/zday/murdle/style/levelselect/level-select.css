@@ -5,6 +5,7 @@
     -fx-border-color: black;
     -fx-pref-width: 60;
     -fx-pref-height: 60;
+    -fx-border-width: 4;
 }
 
 .level-rows-pane {

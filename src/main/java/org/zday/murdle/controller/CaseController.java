@@ -290,7 +290,7 @@ public class CaseController implements Initializable {
 
         for (Suspect suspect : suspectList) {
             VBox suspectCard = new VBox();
-            suspectCard.getStyleClass().add("suspect-card");
+            suspectCard.getStyleClass().addAll( "card","suspect-card");
 
             Label suspectIconLabel = new Label(suspect.getIcon());
             suspectIconLabel.getStyleClass().add("suspect-icon");
