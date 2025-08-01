@@ -21,19 +21,19 @@
     <VBox styleClass="level-rows-pane">
         <HBox fx:id="levelRow1" styleClass="level-row">
             <VBox styleClass="card,level-card">
-                <ImageView fx:id="testImageView1" fitWidth="300" preserveRatio="true"/>
+                <ImageView fx:id="imageView1" fitWidth="300" preserveRatio="true"/>
                 <Label text="Example case 1" styleClass="level-title-label"/>
                 <Label text="Difficulty: 🔎" styleClass="level-difficulty-label"/>
             </VBox>
 
             <VBox styleClass="card,level-card">
-                <ImageView fx:id="testImageView2" fitWidth="300" preserveRatio="true"/>
+                <ImageView fx:id="imageView2" fitWidth="300" preserveRatio="true"/>
                 <Label text="Example case 2" styleClass="level-title-label"/>
                 <Label text="Difficulty: 🔎🔎" styleClass="level-difficulty-label"/>
             </VBox>
 
             <VBox styleClass="card,level-card">
-                <ImageView fx:id="testImageView3" fitWidth="300" preserveRatio="true"/>
+                <ImageView fx:id="imageView3" fitWidth="300" preserveRatio="true"/>
                 <Label text="Example case 3" styleClass="level-title-label"/>
                 <Label text="Difficulty: 🔎🔎🔎" styleClass="level-difficulty-label"/>
             </VBox>
@@ -41,17 +41,17 @@
 
         <HBox fx:id="levelRow2" styleClass="level-row">
             <VBox styleClass="card,level-card">
-                <ImageView fx:id="testImageView4" fitWidth="300" preserveRatio="true"/>
+                <ImageView fx:id="imageView4" fitWidth="300" preserveRatio="true"/>
                 <Label text="Example case 4" styleClass="level-title-label"/>
                 <Label text="Difficulty: 🔎🔎🔎🔎" styleClass="level-difficulty-label"/>
             </VBox>
 
             <VBox styleClass="card,level-card,locked-level">
-                <ImageView fx:id="testImageView5" fitWidth="175" preserveRatio="true"/>
+                <ImageView fx:id="imageView5" fitWidth="175" preserveRatio="true"/>
             </VBox>
 
             <VBox styleClass="card,level-card,locked-level">
-                <ImageView fx:id="testImageView6" fitWidth="175" preserveRatio="true"/>
+                <ImageView fx:id="imageView6" fitWidth="175" preserveRatio="true"/>
             </VBox>
 
         </HBox>

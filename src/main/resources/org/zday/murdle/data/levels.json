@@ -1,0 +1,14 @@
+[
+  {
+    "name": "House on Wilson Street",
+    "caseFileName": "zach-test-case.json",
+    "difficulty": 2,
+    "caseImageFile": "level-1.png"
+  },
+  {
+    "name": "Murder in the Disorient",
+    "caseFileName": "murder-in-the-disorient.json",
+    "difficulty": 3,
+    "caseImageFile": ""
+  }
+]

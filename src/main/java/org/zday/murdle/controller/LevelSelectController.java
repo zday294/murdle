@@ -32,22 +32,22 @@ public class LevelSelectController implements Initializable {
     Button nextButton;
 
     @FXML
-    ImageView testImageView1;
+    ImageView imageView1;
 
     @FXML
-    ImageView testImageView2;
+    ImageView imageView2;
 
     @FXML
-    ImageView testImageView3;
+    ImageView imageView3;
 
     @FXML
-    ImageView testImageView4;
+    ImageView imageView4;
 
     @FXML
-    ImageView testImageView5;
+    ImageView imageView5;
 
     @FXML
-    ImageView testImageView6;
+    ImageView imageView6;
 
     public void goToPreviousPage() {
 
@@ -62,12 +62,12 @@ public class LevelSelectController implements Initializable {
         Image testImage = new Image(getClass().getResourceAsStream("/org/zday/murdle/data/images/testImage.png"));
         Image lockedImage = new Image(getClass().getResourceAsStream("/org/zday/murdle/data/images/magnifying-glass.png"));
 
-        testImageView1.setImage(testImage);
-        testImageView2.setImage(testImage);
-        testImageView3.setImage(testImage);
-        testImageView4.setImage(testImage);
-        testImageView5.setImage(lockedImage);
-        testImageView6.setImage(lockedImage);
+        imageView1.setImage(testImage);
+        imageView2.setImage(testImage);
+        imageView3.setImage(testImage);
+        imageView4.setImage(testImage);
+        imageView5.setImage(lockedImage);
+        imageView6.setImage(lockedImage);
 
         //load levels
 

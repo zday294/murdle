@@ -1,0 +1,71 @@
+{
+    "title": "Murder in the Disorient",
+    "description": "A research facility deep within the twisted trails of the Disorient\u2014a forest infamous for confusing travelers\u2014was meant to be a retreat for a few select minds to escape the modern world. But when the lead cartographer turned up dead, the map suddenly didn\u2019t matter anymore. With the compass spinning and fog rolling in, the Detective must piece together this perplexing puzzle.",
+    "personList": [
+        {
+            "name": "Blue",
+            "description": "The melancholy musician had come to the Disorient to \u201cfind his inner harmony.\u201d But it seems disharmony followed him instead. He claims he never left the observation deck.",
+            "icon": "\ud83d\udc71"
+        },
+        {
+            "name": "Red",
+            "description": "A former underground fighter-turned-survivalist, Red was in charge of trail clearing. He believes maps are for the weak\u2014and that\u2019s not even the most suspicious thing about him.",
+            "icon": "\ud83e\uddae"
+        },
+        {
+            "name": "Green",
+            "description": "The hacker-turned-recluse was supposedly off-grid and out of trouble. She insists she only came to the Disorient to meditate and \u201ccleanse the cache.\u201d But that fork in her bag says otherwise.",
+            "icon": "\ud83e\udd26"
+        }
+    ],
+    "weaponList": [
+        {
+            "name": "Compass Dagger",
+            "description": "A ceremonial blade with a built-in compass. Ironically useless for finding true north, but perfect for finding a ribcage.",
+            "icon": "\ud83e\udded"
+        },
+        {
+            "name": "Hiking Pole",
+            "description": "Supposed to assist in rough terrain. This one has blood on the handle and something sharp jammed into the rubber tip.",
+            "icon": "\ud83e\udd7e"
+        },
+        {
+            "name": "Fork",
+            "description": "That\u2019s right. Again. Silver-plated, engraved with the initials G.H. Found oddly clean, but misplaced.",
+            "icon": "\ud83c\udf74"
+        }
+    ],
+    "locationList": [
+        {
+            "name": "Cartographer\u2019s Cabin",
+            "description": "Where the body was found\u2014surrounded by scattered maps and torn pages. Blood on the blueprint.",
+            "icon": "\ud83e\udded"
+        },
+        {
+            "name": "Mirror Clearing",
+            "description": "A strange grove where reflections echo at odd angles. Easy to lose your way\u2014or your mind.",
+            "icon": "\ud83e\ude9e"
+        },
+        {
+            "name": "Observation Deck",
+            "description": "A high wooden platform above the tree line. Great for stargazing\u2014or being alone with your thoughts\u2026 and your secrets.",
+            "icon": "\ud83d\udd2d"
+        }
+    ],
+    "cluesList": [
+        "The Compass Dagger was missing from its display case.",
+        "A trail of muddy boot prints led away from the Mirror Clearing.",
+        "Red has a limp that matches the walking pole\u2019s missing cap.",
+        "Green\u2019s tent was set up near the Observation Deck, not the Mirror Clearing as she claimed.",
+        "The victim was facing north when he died\u2014suggesting he trusted whoever came from that direction."
+    ],
+    "hint": "In the Disorient, direction means nothing. But intention is everything.",
+    "resolution": {
+        "correctSolution": {
+            "person": "Red",
+            "location": "Mirror Clearing",
+            "weapon": "Hiking Pole"
+        },
+        "resolutionText": "When confronted, Red stared at the Detective like a tree he might have to chop down. \u201cYou think I need a map to kill a man? He tried to \u2018redesign\u2019 the trails. Some paths aren\u2019t meant to be paved.\u201d He dropped the hiking pole and limped toward the trailhead, hands raised. The forest watched in silence."
+    }
+}
