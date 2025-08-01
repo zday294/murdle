@@ -3,6 +3,8 @@ package org.zday.murdle.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -29,6 +31,13 @@ public class LevelSelectController implements Initializable {
     @FXML
     Button nextButton;
 
+    Image testImage = new Image(getClass().getResourceAsStream("/org/zday/murdle/data/images/testImage.png"));
+
+    @FXML
+    ImageView testImageView;
+
+    @FXML
+    ImageView testImageView4;
 
     public void goToPreviousPage() {
 
@@ -40,6 +49,7 @@ public class LevelSelectController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        testImageView.setImage(testImage);
+        testImageView4.setImage(testImage);
     }
 }

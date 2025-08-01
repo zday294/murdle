@@ -7,6 +7,16 @@
     -fx-pref-height: 60;
 }
 
+.level-rows-pane {
+    -fx-alignment: CENTER;
+    -fx-spacing: 30;
+}
+
+
+.level-row {
+    -fx-spacing: 50;
+}
+
 .side-pane {
     -fx-alignment: CENTER;
 }

@@ -7,24 +7,23 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.image.ImageView?>
-<?import org.controlsfx.control.HyperlinkLabel?>
 <HBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="org.zday.murdle.controller.LevelSelectController"
       prefHeight="400.0" prefWidth="600.0"
-      alignment="CENTER">
+      alignment="CENTER"
+      spacing="50"
+>
     <VBox fx:id="leftPane" styleClass="side-pane">
         <Button fx:id="previousButton" onAction="#goToPreviousPage" styleClass="page-button"/>
     </VBox>
 
-    <VBox>
-        <HBox fx:id="levelRow1">
-            <VBox>
-                <ImageView>
-
-                </ImageView>
-                <Hyperlink/>
-                <Label />
+    <VBox styleClass="level-rows-pane">
+        <HBox fx:id="levelRow1" >
+            <VBox styleClass="level-card">
+                <ImageView fx:id="testImageView" fitWidth="300" preserveRatio="true"/>
+                <Label text="Example case 1" styleClass="level-title-label"/>
+                <Label text="Difficulty: 🔎" styleClass="level-difficulty-label"/>
             </VBox>
 
             <VBox>
@@ -37,7 +36,11 @@
         </HBox>
 
         <HBox fx:id="levelRow2">
-
+            <VBox styleClass="level-card">
+                <ImageView fx:id="testImageView4" fitWidth="300" preserveRatio="true"/>
+                <Label text="Example case 4" styleClass="level-title-label"/>
+                <Label text="Difficlty: 🔎🔎🔎" styleClass="level-difficulty-label"/>
+            </VBox>
         </HBox>
 
     </VBox>

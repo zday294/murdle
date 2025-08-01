@@ -1,0 +1,22 @@
+.level-card {
+    -fx-font-size: 18px;
+    -fx-background-color: #fff0d4;
+    -fx-pref-width: 350;
+    -fx-pref-height: 200;
+    -fx-border-color: #101010;
+    -fx-alignment: TOP-CENTER;
+    -fx-padding: 10;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(one-pass-box, rgb(84,170,212), 2, 1, 2, 2);
+}
+
+.level-title-label {
+    -fx-pref-width: 350;
+    -fx-alignment: CENTER;
+}
+
+.level-difficulty-label {
+    -fx-pref-width: 300;
+    -fx-alignment: CENTER-LEFT;
+}
