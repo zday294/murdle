@@ -1,10 +1,13 @@
 package org.zday.murdle.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
@@ -15,10 +18,14 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.controlsfx.control.HyperlinkLabel;
+import org.zday.murdle.model.game.GameStateManager;
 import org.zday.murdle.model.level.Level;
 import org.zday.murdle.model.level.LevelManager;
 import org.zday.murdle.util.AssortedUtils;
+import org.zday.murdle.util.ResourceDirectoryLoader;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -57,13 +64,9 @@ public class LevelSelectController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        //load levels
         LevelManager.getInstance().loadLevels();
-
-        //create level presentation
         createLevelCards(LevelManager.getInstance().getCurrentLevelPage());
 
-        //add level data to level cards
     }
 
     private void createLevelCards(List<Level> levelPage) {
@@ -109,11 +112,6 @@ public class LevelSelectController implements Initializable {
         imageView.setPreserveRatio(true);
         imageView.setImage(level.getImage());
 
-        //try replacing this with a hyperlink to load the level
-//        Label titleLabel = new Label();
-//        titleLabel.getStyleClass().add("level-title-label");
-//        titleLabel.setText(level.getName());
-
         Hyperlink titleLinkLabel = new Hyperlink();
         titleLinkLabel.getStyleClass().add("level-title-link");
         titleLinkLabel.setText(level.getName());
@@ -130,8 +128,27 @@ public class LevelSelectController implements Initializable {
     }
 
     private void loadLevel(String caseFileName) {
+        try(InputStream is = this.getClass().getResourceAsStream("/org/zday/murdle/data/config/gameboard-resources.json")) {
 
-//        Stage stage =  (Stage) leftPane.getScene().getWindow();
+            GameStateManager.getInstance().loadMurderCase(caseFileName);
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/zday/murdle/view/case-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 1800, 1200);
+            scene.getStylesheets().add(getClass().getResource("/org/zday/murdle/style/application.css").toExternalForm());
+
+            ResourceDirectoryLoader resourceDirectoryLoader = (new ObjectMapper()).readValue(is, ResourceDirectoryLoader.class);
+            scene.getStylesheets().addAll(resourceDirectoryLoader.load());
+
+            Stage stage =  (Stage) leftPane.getScene().getWindow();
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Unable to load level");
+            alert.showAndWait();
+        }
 
 
     }

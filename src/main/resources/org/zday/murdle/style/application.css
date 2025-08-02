@@ -30,6 +30,14 @@
     -fx-effect: dropshadow(one-pass-box, rgb(84,170,212), 2, 1, 2, 2);
 }
 
+.back-button {
+    -fx-border-color: black;
+    -fx-border-width: 4;
+    -fx-effect: dropshadow(one-pass-box, rgb(84,170,212), 2, 1, 2, 2);
+    -fx-background-color: -murdle-red;
+    -fx-text-fill: white;
+}
+
 /*color palate*/
 * {
     -murdle-red: rgb(147,39,56);

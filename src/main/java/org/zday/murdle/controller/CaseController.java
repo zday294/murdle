@@ -1,20 +1,28 @@
 package org.zday.murdle.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import org.zday.murdle.model.game.GameStateManager;
 import org.zday.murdle.model.game.murdercase.suspect.Person;
 import org.zday.murdle.model.game.murdercase.suspect.Suspect;
 import org.zday.murdle.model.game.murdercase.suspect.SuspectType;
 import org.zday.murdle.model.game.notebook.Block;
+import org.zday.murdle.util.ResourceDirectoryLoader;
 import org.zday.murdle.view.component.StateButton;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.*;
 
@@ -329,8 +337,30 @@ public class CaseController implements Initializable {
 
     }
 
+    @FXML
+    private void returnToLevelSelect() {
+        try {
+            Stage stage = (Stage) cluePane.getScene().getWindow();
 
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/zday/murdle/view/level-select-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 1800, 1200);
+            scene.getStylesheets().add(getClass().getResource("/org/zday/murdle/style/application.css").toExternalForm());
+            try (InputStream is = this.getClass().getResourceAsStream("/org/zday/murdle/data/config/level-select-resources.json")) {
+                ResourceDirectoryLoader resourceDirectoryLoader = (new ObjectMapper()).readValue(is, ResourceDirectoryLoader.class);
+                scene.getStylesheets().addAll(resourceDirectoryLoader.load());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
+            stage.setTitle("Murdle: digivolution");
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
 
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Something has gone wrong. Cannot load level select screen");
+            alert.showAndWait();
+        }
 
+    }
 }

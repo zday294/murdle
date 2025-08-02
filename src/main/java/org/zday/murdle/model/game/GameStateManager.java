@@ -25,7 +25,7 @@ public final class GameStateManager {
     }
 
     public void loadMurderCase(String caseFileName) {
-        try (InputStream is = this.getClass().getResourceAsStream(caseFileName)) {
+        try (InputStream is = this.getClass().getResourceAsStream("/org/zday/murdle/data/cases/" + caseFileName)) {
             murderCase = (new ObjectMapper()).readValue(is, MurderCase.class);
         } catch (Exception e) {
             e.printStackTrace();
@@ -33,7 +33,7 @@ public final class GameStateManager {
     }
 
     public void createBoard() {
-        gameBoard = murderCase.getMotiveList().isEmpty() ?
+        gameBoard = ( murderCase.getMotiveList() == null || murderCase.getMotiveList().isEmpty()) ?
                 new Board(murderCase.getPersonList(), murderCase.getWeaponList(), murderCase.getLocationList())
                 : new Board(murderCase.getPersonList(), murderCase.getWeaponList(), murderCase.getLocationList(), murderCase.getMotiveList());
         freshBoard = gameBoard.clone();
