@@ -3,7 +3,7 @@ package org.zday.murdle.view.component;
 import javafx.scene.control.Button;
 import lombok.Getter;
 import lombok.Setter;
-import org.zday.murdle.model.notebook.Box;
+import org.zday.murdle.model.game.notebook.Box;
 
 @Setter
 @Getter

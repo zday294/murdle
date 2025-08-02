@@ -1,9 +1,9 @@
-package org.zday.murdle.model.murdercase;
+package org.zday.murdle.model.game.murdercase;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.zday.murdle.model.murdercase.suspect.*;
+import org.zday.murdle.model.game.murdercase.suspect.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;

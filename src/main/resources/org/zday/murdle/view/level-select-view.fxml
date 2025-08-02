@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.image.ImageView?>
 <HBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="org.zday.murdle.controller.LevelSelectController"
@@ -19,43 +15,8 @@
     </VBox>
 
     <VBox styleClass="level-rows-pane">
-        <HBox fx:id="levelRow1" styleClass="level-row">
-            <VBox styleClass="card,level-card">
-                <ImageView fx:id="imageView1" fitWidth="300" preserveRatio="true"/>
-                <Label text="Example case 1" styleClass="level-title-label"/>
-                <Label text="Difficulty: 🔎" styleClass="level-difficulty-label"/>
-            </VBox>
-
-            <VBox styleClass="card,level-card">
-                <ImageView fx:id="imageView2" fitWidth="300" preserveRatio="true"/>
-                <Label text="Example case 2" styleClass="level-title-label"/>
-                <Label text="Difficulty: 🔎🔎" styleClass="level-difficulty-label"/>
-            </VBox>
-
-            <VBox styleClass="card,level-card">
-                <ImageView fx:id="imageView3" fitWidth="300" preserveRatio="true"/>
-                <Label text="Example case 3" styleClass="level-title-label"/>
-                <Label text="Difficulty: 🔎🔎🔎" styleClass="level-difficulty-label"/>
-            </VBox>
-        </HBox>
-
-        <HBox fx:id="levelRow2" styleClass="level-row">
-            <VBox styleClass="card,level-card">
-                <ImageView fx:id="imageView4" fitWidth="300" preserveRatio="true"/>
-                <Label text="Example case 4" styleClass="level-title-label"/>
-                <Label text="Difficulty: 🔎🔎🔎🔎" styleClass="level-difficulty-label"/>
-            </VBox>
-
-            <VBox styleClass="card,level-card,locked-level">
-                <ImageView fx:id="imageView5" fitWidth="175" preserveRatio="true"/>
-            </VBox>
-
-            <VBox styleClass="card,level-card,locked-level">
-                <ImageView fx:id="imageView6" fitWidth="175" preserveRatio="true"/>
-            </VBox>
-
-        </HBox>
-
+        <HBox fx:id="levelRow1" styleClass="level-row"/>
+        <HBox fx:id="levelRow2" styleClass="level-row"/>
     </VBox>
 
     <VBox fx:id="rightPane" styleClass="side-pane">

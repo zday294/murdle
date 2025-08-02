@@ -1,8 +1,8 @@
-package org.zday.murdle.model.notebook;
+package org.zday.murdle.model.game.notebook;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.zday.murdle.model.murdercase.suspect.*;
+import org.zday.murdle.model.game.murdercase.suspect.*;
 
 import java.util.List;
 import java.util.Optional;

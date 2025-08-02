@@ -1,12 +1,12 @@
-package org.zday.murdle.model;
+package org.zday.murdle.model.game;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.zday.murdle.model.murdercase.MurderCase;
-import org.zday.murdle.model.notebook.Board;
+import org.zday.murdle.model.game.murdercase.MurderCase;
+import org.zday.murdle.model.game.notebook.Board;
 
 import java.io.InputStream;
 
@@ -33,7 +33,6 @@ public final class GameStateManager {
     }
 
     public void createBoard() {
-
         gameBoard = murderCase.getMotiveList().isEmpty() ?
                 new Board(murderCase.getPersonList(), murderCase.getWeaponList(), murderCase.getLocationList())
                 : new Board(murderCase.getPersonList(), murderCase.getWeaponList(), murderCase.getLocationList(), murderCase.getMotiveList());

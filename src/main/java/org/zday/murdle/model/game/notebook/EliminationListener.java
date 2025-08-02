@@ -1,4 +1,4 @@
-package org.zday.murdle.model.notebook;
+package org.zday.murdle.model.game.notebook;
 
 public interface EliminationListener {
     void eliminate();

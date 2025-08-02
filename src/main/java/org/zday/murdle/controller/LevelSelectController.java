@@ -3,12 +3,16 @@ package org.zday.murdle.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import org.zday.murdle.model.level.Level;
+import org.zday.murdle.model.level.LevelManager;
+import org.zday.murdle.util.AssortedUtils;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class LevelSelectController implements Initializable {
@@ -31,23 +35,6 @@ public class LevelSelectController implements Initializable {
     @FXML
     Button nextButton;
 
-    @FXML
-    ImageView imageView1;
-
-    @FXML
-    ImageView imageView2;
-
-    @FXML
-    ImageView imageView3;
-
-    @FXML
-    ImageView imageView4;
-
-    @FXML
-    ImageView imageView5;
-
-    @FXML
-    ImageView imageView6;
 
     public void goToPreviousPage() {
 
@@ -59,19 +46,46 @@ public class LevelSelectController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Image testImage = new Image(getClass().getResourceAsStream("/org/zday/murdle/data/images/testImage.png"));
-        Image lockedImage = new Image(getClass().getResourceAsStream("/org/zday/murdle/data/images/magnifying-glass.png"));
-
-        imageView1.setImage(testImage);
-        imageView2.setImage(testImage);
-        imageView3.setImage(testImage);
-        imageView4.setImage(testImage);
-        imageView5.setImage(lockedImage);
-        imageView6.setImage(lockedImage);
 
         //load levels
+        LevelManager.getInstance().loadLevels();
 
         //create level presentation
+        createLevelCards();
 
+        //add level data to level cards
+    }
+
+    private void createLevelCards() {
+        List<Level> levelPage = LevelManager.getInstance().getCurrentLevelPage();
+        for (int i = 0; i < 3; i++) {
+            levelRow1.getChildren().add(createLevelCard(levelPage.get(i)));
+        }
+        for (int i = 3; i < 6; i++) {
+            levelRow2.getChildren().add(createLevelCard(levelPage.get(i)));
+        }
+
+    }
+
+    private VBox createLevelCard(Level level) {
+        VBox levelCard = new VBox();
+        levelCard.getStyleClass().addAll("card","level-card");
+
+        ImageView imageView = new ImageView();
+        imageView.setFitWidth(300);
+        imageView.setPreserveRatio(true);
+        imageView.setImage(level.getImage());
+
+        Label titleLabel = new Label();
+        titleLabel.getStyleClass().add("level-title-label");
+        titleLabel.setText(level.getName());
+
+        Label difficultyLabel = new Label();
+        difficultyLabel.getStyleClass().add("level-difficulty-label");
+        difficultyLabel.setText("Difficulty: " + AssortedUtils.stringMultiply("🔎", level.getDifficulty()));
+
+        levelCard.getChildren().addAll(imageView, titleLabel, difficultyLabel);
+
+        return levelCard;
     }
 }

@@ -15,6 +15,7 @@
 .level-title-label {
     -fx-pref-width: 350;
     -fx-alignment: CENTER;
+    -fx-font-style: bold;
 }
 
 .level-difficulty-label {

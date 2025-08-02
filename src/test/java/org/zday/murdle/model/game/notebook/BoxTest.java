@@ -1,4 +1,4 @@
-package org.zday.murdle.model.notebook;
+package org.zday.murdle.model.game.notebook;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

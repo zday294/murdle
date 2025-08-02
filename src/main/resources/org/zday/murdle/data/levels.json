@@ -2,13 +2,43 @@
   {
     "name": "House on Wilson Street",
     "caseFileName": "zach-test-case.json",
-    "difficulty": 2,
+    "difficulty": 1,
     "caseImageFile": "level-1.png"
   },
   {
-    "name": "Murder in the Disorient",
-    "caseFileName": "murder-in-the-disorient.json",
+    "name": "Camp Crystal Skull",
+    "caseFileName": "camp-crystal-skull.json",
+    "difficulty": 1,
+    "caseImageFile": "level-2.png"
+  },
+  {
+    "name": "Wasted in the Wegner Wing",
+    "caseFileName": "wasted-in-the-wegner-wing.json",
+    "difficulty": 2,
+    "caseImageFile": "level-3.png"
+  },
+  {
+    "name": "Death by Homework",
+    "caseFileName": "death-by-homework.json",
+    "difficulty": 2,
+    "caseImageFile": "level-4.png"
+  },
+  {
+    "name": "Ladies of the Cove",
+    "caseFileName": "ladies-of-the-cove.json",
     "difficulty": 3,
-    "caseImageFile": ""
+    "caseImageFile": "level-5.png"
+  },
+  {
+    "name": "Clocking Out on the Cruise",
+    "caseFileName": "clocking-out-on-the-cruise.json",
+    "difficulty": 3,
+    "caseImageFile": "level-6.png"
+  },
+  {
+    "name": "Thunder and Lightning",
+    "caseFileName": "thunder-and-lightning.json",
+    "difficulty": 4,
+    "caseImageFile": "level-1.png"
   }
 ]

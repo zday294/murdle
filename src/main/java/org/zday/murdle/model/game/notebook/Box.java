@@ -1,4 +1,4 @@
-package org.zday.murdle.model.notebook;
+package org.zday.murdle.model.game.notebook;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;

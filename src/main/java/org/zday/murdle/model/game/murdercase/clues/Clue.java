@@ -1,4 +1,4 @@
-package org.zday.murdle.model.murdercase.clues;
+package org.zday.murdle.model.game.murdercase.clues;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
