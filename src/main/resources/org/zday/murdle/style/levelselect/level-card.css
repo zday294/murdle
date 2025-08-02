@@ -1,0 +1,28 @@
+.level-row {
+    -fx-spacing: 30;
+}
+
+.level-card {
+    -fx-pref-width: 375;
+    -fx-pref-height: 300;
+}
+
+.locked-level {
+    -fx-background-color: -murdle-red;
+    -fx-alignment: CENTER;
+}
+
+.level-title-link {
+    -fx-pref-width: 350;
+    -fx-pref-height: 60;
+    -fx-alignment: CENTER;
+    -fx-text-alignment: CENTER;
+    -fx-font-weight: bold;
+    -fx-wrap-text: true;
+    -fx-text-fill: black;
+}
+
+.level-difficulty-label {
+    -fx-pref-width: 300;
+    -fx-alignment: CENTER-LEFT;
+}

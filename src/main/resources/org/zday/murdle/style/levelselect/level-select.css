@@ -1,0 +1,23 @@
+.page-button {
+    -fx-background-radius: 60;
+    -fx-border-radius: 60;
+    -fx-background-color: -murdle-red;
+    -fx-border-color: black;
+    -fx-pref-width: 60;
+    -fx-pref-height: 60;
+    -fx-border-width: 4;
+}
+
+.level-rows-pane {
+    -fx-alignment: CENTER;
+    -fx-spacing: 30;
+}
+
+
+.level-row {
+    -fx-spacing: 50;
+}
+
+.side-pane {
+    -fx-alignment: CENTER;
+}

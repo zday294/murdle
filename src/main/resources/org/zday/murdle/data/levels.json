@@ -1,0 +1,56 @@
+[
+  {
+    "name": "House on Wilson Street",
+    "caseFileName": "zach-test-case.json",
+    "difficulty": 1,
+    "caseImageFile": "house-on-wilson-street.png"
+  },
+  {
+    "name": "Camp Crystal Skull",
+    "caseFileName": "camp-crystal-skull.json",
+    "difficulty": 1,
+    "caseImageFile": "camp-crystal-skull.png"
+  },
+  {
+    "name": "Wasted in the Wegner Wing",
+    "caseFileName": "wasted-in-the-wegner-wing.json",
+    "difficulty": 2,
+    "caseImageFile": "wasted-in-the-wegner-wing.png"
+  },
+  {
+    "name": "Death by Homework",
+    "caseFileName": "death-by-homework.json",
+    "difficulty": 2,
+    "caseImageFile": "death-by-homework.png"
+  },
+  {
+    "name": "Ladies of the Cove",
+    "caseFileName": "ladies-of-the-cove.json",
+    "difficulty": 3,
+    "caseImageFile": "ladies-of-the-cove.png"
+  },
+  {
+    "name": "Clocked Out on the Cruise",
+    "caseFileName": "clocked-out-on-the-cruise.json",
+    "difficulty": 3,
+    "caseImageFile": "clocked-out-on-the-cruise.png"
+  },
+  {
+    "name": "At the Corner of Thunder and Lightning",
+    "caseFileName": "at-the-corner-of-thunder-and-lightning.json",
+    "difficulty": 4,
+    "caseImageFile": "at-the-corner-of-thunder-and-lightning.png"
+  },
+  {
+    "name": "Bumped Off in the Belfry",
+    "caseFileName": "bumped-off-in-the-belfry.json",
+    "difficulty": 4,
+    "caseImageFile": "bumped-off-in-the-belfry.png"
+  },
+  {
+    "name": "Laid Out in the Lobby",
+    "caseFileName": "laid-out-in-the-lobby.json",
+    "difficulty": 4,
+    "caseImageFile": "laid-out-in-the-lobby.png"
+  }
+]

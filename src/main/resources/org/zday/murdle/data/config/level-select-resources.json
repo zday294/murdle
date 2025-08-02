@@ -1,0 +1,7 @@
+{
+  "prefix": "style/levelselect/",
+  "resourceList": [
+    "level-select.css",
+    "level-card.css"
+  ]
+}

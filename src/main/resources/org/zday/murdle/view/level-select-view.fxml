@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.zday.murdle.controller.LevelSelectController"
+      prefHeight="400.0" prefWidth="600.0"
+      alignment="CENTER"
+      spacing="50"
+>
+    <VBox fx:id="leftPane" styleClass="side-pane">
+        <Button fx:id="previousButton" onAction="#goToPreviousPage" styleClass="page-button"/>
+    </VBox>
+
+    <VBox styleClass="level-rows-pane">
+        <HBox fx:id="levelRow1" styleClass="level-row"/>
+        <HBox fx:id="levelRow2" styleClass="level-row"/>
+    </VBox>
+
+    <VBox fx:id="rightPane" styleClass="side-pane">
+        <Button fx:id="nextButton" onAction="#goToNextPage" styleClass="page-button"/>
+    </VBox>
+
+</HBox>
