@@ -3,42 +3,54 @@
     "name": "House on Wilson Street",
     "caseFileName": "zach-test-case.json",
     "difficulty": 1,
-    "caseImageFile": "level-1.png"
+    "caseImageFile": "house-on-wilson-street.png"
   },
   {
     "name": "Camp Crystal Skull",
     "caseFileName": "camp-crystal-skull.json",
     "difficulty": 1,
-    "caseImageFile": "level-2.png"
+    "caseImageFile": "camp-crystal-skull.png"
   },
   {
     "name": "Wasted in the Wegner Wing",
     "caseFileName": "wasted-in-the-wegner-wing.json",
     "difficulty": 2,
-    "caseImageFile": "level-3.png"
+    "caseImageFile": "wasted-in-the-wegner-wing.png"
   },
   {
     "name": "Death by Homework",
     "caseFileName": "death-by-homework.json",
     "difficulty": 2,
-    "caseImageFile": "level-4.png"
+    "caseImageFile": "death-by-homework.png"
   },
   {
     "name": "Ladies of the Cove",
     "caseFileName": "ladies-of-the-cove.json",
     "difficulty": 3,
-    "caseImageFile": "level-5.png"
+    "caseImageFile": "ladies-of-the-cove.png"
   },
   {
-    "name": "Clocking Out on the Cruise",
-    "caseFileName": "clocking-out-on-the-cruise.json",
+    "name": "Clocked Out on the Cruise",
+    "caseFileName": "clocked-out-on-the-cruise.json",
     "difficulty": 3,
-    "caseImageFile": "level-6.png"
+    "caseImageFile": "clocked-out-on-the-cruise.png"
   },
   {
-    "name": "Thunder and Lightning",
-    "caseFileName": "thunder-and-lightning.json",
+    "name": "At the Corner of Thunder and Lightning",
+    "caseFileName": "at-the-corner-of-thunder-and-lightning.json",
     "difficulty": 4,
+    "caseImageFile": "at-the-corner-of-thunder-and-lightning.png"
+  },
+  {
+    "name": "Bumped off in the Belfry",
+    "caseFileName": "bumped-off-in-the-belfry.json",
+    "difficulty": 2,
+    "caseImageFile": "level-1.png"
+  },
+  {
+    "name": "Laid out in the Lobby",
+    "caseFileName": "laid-out-in-the-lobby.json",
+    "difficulty": 3,
     "caseImageFile": "level-1.png"
   }
 ]
