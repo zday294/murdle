@@ -4,7 +4,7 @@
 
 .level-card {
     -fx-pref-width: 375;
-    -fx-pref-height: 250;
+    -fx-pref-height: 300;
 }
 
 .locked-level {
@@ -12,10 +12,14 @@
     -fx-alignment: CENTER;
 }
 
-.level-title-label {
+.level-title-link {
     -fx-pref-width: 350;
+    -fx-pref-height: 60;
     -fx-alignment: CENTER;
-    -fx-font-style: bold;
+    -fx-text-alignment: CENTER;
+    -fx-font-weight: bold;
+    -fx-wrap-text: true;
+    -fx-text-fill: black;
 }
 
 .level-difficulty-label {

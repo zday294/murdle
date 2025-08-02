@@ -30,7 +30,7 @@ public class LevelManager {
     }
 
     private List<Level> getLevelPage(int pageNumber) {
-        int startingLevelIndex = (pageNumber-1) * 6;
+        int startingLevelIndex = indexFromPageNumber(pageNumber);
         List<Level> levelPage = new ArrayList<>();
         for (int i = startingLevelIndex; i < Math.min(levelList.size(), startingLevelIndex+6); i++ ){
             levelPage.add(levelList.get(i));
@@ -43,10 +43,16 @@ public class LevelManager {
     }
 
     public List<Level> getNextLevelPage() {
+        if (indexFromPageNumber(currentLevelPageNumber + 1) >= levelList.size()) currentLevelPageNumber--;
         return getLevelPage(++currentLevelPageNumber);
     }
 
     public List<Level> getPreviousLevelPage() {
+        if (currentLevelPageNumber == 1) currentLevelPageNumber++;
         return getLevelPage(--currentLevelPageNumber);
+    }
+
+    private int indexFromPageNumber(int pageNumber) {
+        return  (pageNumber-1) * 6;
     }
 }

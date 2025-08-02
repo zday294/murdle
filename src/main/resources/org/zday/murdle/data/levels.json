@@ -42,15 +42,15 @@
     "caseImageFile": "at-the-corner-of-thunder-and-lightning.png"
   },
   {
-    "name": "Bumped off in the Belfry",
+    "name": "Bumped Off in the Belfry",
     "caseFileName": "bumped-off-in-the-belfry.json",
-    "difficulty": 2,
-    "caseImageFile": "level-1.png"
+    "difficulty": 4,
+    "caseImageFile": "bumped-off-in-the-belfry.png"
   },
   {
-    "name": "Laid out in the Lobby",
+    "name": "Laid Out in the Lobby",
     "caseFileName": "laid-out-in-the-lobby.json",
-    "difficulty": 3,
-    "caseImageFile": "level-1.png"
+    "difficulty": 4,
+    "caseImageFile": "laid-out-in-the-lobby.png"
   }
 ]

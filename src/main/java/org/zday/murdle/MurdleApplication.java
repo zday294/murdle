@@ -4,11 +4,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.zday.murdle.util.ResourceDirectoryLoader;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 
 public class MurdleApplication extends Application {
     @Override
@@ -22,6 +24,9 @@ public class MurdleApplication extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        URL iconURL = getClass().getResource("data/images/murdle-icon.png");
+        stage.getIcons().add(new Image(iconURL.openStream()));
 
         stage.setTitle("Murdle: digivolution");
         stage.setScene(scene);
