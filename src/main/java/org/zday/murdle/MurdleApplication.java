@@ -15,15 +15,15 @@ import java.net.URL;
 public class MurdleApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("view/level-select-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("view/main-menu-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1800, 1200);
         scene.getStylesheets().add(getClass().getResource("style/application.css").toExternalForm());
-        try (InputStream is = this.getClass().getResourceAsStream("/org/zday/murdle/data/config/level-select-resources.json")) {
-            ResourceDirectoryLoader resourceDirectoryLoader = (new ObjectMapper()).readValue(is, ResourceDirectoryLoader.class);
-            scene.getStylesheets().addAll(resourceDirectoryLoader.load());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try (InputStream is = this.getClass().getResourceAsStream("/org/zday/murdle/data/config/level-select-resources.json")) {
+//            ResourceDirectoryLoader resourceDirectoryLoader = (new ObjectMapper()).readValue(is, ResourceDirectoryLoader.class);
+//            scene.getStylesheets().addAll(resourceDirectoryLoader.load());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
         URL iconURL = getClass().getResource("data/images/murdle-icon.png");
         stage.getIcons().add(new Image(iconURL.openStream()));

@@ -3,8 +3,8 @@
 }
 
 .level-card {
-    -fx-pref-width: 375;
-    -fx-pref-height: 300;
+    -fx-pref-width: 400;
+    -fx-pref-height: 320;
 }
 
 .locked-level {
