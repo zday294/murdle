@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import org.zday.murdle.util.ResourceDirectoryLoader;
 
@@ -18,6 +19,7 @@ public class MurdleApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("view/main-menu-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1800, 1200);
         scene.getStylesheets().add(getClass().getResource("style/application.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("style/mainmenu/main-menu.css").toExternalForm());
 //        try (InputStream is = this.getClass().getResourceAsStream("/org/zday/murdle/data/config/level-select-resources.json")) {
 //            ResourceDirectoryLoader resourceDirectoryLoader = (new ObjectMapper()).readValue(is, ResourceDirectoryLoader.class);
 //            scene.getStylesheets().addAll(resourceDirectoryLoader.load());

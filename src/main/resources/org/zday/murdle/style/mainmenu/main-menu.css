@@ -1,0 +1,17 @@
+.main-menu {
+    -fx-background-color: -volume-one-red;
+    -fx-alignment: CENTER;
+    -fx-pref-width: 1800;
+    -fx-pref-height: 1200;
+    -fx-spacing: 10;
+}
+
+.menu-button {
+    -fx-pref-width: 400;
+    -fx-pref-height: 75;
+    -fx-font-size: 24;
+    -fx-font-weight: bold;
+    -fx-background-color: -card-background-cream;
+    -fx-border-color: black;
+    -fx-effect: dropshadow(one-pass-box, rgb(255,255,255), 2, 1, 2, 2);
+}
