@@ -1,16 +1,12 @@
 package org.zday.murdle;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
-import org.zday.murdle.util.ResourceDirectoryLoader;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 
 public class MurdleApplication extends Application {

@@ -15,7 +15,7 @@
 >
 
     <ImageView fx:id="titleImage"/>
-    <Button text="Play" styleClass="menu-button"/>
+    <Button text="Play" styleClass="menu-button" onAction="#playGame"/>
     <Button text="Quit" styleClass="menu-button" onAction="#quitGame"/>
 
 </VBox>
