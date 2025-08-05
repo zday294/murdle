@@ -129,7 +129,6 @@ public class LevelSelectController implements Initializable {
 
     private void loadLevel(String caseFileName) {
         try(InputStream is = this.getClass().getResourceAsStream("/org/zday/murdle/data/config/gameboard-resources.json")) {
-
             GameStateManager.getInstance().loadMurderCase(caseFileName);
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/zday/murdle/view/case-view.fxml"));
@@ -149,7 +148,24 @@ public class LevelSelectController implements Initializable {
             alert.setContentText("Unable to load level");
             alert.showAndWait();
         }
+    }
 
+    @FXML
+    private void returnToMainMenu() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/zday/murdle/view/main-menu-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 1800, 1200);
+            scene.getStylesheets().add(getClass().getResource("/org/zday/murdle/style/application.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/org/zday/murdle/style/mainmenu/main-menu.css").toExternalForm());
+            URL iconURL = getClass().getResource("/org/zday/murdle/data/images/murdle-icon.png");
+
+            Stage stage = (Stage) leftPane.getScene().getWindow();
+            stage.getIcons().add(new Image(iconURL.openStream()));
+
+            stage.setScene(scene);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

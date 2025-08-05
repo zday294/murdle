@@ -16,13 +16,6 @@ public class MurdleApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1800, 1200);
         scene.getStylesheets().add(getClass().getResource("style/application.css").toExternalForm());
         scene.getStylesheets().add(getClass().getResource("style/mainmenu/main-menu.css").toExternalForm());
-//        try (InputStream is = this.getClass().getResourceAsStream("/org/zday/murdle/data/config/level-select-resources.json")) {
-//            ResourceDirectoryLoader resourceDirectoryLoader = (new ObjectMapper()).readValue(is, ResourceDirectoryLoader.class);
-//            scene.getStylesheets().addAll(resourceDirectoryLoader.load());
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-
         URL iconURL = getClass().getResource("data/images/murdle-icon.png");
         stage.getIcons().add(new Image(iconURL.openStream()));
 

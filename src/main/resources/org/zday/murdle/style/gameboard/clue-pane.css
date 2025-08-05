@@ -52,6 +52,11 @@
     -fx-text-fill: -hint-grey;
     -fx-wrap-text: true;
 }
+
 .last-clue {
     -fx-text-fill: -murdle-red;
+}
+
+.clue-pane {
+    -fx-padding: 0 0 40 0;
 }
