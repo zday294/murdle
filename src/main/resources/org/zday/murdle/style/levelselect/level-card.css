@@ -3,6 +3,8 @@
 }
 
 .level-card {
+    -fx-min-width: 200;
+    -fx-min-height: 160;
     -fx-pref-width: 400;
     -fx-pref-height: 320;
 }
@@ -13,7 +15,7 @@
 }
 
 .level-title-link {
-    -fx-pref-width: 350;
+    -fx-pref-width: 300;
     -fx-pref-height: 60;
     -fx-alignment: CENTER;
     -fx-text-alignment: CENTER;

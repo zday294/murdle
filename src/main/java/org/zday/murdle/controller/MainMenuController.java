@@ -47,7 +47,7 @@ public class MainMenuController implements Initializable {
     private void playGame() {
         try(InputStream is = this.getClass().getResourceAsStream("/org/zday/murdle/data/config/level-select-resources.json")) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/zday/murdle/view/level-select-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 1800, 1200);
+            Scene scene = new Scene(fxmlLoader.load(), titleImage.getScene().getWidth(), titleImage.getScene().getHeight());
             scene.getStylesheets().add(getClass().getResource("/org/zday/murdle/style/application.css").toExternalForm());
 
             ResourceDirectoryLoader resourceDirectoryLoader = (new ObjectMapper()).readValue(is, ResourceDirectoryLoader.class);

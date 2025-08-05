@@ -95,7 +95,10 @@ public class LevelSelectController implements Initializable {
         lockedLevelCard.getStyleClass().addAll("card", "level-card", "locked-level");
 
         ImageView imageView = new ImageView();
+//        imageView.prefWidth(200);
         imageView.setFitWidth(200);
+        imageView.maxWidth(200);
+        imageView.minWidth(100);
         imageView.setPreserveRatio(true);
         imageView.setImage(new Image(getClass().getResourceAsStream("/org/zday/murdle/data/images/magnifying-glass.png")));
 
@@ -108,7 +111,10 @@ public class LevelSelectController implements Initializable {
         levelCard.getStyleClass().addAll("card","level-card");
 
         ImageView imageView = new ImageView();
-        imageView.setFitWidth(300);
+//        imageView.setFitWidth(300);
+//        imageView.prefWidth(300);
+        imageView.maxWidth(300);
+        imageView.minWidth(100);
         imageView.setPreserveRatio(true);
         imageView.setImage(level.getImage());
 
@@ -117,6 +123,7 @@ public class LevelSelectController implements Initializable {
         titleLinkLabel.setText(level.getName());
         titleLinkLabel.setOnAction(e -> loadLevel(level.getCaseFileName()));
 
+        imageView.fitWidthProperty().bind(titleLinkLabel.widthProperty());
 
         Label difficultyLabel = new Label();
         difficultyLabel.getStyleClass().add("level-difficulty-label");
@@ -132,7 +139,7 @@ public class LevelSelectController implements Initializable {
             GameStateManager.getInstance().loadMurderCase(caseFileName);
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/zday/murdle/view/case-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 1800, 1200);
+            Scene scene = new Scene(fxmlLoader.load(), leftPane.getScene().getWidth(), leftPane.getScene().getHeight());
             scene.getStylesheets().add(getClass().getResource("/org/zday/murdle/style/application.css").toExternalForm());
 
             ResourceDirectoryLoader resourceDirectoryLoader = (new ObjectMapper()).readValue(is, ResourceDirectoryLoader.class);
@@ -154,7 +161,7 @@ public class LevelSelectController implements Initializable {
     private void returnToMainMenu() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/zday/murdle/view/main-menu-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 1800, 1200);
+            Scene scene = new Scene(fxmlLoader.load(), leftPane.getScene().getWidth(), leftPane.getScene().getHeight());
             scene.getStylesheets().add(getClass().getResource("/org/zday/murdle/style/application.css").toExternalForm());
             scene.getStylesheets().add(getClass().getResource("/org/zday/murdle/style/mainmenu/main-menu.css").toExternalForm());
             URL iconURL = getClass().getResource("/org/zday/murdle/data/images/murdle-icon.png");
