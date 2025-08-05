@@ -29,7 +29,7 @@ public class LevelManager {
         }
     }
 
-    private List<Level> getLevelPage(int pageNumber) {
+    protected List<Level> getLevelPage(int pageNumber) {
         int startingLevelIndex = indexFromPageNumber(pageNumber);
         List<Level> levelPage = new ArrayList<>();
         for (int i = startingLevelIndex; i < Math.min(levelList.size(), startingLevelIndex+6); i++ ){
