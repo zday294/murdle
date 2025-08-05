@@ -7,15 +7,20 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.image.ImageView?>
-<VBox xmlns="http://javafx.com/javafx"
+<HBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="org.zday.murdle.controller.MainMenuController"
-      prefHeight="400.0" prefWidth="600.0"
       styleClass="main-menu"
+
 >
 
-    <ImageView fx:id="titleImage"/>
-    <Button text="Play" styleClass="menu-button" onAction="#playGame"/>
-    <Button text="Quit" styleClass="menu-button" onAction="#quitGame"/>
+    <Label styleClass="buffer-label"/>
+    <VBox fx:id="mainMenuColumn" styleClass="main-menu-column">
+        <ImageView fx:id="titleImage"/>
+        <Button text="Play" styleClass="menu-button" onAction="#playGame"/>
+        <Button text="Quit" styleClass="menu-button" onAction="#quitGame"/>
+    </VBox>
+    <Label styleClass="buffer-label"/>
 
-</VBox>
+
+</HBox>

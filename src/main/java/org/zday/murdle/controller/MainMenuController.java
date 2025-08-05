@@ -2,6 +2,7 @@ package org.zday.murdle.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.application.Platform;
+import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -9,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.zday.murdle.model.game.GameStateManager;
 import org.zday.murdle.util.ResourceDirectoryLoader;
@@ -23,10 +25,16 @@ public class MainMenuController implements Initializable {
     @FXML
     ImageView titleImage;
 
+    @FXML
+    VBox mainMenuColumn;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         titleImage.setImage(new Image(getClass().getResourceAsStream("/org/zday/murdle/data/images/murdle-title.png")));
-        titleImage.setFitWidth(1000);
+        titleImage.fitWidthProperty().bind(mainMenuColumn.widthProperty());
+        titleImage.maxWidth(mainMenuColumn.getMaxWidth());
+        titleImage.minWidth(mainMenuColumn.getMinWidth());
+
         titleImage.setPreserveRatio(true);
     }
 

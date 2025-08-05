@@ -1,9 +1,10 @@
 .main-menu {
     -fx-background-color: -volume-one-red;
     -fx-alignment: CENTER;
-    -fx-pref-width: 1800;
-    -fx-pref-height: 1200;
-    -fx-spacing: 10;
+    -fx-max-width: 1800;
+    -fx-max-height: 1200;
+    -fx-min-width: 600;
+    -fx-min-height: 400;
 }
 
 .menu-button {
@@ -14,4 +15,18 @@
     -fx-background-color: -card-background-cream;
     -fx-border-color: black;
     -fx-effect: dropshadow(one-pass-box, rgb(255,255,255), 2, 1, 2, 2);
+}
+
+.main-menu-column {
+    -fx-alignment: CENTER;
+    -fx-spacing: 10;
+    -fx-max-width: 800;
+    -fx-min-width: 100;
+    -fx-pref-width: 800;
+}
+
+.buffer-label {
+    -fx-pref-width: 100;
+    -fx-min-width: 60;
+    -fx-max-width: 400
 }
