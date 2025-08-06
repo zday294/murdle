@@ -210,8 +210,8 @@ public class CaseController implements Initializable {
     }
 
     private void createClueDisplay() {
-//        cluePane.setPrefHeight(Region.USE_COMPUTED_SIZE);
-        cluePane.setPrefWidth(Region.USE_COMPUTED_SIZE);
+        cluePane.maxWidthProperty().bind(clueScrollPane.widthProperty());
+        cluePane.prefWidthProperty().bind(clueScrollPane.prefWidthProperty());
 
         titleLabel.setText(GameStateManager.getInstance().getMurderCase().getTitle());
         caseDescriptionLabel.setText(GameStateManager.getInstance().getMurderCase().getDescription());

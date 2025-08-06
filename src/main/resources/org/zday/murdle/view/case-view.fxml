@@ -7,7 +7,7 @@
     <VBox>
         <Button text="Back" styleClass="back-button" onAction="#returnToLevelSelect"/>
     </VBox>
-    <ScrollPane maxWidth="1000" minWidth="500" fx:id="clueScrollPane">
+    <ScrollPane fx:id="clueScrollPane" styleClass="clue-scroll-pane">
         <VBox fx:id="cluePane" styleClass="clue-pane">
             <Label fx:id="titleLabel" styleClass="case-title"/>
 

@@ -4,8 +4,8 @@
 }
 
 .suspect-card {
-    -fx-min-width: 300;
-    -fx-max-height: 600;
+    -fx-min-width: 200;
+    -fx-max-height: 1200;
     -fx-pref-width: 500;
     -fx-pref-height: 450;
 }
@@ -13,7 +13,7 @@
 .suspect-label {
     -fx-wrap-text: true;
     -fx-padding: 5;
-    -fx-min-width: 250;
+    -fx-min-width: 190;
     -fx-pref-width: 500;
 }
 
