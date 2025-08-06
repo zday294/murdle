@@ -5,7 +5,9 @@
 }
 
 .clue-list-pane {
-    -fx-max-width: 500;
+    -fx-max-width: 700;
+    -fx-min-width: 300;
+    -fx-pref-width: 700;
     -fx-alignment: CENTER-LEFT;
     -fx-background-color: -card-background-cream;
     -fx-border-radius: 10;
@@ -26,6 +28,7 @@
 
 .case-description {
     -fx-wrap-text: true;
+    -fx-min-width: 300;
     -fx-pref-width: 500;
     -fx-padding: 10 0 10 0;
 }
@@ -42,6 +45,7 @@
 }
 
 .clue-list-title {
+    -fx-min-width: 300;
     -fx-pref-width: 500;
     -fx-underline: true;
     -fx-alignment: CENTER;

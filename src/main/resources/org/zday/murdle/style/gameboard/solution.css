@@ -1,5 +1,6 @@
 .combo-box{
-    -fx-min-width: 400;
+    -fx-min-width: 200;
+    -fx-pref-width: 400;
     -fx-border-color: black;
     -fx-background-color: white;
     -fx-border-width: 2;
@@ -26,7 +27,8 @@
 }
 
 .submit-solution-button {
-    -fx-min-width: 400;
+    -fx-min-width: 200;
+    -fx-pref-width: 400;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-background-color: -murdle-red;

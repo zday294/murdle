@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.zday.murdle.model.game.GameStateManager;
@@ -63,6 +64,9 @@ public class CaseController implements Initializable {
     @FXML
     private Label resolutionLabel;
 
+    @FXML
+    private ScrollPane clueScrollPane;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         createNotebook();
@@ -114,8 +118,7 @@ public class CaseController implements Initializable {
         boardHeaderPane = new GridPane();
 
         Label bufferLabel = new Label();
-        bufferLabel.setMinHeight(60);
-        bufferLabel.setMinWidth(60);
+        bufferLabel.getStyleClass().add("suspect-header-icon");
 
         boardHeaderPane.add(bufferLabel, 0, 0);
 
@@ -207,6 +210,9 @@ public class CaseController implements Initializable {
     }
 
     private void createClueDisplay() {
+//        cluePane.setPrefHeight(Region.USE_COMPUTED_SIZE);
+        cluePane.setPrefWidth(Region.USE_COMPUTED_SIZE);
+
         titleLabel.setText(GameStateManager.getInstance().getMurderCase().getTitle());
         caseDescriptionLabel.setText(GameStateManager.getInstance().getMurderCase().getDescription());
         caseDescriptionLabel.getStyleClass().addAll( "clue-pane","case-description");
