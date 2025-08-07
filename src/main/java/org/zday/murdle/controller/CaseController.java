@@ -14,6 +14,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.controlsfx.control.spreadsheet.Grid;
 import org.zday.murdle.model.game.GameStateManager;
 import org.zday.murdle.model.game.murdercase.suspect.Person;
 import org.zday.murdle.model.game.murdercase.suspect.Suspect;
@@ -165,7 +166,7 @@ public class CaseController implements Initializable {
         GameStateManager.getInstance().clearBoard();
     }
 
-    private Optional<HBox> drawBoardRow(List<Optional<Block>> blockOpts ) {
+    private Optional<HBox> drawBoardRow(List<Optional<Block>> blockOpts) {
         if (!blockOpts.isEmpty() && blockOpts.get(0).isPresent()){
             HBox row = new HBox();
             GridPane sideHeaderPane = new GridPane();
@@ -177,14 +178,29 @@ public class CaseController implements Initializable {
             row.getChildren().add(sideHeaderPane);
 
             blockOpts.forEach(blockOpt -> blockOpt.ifPresent(block -> row.getChildren().add(drawBlock(block))));
+            int bufferBlockCount = blockOpts.stream().filter(Optional::isEmpty).toList().size() - (GameStateManager.getInstance().getMurderCase().getMotiveList() == null ? 1 : 0);
+            for (int i = 0; i < bufferBlockCount; i++) {
+                row.getChildren().add(drawBufferBlock(blockOpts.get(0).get().getRowsList().size()));
+            }
             return Optional.of(row);
         } else {
             return Optional.empty();
         }
     }
 
+    private GridPane drawBufferBlock(int size) {
+        GridPane gridPane = new GridPane();
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                Label label = new Label();
+                label.getStyleClass().add("suspect-header-icon");
+                gridPane.add(label, i, j);
+            }
+        }
+        return gridPane;
+    }
+
     private GridPane drawBlock(Block block) {
-        //create grid
         GridPane gridPane = new GridPane();
         gridPane.getStyleClass().add("board-block");
 
@@ -205,7 +221,6 @@ public class CaseController implements Initializable {
         Label headerLabel = new Label(icon);
         headerLabel.setTooltip(new Tooltip(tooltip));
         headerLabel.getStyleClass().add("suspect-header-icon");
-
         return headerLabel;
     }
 
