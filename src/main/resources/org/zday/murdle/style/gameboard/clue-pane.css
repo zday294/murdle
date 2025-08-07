@@ -35,6 +35,7 @@
 
 .case-clue {
     -fx-wrap-text: true;
+    -fx-font-weight: bold;
     -fx-padding: 5;
 }
 
@@ -46,7 +47,7 @@
 
 .clue-list-title {
     -fx-min-width: 300;
-    -fx-pref-width: 500;
+    -fx-font-weight: bold;
     -fx-underline: true;
     -fx-alignment: CENTER;
 }

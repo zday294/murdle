@@ -68,12 +68,14 @@ public class CaseController implements Initializable {
     @FXML
     private ScrollPane clueScrollPane;
 
+    @FXML
+    private Label clueListPaneTitleLabel;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         createNotebook();
         createClueDisplay();
     }
-
 
     public void showHint() {
         Alert hintAlert = new Alert(Alert.AlertType.INFORMATION);
@@ -231,6 +233,8 @@ public class CaseController implements Initializable {
         titleLabel.setText(GameStateManager.getInstance().getMurderCase().getTitle());
         caseDescriptionLabel.setText(GameStateManager.getInstance().getMurderCase().getDescription());
         caseDescriptionLabel.getStyleClass().addAll( "clue-pane","case-description");
+
+        clueListPaneTitleLabel.prefWidthProperty().bind(clueListPane.widthProperty());
 
         createSuspectCards(GameStateManager.getInstance().getMurderCase().getSuspectListByType(SuspectType.PERSON));
         drawSuspectCardControls();

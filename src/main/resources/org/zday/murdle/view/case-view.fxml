@@ -18,7 +18,7 @@
 
 
             <VBox fx:id="clueListPane" styleClass="clue-list-pane">
-                <Label text="Clues and Evidence" styleClass="clue-list-title"/>
+                <Label text="Clues and Evidence" fx:id="clueListPaneTitleLabel" styleClass="clue-list-title"/>
             </VBox>
 
             <VBox fx:id="suspectStatementsPane" styleClass="clue-list-pane">
