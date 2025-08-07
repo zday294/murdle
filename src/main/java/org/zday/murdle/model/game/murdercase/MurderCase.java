@@ -46,7 +46,7 @@ public class MurderCase {
         final String IS_WRONG = "Inspector Irratino is confident that you're wrong about everything.";
 
         List<String> correctAnswers = getSuspectTypes().stream()
-                .map(type -> type.name().toLowerCase())
+                .map(Enum::name)
                 .filter(solutionMap::get)
                 .toList();
 
