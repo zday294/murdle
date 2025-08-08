@@ -1,5 +1,5 @@
 {
-    "name": "Wasted in the Wegner Wing",
+    "title": "Wasted in the Wegner Wing",
     "description": "The Detective arrived at the hospital to deliver his nephew to his sister who herself had just delivered a little girl. The Detective was delighted to introduce himself to his neice and his nephew was delighted to explain all about the summer camp murder to his mother, who was horrified. However, before the Detective could explain, another murder happened, right there in the hospital. Man, who would expect death in a place with dying people?",
     "personList": [
         {
@@ -32,5 +32,65 @@
             "astrologicalSign": "Pisces",
             "height": "5'8\""
         }
-    ]
+    ],
+    "weaponList" : [
+        {
+            "name": "Pocket-Sized Ball",
+            "description": "This red and white ball has a button on it. I wonder what could be inside?",
+            "icon": "⚾️",
+            "weight": "LIGHT",
+            "madeOf": "metal"
+        },
+        {
+            "name": "Fluid-filled Syringe",
+            "description": "The fluid in this syringe is a vibrant chartreuse. Hopefully that's just the color.",
+            "icon": "💉",
+            "weight": "LIGHT",
+            "madeOf": "glass, metal, and mystery fluid"
+        },
+        {
+            "name": "Pen",
+            "description": "It's an ordinary pen. Which can still be good for stabbing.",
+            "icon": "🖊️",
+            "weight": "LIGHT",
+            "madeOf": "plastic and metal"
+        }
+    ],
+    "locationList": [
+        {
+            "name": "Office",
+            "description": "A normal office for normal things like signing paper work. It even offers complete privacy.",
+            "icon": "🗄️",
+            "doorness": "INDOORS"
+        },
+        {
+            "name": "Stairwell",
+            "description": "A perfect place to get away from it all. Especially if \"it all\" includes the scene of a crime.",
+            "icon": "🪜",
+            "doorness": "INDOORS"
+        },
+        {
+            "name": "Roof",
+            "description": "If you're looking for some fresh air, might as well come up here. For some reason, the staff can't be bothered to lock the door.",
+            "icon": "🏥",
+            "doorness": "OUTDOORS"
+        }
+    ],
+    "cluesList": [
+        "Mysterious fluid was found in the stairwell.",
+        "Nurse Rose did not have a weapon made of glass or plastic.",
+        "The pen was not where it belonged.",
+        "Administrator Vermillion was not indoors.",
+        "The corpse was found at the bottom of a flight of stairs."
+    ],
+    "hint": "The Oracle asked the spirits who said they saw Doctor Danube with a syringe",
+    "resolution": {
+        "correctSolution": {
+            "person": "Doctor Danube",
+            "location": "Stairwell",
+            "weapon": "Fluid-filled Syringe"
+        },
+        "resolutionText": "Doctor Danube responded to the accusation with a lot of words. Unfortunately, the Detective's short list of known languages did not include German, so he would never know what very incriminating statements the doctor was most surely making in his native tongue. Shrugging, the Detective said goodbye to his sister and her family before heading on out."
+
+    }
 }
