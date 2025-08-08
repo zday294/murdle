@@ -1,0 +1,36 @@
+{
+    "name": "Wasted in the Wegner Wing",
+    "description": "The Detective arrived at the hospital to deliver his nephew to his sister who herself had just delivered a little girl. The Detective was delighted to introduce himself to his neice and his nephew was delighted to explain all about the summer camp murder to his mother, who was horrified. However, before the Detective could explain, another murder happened, right there in the hospital. Man, who would expect death in a place with dying people?",
+    "personList": [
+        {
+            "name": "Doctor Danube",
+            "description": "A renowned German surgeon known for separating conjoined twins and an unsettling smile. He plans on retiring to the German countryside soon. Something about wanting to focus on some personal resarch.",
+            "icon": "🥼",
+            "hairColor": "Black",
+            "eyeColor": "Brown",
+            "handedness": "Left",
+            "astrologicalSign": "Aquarius",
+            "height": "5'10\""
+        },
+        {
+            "name": "Administrator Vermillion",
+            "description": "The hospital administrator and Dean of Medicine is usually busy trying to wrangle the genius running a department found in no other hostpital. Stressed as she is, perhaps she needs a way to let off some steam.",
+            "icon": "💃",
+            "hairColor": "Black",
+            "eyeColor": "Grey",
+            "handedness": "Right",
+            "astrologicalSign": "Gemini",
+            "height": "5'6\""
+        },
+        {
+            "name": "Nurse Rose",
+            "description": "Her bubly personality is very unique. Just like her 16 sisters working at the other hospitals in the region. Though it's weird that she's here given she's trained to treat animals.",
+            "icon": "🌹",
+            "hairColor": "Pink",
+            "eyeColor": "Blue",
+            "handedness": "Left",
+            "astrologicalSign": "Pisces",
+            "height": "5'8\""
+        }
+    ]
+}
