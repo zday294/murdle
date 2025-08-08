@@ -20,6 +20,7 @@ import org.zday.murdle.model.game.murdercase.suspect.Person;
 import org.zday.murdle.model.game.murdercase.suspect.Suspect;
 import org.zday.murdle.model.game.murdercase.suspect.SuspectType;
 import org.zday.murdle.model.game.notebook.Block;
+import org.zday.murdle.model.game.notebook.Box;
 import org.zday.murdle.util.ResourceDirectoryLoader;
 import org.zday.murdle.view.component.StateButton;
 
@@ -114,7 +115,6 @@ public class CaseController implements Initializable {
                 .ifPresent(row -> newBoardPane.getChildren().add(row));
 
         boardPane = newBoardPane;
-
     }
 
     private void drawBoardHeader() {
@@ -196,6 +196,7 @@ public class CaseController implements Initializable {
             for (int j = 0; j < size; j++) {
                 Label label = new Label();
                 label.getStyleClass().add("suspect-header-icon");
+                label.prefHeightProperty().bind(label.widthProperty());
                 gridPane.add(label, i, j);
             }
         }
@@ -204,7 +205,7 @@ public class CaseController implements Initializable {
 
     private GridPane drawBlock(Block block) {
         GridPane gridPane = new GridPane();
-        gridPane.getStyleClass().add("board-block");
+//        gridPane.getStyleClass().add("board-block");
 
         for (int i = 0; i < block.getRowsList().size(); i++) {
             for (int j = 0; j < block.getRowsList().get(i).getBoxes().size(); j++) {
@@ -212,10 +213,15 @@ public class CaseController implements Initializable {
                 stateButton.setBox(block.getRowsList().get(i).getBoxes().get(j));
                 stateButton.setOnAction(e -> stateButton.updateState());
                 stateButton.textProperty().bind(stateButton.getBox().stateIconProperty());
+//                stateButton.maxHeightProperty().bind(stateButton.widthProperty());
+//                stateButton.prefHeightProperty().bind(stateButton.prefWidthProperty());
+//                stateButton.minHeightProperty().bind(stateButton.widthProperty());
+//                stateButton.getBox().setState(Box.BoxState.UNMARKED);
+//                System.out.println("StateButton - width: " + stateButton.widthProperty().getValue() + ", height: " + stateButton.heightProperty().getValue() + ", state: " + stateButton.getBox().getState());
+
                 gridPane.add(stateButton, i, j);
             }
         }
-
         return gridPane;
     }
 
@@ -223,6 +229,7 @@ public class CaseController implements Initializable {
         Label headerLabel = new Label(icon);
         headerLabel.setTooltip(new Tooltip(tooltip));
         headerLabel.getStyleClass().add("suspect-header-icon");
+        headerLabel.prefHeightProperty().bind(headerLabel.widthProperty());
         return headerLabel;
     }
 
