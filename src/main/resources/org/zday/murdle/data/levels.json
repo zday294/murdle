@@ -1,7 +1,7 @@
 [
   {
     "name": "House on Wilson Street",
-    "caseFileName": "zach-test-case.json",
+    "caseFileName": "house-on-wilson-street.json",
     "difficulty": 1,
     "caseImageFile": "house-on-wilson-street.png"
   },

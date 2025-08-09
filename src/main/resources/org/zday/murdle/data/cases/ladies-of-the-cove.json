@@ -1,0 +1,58 @@
+{
+    "title": "Ladies of the Cove",
+    "description": "Needing to relax after a week of class and murder, the Detective went to a sleepy little seaside town. Unfortunately, the kind of rest that people seem to get here is less \"a good night's\" and more \"in peace\". So it was back to the old murder board for the Detective.",
+    "personList": [
+        {
+            "name": "Ms. Archer",
+            "description": "A widow with a penchant for murder mysteries. Some people wonder if she's been acting out her books in real life.",
+            "icon": "✍️",
+            "hairColor": "Red",
+            "eyeColor": "Blue",
+            "handedness": "Right",
+            "astrologicalSign": "Libra",
+            "height": "5'6\"",
+            "statement": ""
+        },
+        {
+            "name": "Ms. Poppy",
+            "description": "A fan of murder mystery stories. Hopefully she's not the type to make one of her own.",
+            "icon": "🌹",
+            "hairColor": "Blonde",
+            "eyeColor": "Brown",
+            "handedness": "Right",
+            "astrologicalSign": "Leo",
+            "height": "5'7\"",
+            "statement": ""
+        },
+        {
+            "name": "Mrs. Curls",
+            "description": "A hair salon owner and wife of a clown. That's how she describes him at least. He's at least got great hair.",
+            "icon": "🤡",
+            "hairColor": "Black",
+            "eyeColor": "Brown"
+        }
+    ],
+    "weaponList": [
+        {
+            "name": "Typewriter",
+            "description": "A charming if outdated piece of hardware.",
+            "icon": "⌨️",
+            "weight": "HEAVY",
+            "madeOf": "metal"
+        },
+        {
+            "name": "Shears",
+            "description": "Shiny. Hope they stay just the right distance from your neck.",
+            "icon": "✂️",
+            "weight": "LIGHT",
+            "madeOf": "metal"
+        },
+        {
+            "name": "Murder Mystery Collection",
+            "description": "A lovely little book of murder mysteries. Hopefully all of which live entirely in the realm of imagination.",
+            "icon": "📖",
+            "weight": "MEDIUM",
+            "madeOf": ""
+        }
+    ]
+}
