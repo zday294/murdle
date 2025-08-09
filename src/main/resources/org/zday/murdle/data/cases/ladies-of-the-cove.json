@@ -60,27 +60,35 @@
         }
     ],
     "locationList": [
-      {
-        "name": "Bookstore",
-        "description": "It's known for a lot of murder stories. Usually fictional through.",
-        "icon": "📚",
-        "doorness": "INDOORS"
-      },
-      {
-        "name": "Salon",
-        "description": "The best place to learn about all the town's secrets. Maybe some of them should have stayed secret.",
-        "icon": "💅",
-        "doorness": "INDOORS"
-      },
-      {
-        "name": "City Hall",
-        "description": "A place of law. Whether upholding or breaking it is up to the people there.",
-        "icon": "🏢",
-        "doorness": "INDOORS"
-      }
+        {
+            "name": "Bookstore",
+            "description": "It's known for a lot of murder stories. Usually fictional though.",
+            "icon": "📚",
+            "doorness": "INDOORS"
+        },
+        {
+            "name": "Salon",
+            "description": "The best place to learn about all the town's secrets. Maybe some of them should have stayed secret.",
+            "icon": "💅",
+            "doorness": "INDOORS"
+        },
+        {
+            "name": "City Hall",
+            "description": "A place of law. Whether upholding or breaking it is up to the people there.",
+            "icon": "🏢",
+            "doorness": "INDOORS"
+        }
     ],
     "clueList": [
       "The Shears were held in a right hand.",
       "A blonde hair was found at the bookstore."
-    ]
+    ],
+    "resolution": {
+        "resolutionText": "Ms. Poppy smiled. Then she started laughing. She cackled until she ran out of breath before catching it and fixing the Detective with a sadistic smile. \"Happy sluething,\" she said. The detective felt mildly threatened and decided to not stay in the town long. Let the boys in blue handle the paperwork.",
+        "correctSolution": {
+            "person": "Ms. Poppy",
+            "weapon": "Shears",
+            "location": "Bookstore"
+        }
+    }
 }
