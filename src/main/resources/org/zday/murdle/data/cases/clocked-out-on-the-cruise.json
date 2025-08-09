@@ -1,0 +1,79 @@
+{
+    "title": "Clocked out on the Cruise",
+    "description": "Given the horror of yet another murder on yet another getaway, the Detective decided to go for another getaway, this time getting away from the apprarently cursed land. Unfortunately, his last minute booking on a late-season cruise turned out to have an early departure and a prematurely departed. The Detective was not happy to be awoken early by screams and a knocking at his door asking him to investigate.",
+    "personList": [
+        {
+            "name": "Captain Crisp",
+            "description": "He likes crisp salty air and suspiciously sweet breakfasts. Ideally at the same time on a precarious deck.",
+            "statement": "I saw Sous-Chef Sam with a Suspicious Gas"
+        },
+        {
+            "name": "Tourist Tony",
+            "description": "An incredibly athletic man who seems oddly proteective of his luggage. Supposedly he's here for a convention being held on board, though he won't say which one.",
+            "hairColor": "Red",
+            "eyeColor": "Grey",
+            "statement": "I did not bring a Faux Cat Tail."
+        },
+        {
+            "name": "Sous-Chef Sam",
+            "description": "This long-nosed man is world-renowned for his fruit donuts. Though, anyone who has said they all taste identical has been known to turn up... silenced.",
+            "statement": "I was in the Dining Room"
+        }
+    ],
+    "locationList": [
+        {
+            "name": "Walking Deck",
+            "description": "It's a long way down to the water. Thankfully that rail will definitely keep you from falling overboard.",
+            "icon": "🚢",
+            "doorness": "OUTDOORS"
+        },
+        {
+            "name": "Pool",
+            "icon": "💧",
+            "description": "Water, water, everywhere, but these drops are completely safe to swim in. As long as you completely ignore the caution signs.",
+            "doorness": "OUTDOORS"
+        },
+        {
+            "name": "Dining Room",
+            "description": "They say your last meal here is the best.",
+            "icon": "🍽️",
+            "doorness": "INDOORS"
+        }
+    ],
+    "weaponList": [
+        {
+            "name": "Faux Cat Tail",
+            "description": "This orange and black striped tail looks like part of a costume.",
+            "icon": "🐯",
+            "weight": "LIGHT",
+            "madeOf": "fake fur"
+        },
+        {
+            "name": "Suspicious Gas",
+            "description": "It smells oddly fruity. Up to the point your lungs start foaming at least.",
+            "icon": "💨",
+            "weight": "LIGHT",
+            "madeOf": "gas"
+        },
+        {
+            "name": "Box of Razors",
+            "description": "For some reason, these oddly sharp objects are in a colorful, cardboard box.",
+            "icon": "🔪",
+            "weight": "MEDIUM",
+            "madeOf": "metal"
+        }
+    ],
+    "cluesList": [
+        "Captain Crisp was annoyed with the person at the pool",
+        "A Box of Razors was not in the dining room"
+    ],
+    "resolution": {
+        "resolutionText": "",
+        "correctSolution": {
+            "person": "Tourist Tony",
+            "weapon": "Faux Cat Tail",
+            "location": "Pool"
+        }
+    }
+
+}
