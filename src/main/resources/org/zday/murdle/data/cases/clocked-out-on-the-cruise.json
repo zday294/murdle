@@ -5,18 +5,34 @@
         {
             "name": "Captain Crisp",
             "description": "He likes crisp salty air and suspiciously sweet breakfasts. Ideally at the same time on a precarious deck.",
+            "icon": "⚓️",
+            "hairColor": "White",
+            "eyeColor": "Blue",
+            "handedness": "Left",
+            "astrologicalSign": "Aquarius",
+            "height": "6'0\"",
             "statement": "I saw Sous-Chef Sam with a Suspicious Gas"
         },
         {
             "name": "Tourist Tony",
             "description": "An incredibly athletic man who seems oddly proteective of his luggage. Supposedly he's here for a convention being held on board, though he won't say which one.",
+            "icon": "🐯",
             "hairColor": "Red",
             "eyeColor": "Grey",
+            "handedness": "Right",
+            "astrologicalSign": "Leo",
+            "height": "6'3\"",
             "statement": "I did not bring a Faux Cat Tail."
         },
         {
             "name": "Sous-Chef Sam",
             "description": "This long-nosed man is world-renowned for his fruit donuts. Though, anyone who has said they all taste identical has been known to turn up... silenced.",
+            "icon": "🥘",
+            "hairColor": "Blue",
+            "eyeColor": "Brown",
+            "handedness": "Right",
+            "astrologicalSign": "Gemini",
+            "height": "5'2\"",
             "statement": "I was in the Dining Room"
         }
     ],
@@ -68,7 +84,7 @@
         "A Box of Razors was not in the dining room"
     ],
     "resolution": {
-        "resolutionText": "",
+        "resolutionText": "Tourist Tony growled as he was led away. \"My boys will get you someday, Detective. They're grreat!\" The Detective hoped to never meet Tourist Tony's boys, especially if they shared the interest he'd been hiding in his luggage. The Detective was gonna need a drink after all this.",
         "correctSolution": {
             "person": "Tourist Tony",
             "weapon": "Faux Cat Tail",
