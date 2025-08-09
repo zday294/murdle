@@ -11,7 +11,7 @@
             "handedness": "Right",
             "astrologicalSign": "Libra",
             "height": "5'6\"",
-            "statement": ""
+            "statement": "I was writing my latest book at the time of the murder."
         },
         {
             "name": "Ms. Poppy",
@@ -22,14 +22,18 @@
             "handedness": "Right",
             "astrologicalSign": "Leo",
             "height": "5'7\"",
-            "statement": ""
+            "statement": "I was reading from the Murder Mystery Collection."
         },
         {
             "name": "Mrs. Curls",
             "description": "A hair salon owner and wife of a clown. That's how she describes him at least. He's at least got great hair.",
             "icon": "🤡",
             "hairColor": "Black",
-            "eyeColor": "Brown"
+            "eyeColor": "Brown",
+            "handedness": "Left",
+            "astrologicalSign": "Cancer",
+            "height": "5'4\"",
+            "statement": "I saw Ms. Archer at City Hall."
         }
     ],
     "weaponList": [
@@ -42,7 +46,7 @@
         },
         {
             "name": "Shears",
-            "description": "Shiny. Hope they stay just the right distance from your neck.",
+            "description": "Shiny and sharp. Hope they stay just the right distance from your neck.",
             "icon": "✂️",
             "weight": "LIGHT",
             "madeOf": "metal"
@@ -52,7 +56,31 @@
             "description": "A lovely little book of murder mysteries. Hopefully all of which live entirely in the realm of imagination.",
             "icon": "📖",
             "weight": "MEDIUM",
-            "madeOf": ""
+            "madeOf": "paper"
         }
+    ],
+    "locationList": [
+      {
+        "name": "Bookstore",
+        "description": "It's known for a lot of murder stories. Usually fictional through.",
+        "icon": "📚",
+        "doorness": "INDOORS"
+      },
+      {
+        "name": "Salon",
+        "description": "The best place to learn about all the town's secrets. Maybe some of them should have stayed secret.",
+        "icon": "💅",
+        "doorness": "INDOORS"
+      },
+      {
+        "name": "City Hall",
+        "description": "A place of law. Whether upholding or breaking it is up to the people there.",
+        "icon": "🏢",
+        "doorness": "INDOORS"
+      }
+    ],
+    "clueList": [
+      "The Shears were held in a right hand.",
+      "A blonde hair was found at the bookstore."
     ]
 }
