@@ -22,7 +22,7 @@
             "handedness": "Right",
             "astrologicalSign": "Leo",
             "height": "5'7\"",
-            "statement": "I was reading from the Murder Mystery Collection."
+            "statement": "I was changing a lightbulb."
         },
         {
             "name": "Mrs. Curls",
@@ -52,11 +52,11 @@
             "madeOf": "metal"
         },
         {
-            "name": "Murder Mystery Collection",
-            "description": "A lovely little book of murder mysteries. Hopefully all of which live entirely in the realm of imagination.",
-            "icon": "📖",
+            "name": "Nice Lamp",
+            "description": "Whoah, nice lamp. Anyways.",
+            "icon": "💡",
             "weight": "MEDIUM",
-            "madeOf": "paper"
+            "madeOf": "glass"
         }
     ],
     "locationList": [
