@@ -1,0 +1,68 @@
+{
+    "title": "At the Corner of Thunder and Lightning",
+    "description": "It was a dark and stormy night at the port where the cruise ship landed. The Detective decided to go into town to find a good, stiff drink. What he actually found was a corpse. So much for that drink.",
+    "personList": [
+        {
+            "name": "Bartender Bob",
+            "description": "The Detective was planning on seeing this guy. He'd just hoped to be asking for a drink instead of an alibi.",
+            "icon": "🍺",
+            "hairColor": "None",
+            "eyeColor": "",
+            "handedness": "",
+            "astrologicalSign": "",
+            "height": ""
+        },
+        {
+            "name": "Barista Bailey",
+            "description": "She keeps offering an Irish Coffee. The Detective doesn't think he should accept.",
+            "icon": "☕️",
+            "hairColor": "Red",
+            "eyeColor": "Green"
+        },
+        {
+            "name": "Cab-driver Carl",
+            "description": ""
+        },
+        {
+            "name": "Shop-keeper Shiela",
+            "description": ""
+        }
+    ],
+    "weaponList": [
+        {
+            "name": "Poisoned Coffee",
+            "description": "The coffee smells delicious, but best not to drink it.",
+            "icon": "☕️",
+            "madeOf": "coffee and poison"
+        },
+        {
+            "name": "Glass Bottle",
+            "description": "It may have been filled with a delicious drink at some point. Now it's just good for bludgeoning.",
+            "icon": "🍾",
+            "madeOf": "glass"
+        },
+        {
+            "name": "Yellow Car",
+            "description": "There's a phone number on the side and a dent in the front.",
+            "icon": "🚕",
+            "madeOf": "metal and paint"
+        }
+    ],
+    "locationList": [
+        {
+            "name": "Sidewalk"
+        },
+        {
+            "name": "Alleyway"
+        },
+        {
+            "name": "Street Lamp"
+        },
+        {
+            "name": "Crosswalk"
+        }
+    ],
+    "clueList": [
+        "The corpse had yellow paint flecks on it."
+    ]
+}
