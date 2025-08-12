@@ -6,26 +6,41 @@
             "name": "Bartender Bob",
             "description": "The Detective was planning on seeing this guy. He'd just hoped to be asking for a drink instead of an alibi.",
             "icon": "🍺",
-            "hairColor": "None",
-            "eyeColor": "",
-            "handedness": "",
-            "astrologicalSign": "",
-            "height": ""
+            "hairColor": "Brown",
+            "eyeColor": "Blue",
+            "handedness": "Left",
+            "astrologicalSign": "Pisces",
+            "height": "6'0\""
         },
         {
             "name": "Barista Bailey",
             "description": "She keeps offering an Irish Coffee. The Detective doesn't think he should accept.",
             "icon": "☕️",
             "hairColor": "Red",
-            "eyeColor": "Green"
+            "eyeColor": "Green",
+            "handedness": "Right",
+            "astrologicalSign": "Aries",
+            "height": "5'6\""
         },
         {
             "name": "Cab-driver Carl",
-            "description": ""
+            "description": "He only accepts cash and never seems to have customers, yet he's always running around.",
+            "icon": "🚖",
+            "hairColor": "None",
+            "eyeColor": "Grey",
+            "handedness": "Right",
+            "astrologicalSign": "Gemini",
+            "height": "4'7\""
         },
         {
-            "name": "Shop-keeper Shiela",
-            "description": ""
+            "name": "Watch-seller Wesley",
+            "description": "He has the time of death. You can have it for a price.",
+            "icon": "⌚️",
+            "hairColor": "Grey",
+            "eyeColor": "Blue",
+            "handedness": "Left",
+            "astrologicalSign": "Taurus",
+            "height": "5'8\""
         }
     ],
     "weaponList": [
@@ -43,26 +58,84 @@
         },
         {
             "name": "Yellow Car",
-            "description": "There's a phone number on the side and a dent in the front.",
+            "description": "There's a phone number on the side, a dent in the front, and an oddly hearse-like hump in the back.",
             "icon": "🚕",
             "madeOf": "metal and paint"
+        },
+        {
+            "name": "Knife",
+            "description": "Small, simple, and silent. As murder weapons go, it's a classic.",
+            "icon": "🔪",
+            "madeOf": "metal"
         }
     ],
     "locationList": [
         {
-            "name": "Sidewalk"
+            "name": "Sidewalk",
+            "description": "The cracks here might break more than just yo mama's back.",
+            "icon": "🌃",
+            "doorness": "OUTDOORS"
         },
         {
-            "name": "Alleyway"
+            "name": "Alleyway",
+            "description": "Grease, grime, and garbage cover everything back here.",
+            "icon": "🗑️",
+            "doorness": "OUTDOORS"
         },
         {
-            "name": "Street Lamp"
+            "name": "Street Lamp",
+            "description": "If you want to make sure you're seen, you better believe this is the place to be.",
+            "icon": "🚏",
+            "doorness": "OUTDOORS"
         },
         {
-            "name": "Crosswalk"
+            "name": "Crosswalk",
+            "description": "Paint stripes and sideswipes meet in this little patch of danger.",
+            "icon": "🚶‍♂️",
+            "doorness": "OUTDOORS"
         }
     ],
-    "clueList": [
+    "motiveList": [
+        {
+            "name": "To keep a family recipe secret",
+            "description": "",
+            "icon": "🍔"
+        },
+        {
+            "name": "To silence a witness",
+            "description": "",
+            "icon": "🔇"
+        },
+        {
+            "name": "To hide an affair",
+            "description": "",
+            "icon": "💋"
+        },
+        {
+            "name": "To rob the victim",
+            "description": "",
+            "icon": "🔫"
+        }
+    ],
+    "cluesList": [
+        "Blue eyes were reflected in a blade.",
+        "The shortest suspect had a candy wrapper on their shoe.",
+        "The person who wanted to rob the victim was crossing the street.",
+        "Whoever was having an affair was the most visible.",
+        "Bartender Bob had finished his drink.",
+        "Someone in the 5' range was seen in the alleyway.",
+        "The person who wanted to rob the victim apparently wanted them caffeinated too.",
+        "A metal weapon was found on the sidewalk.",
+        "A Taurus knew a secret family recipe.",
         "The corpse had yellow paint flecks on it."
-    ]
+    ],
+    "resolution": {
+        "resolutionText": "",
+        "correctSolution": {
+            "person": "Watch-seller Wesley",
+            "weapon": "Yellow Car",
+            "location": "Alleyway",
+            "motive": "To keep a family recipe secret"
+        }
+    }
 }
