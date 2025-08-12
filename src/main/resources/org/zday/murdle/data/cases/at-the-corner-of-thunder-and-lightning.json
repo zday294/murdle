@@ -47,25 +47,29 @@
         {
             "name": "Oddly Sharp Umbrella",
             "description": "Seriously, you could poke a hole in a belt with this thing. ",
-            "icon": "☕️",
+            "icon": "☂️",
+            "weight": "MEDIUM",
             "madeOf": "metal and fabric"
         },
         {
             "name": "Glass Bottle",
             "description": "It may have been filled with a delicious drink at some point. Now it's just good for bludgeoning.",
             "icon": "🍾",
+            "weight": "MEDIUM",
             "madeOf": "glass"
         },
         {
             "name": "Yellow Car",
             "description": "There's a phone number on the side, a dent in the front, and an oddly hearse-like hump in the back.",
             "icon": "🚕",
+            "weight": "HEAVY",
             "madeOf": "metal and paint"
         },
         {
             "name": "Knife",
             "description": "Small, simple, and silent. As murder weapons go, it's a classic.",
             "icon": "🔪",
+            "weight": "LIGHT",
             "madeOf": "metal"
         }
     ],
@@ -91,7 +95,7 @@
         {
             "name": "Crosswalk",
             "description": "Paint stripes and sideswipes meet in this little patch of danger.",
-            "icon": "🚶‍♂️",
+            "icon": "🚶",
             "doorness": "OUTDOORS"
         }
     ],
@@ -118,23 +122,23 @@
         }
     ],
     "cluesList": [
-        "Blue eyes were reflected in a blade.",
+        "Grey eyes were reflected in a blade.",
         "The shortest suspect had a discarded candy wrapper on their shoe.",
         "The person who wanted to rob the victim was crossing the street.",
         "Whoever was having an affair was the most visible.",
         "Bartender Bob had finished his drink.",
         "Someone in the 5' range was seen on the sidewalk.",
         "The person who wanted to rob the victim had actually prepared for the weather.",
-        "A metal weapon was found on the sidewalk.",
+        "A heavy weapon was found on the sidewalk.",
         "A Taurus knew a secret family recipe.",
         "The corpse had yellow paint flecks on it."
     ],
     "resolution": {
-        "resolutionText": "",
+        "resolutionText": "As the Detective was explaining his deductions, Watch-seller Wesley glanced at the multitude of timepieces in his coat and said, \"Oh, look at the time. I must be going.\" Before the Detective or the police could grab him, he ran off toward the old church, presumably looking for sanctuary.",
         "correctSolution": {
             "person": "Watch-seller Wesley",
             "weapon": "Yellow Car",
-            "location": "Alleyway",
+            "location": "Sidewalk",
             "motive": "To keep a family recipe secret"
         }
     }
