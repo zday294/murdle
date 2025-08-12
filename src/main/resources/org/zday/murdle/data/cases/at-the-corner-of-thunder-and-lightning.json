@@ -45,10 +45,10 @@
     ],
     "weaponList": [
         {
-            "name": "Poisoned Coffee",
-            "description": "The coffee smells delicious, but best not to drink it.",
+            "name": "Oddly Sharp Umbrella",
+            "description": "Seriously, you could poke a hole in a belt with this thing. ",
             "icon": "☕️",
-            "madeOf": "coffee and poison"
+            "madeOf": "metal and fabric"
         },
         {
             "name": "Glass Bottle",
@@ -119,12 +119,12 @@
     ],
     "cluesList": [
         "Blue eyes were reflected in a blade.",
-        "The shortest suspect had a candy wrapper on their shoe.",
+        "The shortest suspect had a discarded candy wrapper on their shoe.",
         "The person who wanted to rob the victim was crossing the street.",
         "Whoever was having an affair was the most visible.",
         "Bartender Bob had finished his drink.",
-        "Someone in the 5' range was seen in the alleyway.",
-        "The person who wanted to rob the victim apparently wanted them caffeinated too.",
+        "Someone in the 5' range was seen on the sidewalk.",
+        "The person who wanted to rob the victim had actually prepared for the weather.",
         "A metal weapon was found on the sidewalk.",
         "A Taurus knew a secret family recipe.",
         "The corpse had yellow paint flecks on it."
