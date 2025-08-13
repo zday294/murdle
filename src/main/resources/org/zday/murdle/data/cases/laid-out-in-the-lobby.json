@@ -1,0 +1,113 @@
+{
+    "title": "Laid out in the Lobby",
+    "description": "Having finally come to his place of rest and obtained a good night cap, the Detective settled into bed in his hotel room. He had just gotten comfortable when, to his chagrin and dismay, he heard a scream. Throwing on enough clothing to be respectable, the Detective trudged down the stairs to find exactly what he'd come to expect at this point - a body, which happened to dead and surrounded by other living bodies who would all claim to be innocent. Oh well, time to open up the notebook.",
+    "personList": [
+        {
+            "name": "Bellboy",
+            "description": "",
+            "icon": "",
+            "eyeColor": "",
+            "hairColor": "",
+            "height": "",
+            "astrologicalSign": "",
+            "statement": ""
+        },
+        {
+            "name": "Night Auditor",
+            "description": "",
+            "icon": "",
+            "eyeColor": "",
+            "hairColor": "Blonde",
+            "height": "5'4\"",
+            "astrologicalSign": "",
+            "statement": ""
+        },
+        {
+            "name": "",
+            "description": "",
+            "icon": "",
+            "eyeColor": "",
+            "hairColor": "",
+            "height": "",
+            "astrologicalSign": "",
+            "statement": ""
+        },
+        {
+            "name": "Doorman",
+            "description": "What's with the barcode tattoo?",
+            "icon": "",
+            "eyeColor": "",
+            "hairColor": "Bald",
+            "height": "6'0\"",
+            "astrologicalSign": "",
+            "statement": ""
+        }
+    ],
+    "weaponList": [
+        {
+            "name": "",
+            "description": "",
+            "icon": "",
+            "weight": "",
+            "madeOf": ""
+        },
+        {
+            "name": "",
+            "description": "",
+            "icon": "",
+            "weight": "",
+            "madeOf": ""
+        },
+        {
+            "name": "",
+            "description": "",
+            "icon": "",
+            "weight": "",
+            "madeOf": ""
+        },
+        {
+            "name": "",
+            "description": "",
+            "icon": "",
+            "weight": "",
+            "madeOf": ""
+        }
+    ],
+    "locationList": [
+        {
+            "name": "Stairs",
+            "description": "",
+            "icon": "",
+            "doorness": ""
+        },
+        {
+            "name": "",
+            "description": "Front Desk",
+            "icon": "",
+            "doorness": ""
+        },
+        {
+            "name": "Lounge",
+            "description": "",
+            "icon": "",
+            "doorness": ""
+        },
+        {
+            "name": "Restaurant",
+            "description": "",
+            "icon": "",
+            "doorness": ""
+        }
+    ],
+    "motiveList": [
+        {
+            "name": "To complete a job"
+        },
+        {
+            "name": "To defend themself"
+        },
+        {
+            "name": ""
+        }
+    ]
+}
