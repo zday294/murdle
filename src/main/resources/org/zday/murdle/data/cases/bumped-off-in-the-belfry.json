@@ -34,11 +34,11 @@
         },
         {
             "name": "Groundskeeper Grey",
-            "description": "Those graves wont tend themselves.",
+            "description": "Those graves won't tend themselves. Or fill themselves either.",
             "icon": "🪦",
             "eyeColor": "Grey",
             "hairColor": "Grey",
-            "handedness": "Right",
+            "handedness": "Left",
             "astrologicalSign": "Taurus",
             "height": "6'4\""
         }
@@ -46,7 +46,7 @@
     "weaponList": [
         {
             "name": "Gravity",
-            "description": "Sometimes all you need is a little push.",
+            "description": "Sometimes all you need is a little push to use your potential.",
             "icon": "🍁",
             "weight": "LIGHT",
             "madeOf": "physics"
@@ -60,7 +60,7 @@
         },
         {
             "name": "Guilt",
-            "description": "Nothing pulls you down quite like your own actions",
+            "description": "Nothing weighs you down quite like your own actions.",
             "icon": "😔",
             "weight": "HEAVY",
             "madeOf": "memories and regret"
@@ -82,13 +82,13 @@
         },
         {
             "name": "Choir Loft",
-            "description": "",
-            "icon": "",
+            "description": "Some of the singing coming from here sounds like bloody murder.",
+            "icon": "🎤",
             "doorness": "INDOORS"
         },
         {
             "name": "Pews",
-            "description": "",
+            "description": "Those who occupy these plain, nearly-identical wooden benches might do anything to keep their secrets.",
             "icon": "🪑",
             "doorness": "INDOORS"
         },
@@ -127,10 +127,19 @@
         "Choir-boy Cyan had no interest in keeping the place clean.",
         "Blue eyes looked upon a Spooky Ghost",
         "The tallest suspect was also the highest.",
-        "",
+        "Red hair was discovered in the Choir Loft",
+        "Guilt was wielded by a Left-handed person",
+        "The person looking to hide occult activities was in a place that could be convenient for blood sacrifices",
+        "Either Organist Orange was at the Altar or Organist-orange wanted to get some peace and quiet (but not both)",
         "The pose of the corpse clearly indicated occult activities"
     ],
     "resolution": {
-
+        "resolutionText": "",
+        "correctSolution": {
+            "person": "Priest Purple",
+            "location": "Altar",
+            "weapon": "Guilt",
+            "motive": "To hide occult activities"
+        }
     }
 }
