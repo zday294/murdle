@@ -284,4 +284,9 @@ class MurderCaseTest {
         assertEquals("Inspector Irratino believes that you're right about the weapon, the location, and the motive.",
                 murderCaseWithMotive.askInspectorIrratino(weaponLocationMotive));
     }
+
+    //TODO: add a test for clearing murdercase.
+    // it should take two case jsons (could just steal one from the resources) and fake opening those jsons
+    // one json should be bogus and throw an error
+    // when the error is thrown, then check that the murdercase is null
 }

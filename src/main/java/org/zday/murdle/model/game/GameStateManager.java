@@ -32,6 +32,10 @@ public final class GameStateManager {
         }
     }
 
+    public void clearMurderCase() {
+        murderCase = null;
+    }
+
     public void createBoard() {
         gameBoard = ( murderCase.getMotiveList() == null || murderCase.getMotiveList().isEmpty()) ?
                 new Board(murderCase.getPersonList(), murderCase.getWeaponList(), murderCase.getLocationList())

@@ -205,7 +205,7 @@ public class CaseController implements Initializable {
 
     private GridPane drawBlock(Block block) {
         GridPane gridPane = new GridPane();
-//        gridPane.getStyleClass().add("board-block");
+        gridPane.getStyleClass().add("board-block");
 
         for (int i = 0; i < block.getRowsList().size(); i++) {
             for (int j = 0; j < block.getRowsList().get(i).getBoxes().size(); j++) {
@@ -213,10 +213,12 @@ public class CaseController implements Initializable {
                 stateButton.setBox(block.getRowsList().get(i).getBoxes().get(j));
                 stateButton.setOnAction(e -> stateButton.updateState());
                 stateButton.textProperty().bind(stateButton.getBox().stateIconProperty());
+
 //                stateButton.maxHeightProperty().bind(stateButton.widthProperty());
-//                stateButton.prefHeightProperty().bind(stateButton.prefWidthProperty());
-//                stateButton.minHeightProperty().bind(stateButton.widthProperty());
-//                stateButton.getBox().setState(Box.BoxState.UNMARKED);
+                stateButton.prefHeightProperty().bind(stateButton.widthProperty());
+                stateButton.minHeightProperty().bind(stateButton.widthProperty());
+                stateButton.getBox().setState(Box.BoxState.UNSURE);
+                stateButton.getBox().update();
 //                System.out.println("StateButton - width: " + stateButton.widthProperty().getValue() + ", height: " + stateButton.heightProperty().getValue() + ", state: " + stateButton.getBox().getState());
 
                 gridPane.add(stateButton, i, j);
@@ -257,7 +259,7 @@ public class CaseController implements Initializable {
         String checkStatement = GameStateManager.getInstance().getMurderCase().getPersonList().get(0).getStatement();
         if (checkStatement != null && !checkStatement.isEmpty()) {
             for (Person person: GameStateManager.getInstance().getMurderCase().getPersonList()) {
-                Label statementLabel = new Label(person.getName() + ": " + person.getStatement());
+                Label statementLabel = new Label( person.getIcon()+ " " + person.getName() + ": " + person.getStatement());
                 statementLabel.getStyleClass().add("case-clue");
                 suspectStatementsPane.getChildren().add(statementLabel);
             }

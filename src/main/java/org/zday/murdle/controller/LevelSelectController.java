@@ -135,6 +135,7 @@ public class LevelSelectController implements Initializable {
     }
 
     private void loadLevel(String caseFileName) {
+        GameStateManager.getInstance().clearMurderCase();
         try(InputStream is = this.getClass().getResourceAsStream("/org/zday/murdle/data/config/gameboard-resources.json")) {
             GameStateManager.getInstance().loadMurderCase(caseFileName);
 
