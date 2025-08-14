@@ -46,20 +46,20 @@ public class MurderCase {
         final String IS_WRONG = "Inspector Irratino is confident that you're wrong about everything.";
 
         List<String> correctAnswers = getSuspectTypes().stream()
-                .map(type -> type.name().toLowerCase())
+                .map(Enum::name)
                 .filter(solutionMap::get)
                 .toList();
 
         int numCorrectAnswers = correctAnswers.size();
         switch (numCorrectAnswers) {
             case 1 -> {
-                return IS_CORRECT + correctAnswers.get(0);
+                return IS_CORRECT + correctAnswers.get(0).toLowerCase();
             }
             case 2 -> {
-                return IS_CORRECT + correctAnswers.get(0) + " and the " + correctAnswers.get(1) + ".";
+                return IS_CORRECT + correctAnswers.get(0).toLowerCase() + " and the " + correctAnswers.get(1).toLowerCase() + ".";
             }
             case 3 -> {
-                return IS_CORRECT + correctAnswers.get(0) + ", the " + correctAnswers.get(1) + ", and the " + correctAnswers.get(2) + ".";
+                return IS_CORRECT + correctAnswers.get(0).toLowerCase() + ", the " + correctAnswers.get(1).toLowerCase() + ", and the " + correctAnswers.get(2).toLowerCase() + ".";
             }
             default -> {
                 return IS_WRONG;

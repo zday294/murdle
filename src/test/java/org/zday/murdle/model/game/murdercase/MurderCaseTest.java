@@ -183,37 +183,37 @@ class MurderCaseTest {
     @Test
     void askInspectorIrratino_noMotive() {
         // 0 correct
-        var noneCorrect = Map.of("person", false, "weapon", false, "location", false);
+        var noneCorrect = Map.of("PERSON", false, "WEAPON", false, "LOCATION", false);
         assertEquals("Inspector Irratino is confident that you're wrong about everything.",
                 murderCase.askInspectorIrratino(noneCorrect));
 
         // 1 correct: person
-        var personCorrect = Map.of("person", true, "weapon", false, "location", false);
+        var personCorrect = Map.of("PERSON", true, "WEAPON", false, "LOCATION", false);
         assertEquals("Inspector Irratino believes that you're right about the person",
                 murderCase.askInspectorIrratino(personCorrect));
 
         // 1 correct: weapon
-        var weaponCorrect = Map.of("person", false, "weapon", true, "location", false);
+        var weaponCorrect = Map.of("PERSON", false, "WEAPON", true, "LOCATION", false);
         assertEquals("Inspector Irratino believes that you're right about the weapon",
                 murderCase.askInspectorIrratino(weaponCorrect));
 
         // 1 correct: location
-        var locationCorrect = Map.of("person", false, "weapon", false, "location", true);
+        var locationCorrect = Map.of("PERSON", false, "WEAPON", false, "LOCATION", true);
         assertEquals("Inspector Irratino believes that you're right about the location",
                 murderCase.askInspectorIrratino(locationCorrect));
 
         // 2 correct: person and weapon
-        var personWeaponCorrect = Map.of("person", true, "weapon", true, "location", false);
+        var personWeaponCorrect = Map.of("PERSON", true, "WEAPON", true, "LOCATION", false);
         assertEquals("Inspector Irratino believes that you're right about the person and the weapon.",
                 murderCase.askInspectorIrratino(personWeaponCorrect));
 
         // 2 correct: person and location
-        var personLocationCorrect = Map.of("person", true, "weapon", false, "location", true);
+        var personLocationCorrect = Map.of("PERSON", true, "WEAPON", false, "LOCATION", true);
         assertEquals("Inspector Irratino believes that you're right about the person and the location.",
                 murderCase.askInspectorIrratino(personLocationCorrect));
 
         // 2 correct: weapon and location
-        var weaponLocationCorrect = Map.of("person", false, "weapon", true, "location", true);
+        var weaponLocationCorrect = Map.of("PERSON", false, "WEAPON", true, "LOCATION", true);
         assertEquals("Inspector Irratino believes that you're right about the weapon and the location.",
                 murderCase.askInspectorIrratino(weaponLocationCorrect));
     }
@@ -221,66 +221,66 @@ class MurderCaseTest {
     @Test
     void askInspectorIrratino_withMotive() {
         // 0 correct
-        var noneCorrect = Map.of("person", false, "weapon", false, "location", false, "motive", false);
+        var noneCorrect = Map.of("PERSON", false, "WEAPON", false, "LOCATION", false, "MOTIVE", false);
         assertEquals("Inspector Irratino is confident that you're wrong about everything.",
                 murderCaseWithMotive.askInspectorIrratino(noneCorrect));
 
         // 1 correct
-        var personCorrect = Map.of("person", true, "weapon", false, "location", false, "motive", false);
+        var personCorrect = Map.of("PERSON", true, "WEAPON", false, "LOCATION", false, "MOTIVE", false);
         assertEquals("Inspector Irratino believes that you're right about the person",
                 murderCaseWithMotive.askInspectorIrratino(personCorrect));
 
-        var weaponCorrect = Map.of("person", false, "weapon", true, "location", false, "motive", false);
+        var weaponCorrect = Map.of("PERSON", false, "WEAPON", true, "LOCATION", false, "MOTIVE", false);
         assertEquals("Inspector Irratino believes that you're right about the weapon",
                 murderCaseWithMotive.askInspectorIrratino(weaponCorrect));
 
-        var locationCorrect = Map.of("person", false, "weapon", false, "location", true, "motive", false);
+        var locationCorrect = Map.of("PERSON", false, "WEAPON", false, "LOCATION", true, "MOTIVE", false);
         assertEquals("Inspector Irratino believes that you're right about the location",
                 murderCaseWithMotive.askInspectorIrratino(locationCorrect));
 
-        var motiveCorrect = Map.of("person", false, "weapon", false, "location", false, "motive", true);
+        var motiveCorrect = Map.of("PERSON", false, "WEAPON", false, "LOCATION", false, "MOTIVE", true);
         assertEquals("Inspector Irratino believes that you're right about the motive",
                 murderCaseWithMotive.askInspectorIrratino(motiveCorrect));
 
         // 2 correct
-        var personWeapon = Map.of("person", true, "weapon", true, "location", false, "motive", false);
+        var personWeapon = Map.of("PERSON", true, "WEAPON", true, "LOCATION", false, "MOTIVE", false);
         assertEquals("Inspector Irratino believes that you're right about the person and the weapon.",
                 murderCaseWithMotive.askInspectorIrratino(personWeapon));
 
-        var personLocation = Map.of("person", true, "weapon", false, "location", true, "motive", false);
+        var personLocation = Map.of("PERSON", true, "WEAPON", false, "LOCATION", true, "MOTIVE", false);
         assertEquals("Inspector Irratino believes that you're right about the person and the location.",
                 murderCaseWithMotive.askInspectorIrratino(personLocation));
 
-        var personMotive = Map.of("person", true, "weapon", false, "location", false, "motive", true);
+        var personMotive = Map.of("PERSON", true, "WEAPON", false, "LOCATION", false, "MOTIVE", true);
         assertEquals("Inspector Irratino believes that you're right about the person and the motive.",
                 murderCaseWithMotive.askInspectorIrratino(personMotive));
 
-        var weaponLocation = Map.of("person", false, "weapon", true, "location", true, "motive", false);
+        var weaponLocation = Map.of("PERSON", false, "WEAPON", true, "LOCATION", true, "MOTIVE", false);
         assertEquals("Inspector Irratino believes that you're right about the weapon and the location.",
                 murderCaseWithMotive.askInspectorIrratino(weaponLocation));
 
-        var weaponMotive = Map.of("person", false, "weapon", true, "location", false, "motive", true);
+        var weaponMotive = Map.of("PERSON", false, "WEAPON", true, "LOCATION", false, "MOTIVE", true);
         assertEquals("Inspector Irratino believes that you're right about the weapon and the motive.",
                 murderCaseWithMotive.askInspectorIrratino(weaponMotive));
 
-        var locationMotive = Map.of("person", false, "weapon", false, "location", true, "motive", true);
+        var locationMotive = Map.of("PERSON", false, "WEAPON", false, "LOCATION", true, "MOTIVE", true);
         assertEquals("Inspector Irratino believes that you're right about the location and the motive.",
                 murderCaseWithMotive.askInspectorIrratino(locationMotive));
 
         // 3 correct
-        var personWeaponLocation = Map.of("person", true, "weapon", true, "location", true, "motive", false);
+        var personWeaponLocation = Map.of("PERSON", true, "WEAPON", true, "LOCATION", true, "MOTIVE", false);
         assertEquals("Inspector Irratino believes that you're right about the person, the weapon, and the location.",
                 murderCaseWithMotive.askInspectorIrratino(personWeaponLocation));
 
-        var personWeaponMotive = Map.of("person", true, "weapon", true, "location", false, "motive", true);
+        var personWeaponMotive = Map.of("PERSON", true, "WEAPON", true, "LOCATION", false, "MOTIVE", true);
         assertEquals("Inspector Irratino believes that you're right about the person, the weapon, and the motive.",
                 murderCaseWithMotive.askInspectorIrratino(personWeaponMotive));
 
-        var personLocationMotive = Map.of("person", true, "weapon", false, "location", true, "motive", true);
+        var personLocationMotive = Map.of("PERSON", true, "WEAPON", false, "LOCATION", true, "MOTIVE", true);
         assertEquals("Inspector Irratino believes that you're right about the person, the location, and the motive.",
                 murderCaseWithMotive.askInspectorIrratino(personLocationMotive));
 
-        var weaponLocationMotive = Map.of("person", false, "weapon", true, "location", true, "motive", true);
+        var weaponLocationMotive = Map.of("PERSON", false, "WEAPON", true, "LOCATION", true, "MOTIVE", true);
         assertEquals("Inspector Irratino believes that you're right about the weapon, the location, and the motive.",
                 murderCaseWithMotive.askInspectorIrratino(weaponLocationMotive));
     }
