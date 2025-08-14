@@ -1,0 +1,95 @@
+{
+  "title": "Camp Crystal Skull",
+  "description": "On the way back from the old foe's house, the detective stopped to pick up his nephew from summer camp. Unfortunately, it appeared that one of the counselors had been killed, which at least explained why camp was letting out early. But hey, it would make for an excellent essay about the summer when the kids went back to school.",
+  "personList": [
+    {
+      "name": "Director Pine",
+      "description": "A man who loves kids. As long as you're paying him to deal with them. He'd love anyone he was paid to deal with, but then again, he'd also hate anyone for the same reason.",
+      "icon": "🎅",
+      "hairColor": "Brown",
+      "eyeColor": "Green",
+      "handedness": "Right",
+      "astrologicalSign": "Cancer",
+      "height": "6'4\""
+    },
+    {
+      "name": "Life Guard Lilac",
+      "description": "A young woman working her way through college. Her job would be easier if the counselors were also watching the kids instead of hitting on her.",
+      "icon": "🛟",
+      "hairColor": "Blonde",
+      "eyeColor": "Brown",
+      "handedness": "Right",
+      "astrologicalSign": "Pisces",
+      "height": "5'9\""
+    },
+    {
+      "name": "Counselor Coral",
+      "description": "His actual name is Carl, but then the other counselors learned about his fondness for zombie fiction. The joke, similar to his favorite monster, just won't die.",
+      "icon": "🧟",
+      "hairColor": "Brown",
+      "eyeColor": "Blue",
+      "handedness": "Left",
+      "astrologicalSign": "Scorpio",
+      "height": "5'8\""
+    }
+  ],
+  "weaponList": [
+    {
+      "name": "Crystal Skull",
+      "description": "A very pretty skull. Would be a better souvenir than anything in the gift shop.",
+      "icon": "💀",
+      "weight": "MEDIUM",
+      "madeOf": "crystal"
+    },
+    {
+      "name": "Zip Line Cable",
+      "description": "Usually used to suspend smiling campers over the lake. Could probably be used for other kind of hang time though",
+      "icon": "🚠",
+      "weight": "HEAVY",
+      "madeOf": "metal"
+    },
+    {
+      "name": "Rusty Knife",
+      "description": "Given that this is usually used to prepare food here at camp, it's surprising it hasn't been involved in a case before.",
+      "icon": "🔪",
+      "weight": "LIGHT",
+      "madeOf": "metal and rust"
+    }
+  ],
+  "locationList": [
+    {
+      "name": "Cabins",
+      "description": "Where everyone sleeps. Usually not permanently though.",
+      "icon": "🏠",
+      "doorness": "INDOORS"
+    },
+    {
+      "name": "Lake",
+      "description": "Featuring water, logs, and people. Occasionally, water-logged people.",
+      "icon": "🌊",
+      "doorness": "OUTDOORS"
+    },
+    {
+      "name": "Mess Hall",
+      "description": "For anybody needing to stab some mystery meat, this is the place to find both the tools and the target. High rate of staff turnover though.",
+      "icon": "🍴",
+      "doorness": "INDOORS"
+    }
+  ],
+  "cluesList": [
+    "The tallest suspect did not have a weapon made of metal",
+    "The suspect with a monster fondness had the Zip Line Cable",
+    "The Crystal Skull was found indoors",
+    "The suspect at the Mess hall had a weapon that belonged there",
+    "The corpse had traces of crystal on it"
+  ],
+  "hint": "Through a fireside ritual, the Oracle discovered that the Crystal Skull was at the Cabins",
+  "resolution": {
+    "correctSolution": {
+      "person": "Director Pine",
+      "location": "Cabins",
+      "weapon": "Crystal Skull"
+    },
+    "resolutionText": "Director Pine kept his mouth shut. The wisdom of the years had taught him to avail himself of the right to remain silent. Which was annoying to the Detective who loved it when the criminals continued to provide evidence after they'd been caught. But since he needed to get his nephew home, the Detective went on his way and let the local law enforcement handle things."
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "title": "Death by Homework",
+  "description": "The Detective had just gotten to his class only to find that the guest lecturer for the day had been found dead. The Detective hoped his attendance would still count. He couldn't afford to restart his degree a 5th time.",
+  "personList": [
+    {
+      "name": "Coach Cappuccino",
+      "description": "His caffeine addiction should have killed him by now. He might use that energy on someone else though.",
+      "icon": "🏈",
+      "hairColor": "None",
+      "eyeColor": "Brown",
+      "handedness": "Right",
+      "astrologicalSign": "Virgo",
+      "height": "6'3\"",
+      "statement": "I was not inside."
+    },
+    {
+      "name": "Professor Peach",
+      "description": "Rumor has it this political science professor is secretly royalty. Her blue-collar beau certainly believes so.",
+      "icon": "🍑",
+      "hairColor": "Blonde",
+      "eyeColor": "Blue",
+      "handedness": "Right",
+      "astrologicalSign": "Virgo",
+      "height": "5'10\"",
+      "statement": "Coach Cappucino had a baseball bat."
+    },
+    {
+      "name": "Rebel Rouge",
+      "description": "Every professor she's ever had has described her as a delight to see in class. They've also all reported their test keys missing.",
+      "icon": "🦇",
+      "hairColor": "White",
+      "eyeColor": "Green",
+      "handedness": "Right",
+      "astrologicalSign": "Gemini",
+      "height": "4'6\"",
+      "statement": "I was in the lecture hall."
+    }
+  ],
+  "weaponList": [
+    {
+      "name": "Poison 'Shroom",
+      "description": "This little mushroom looks like it would make you grow big and strong, but does the opposite.",
+      "icon": "🍄",
+      "weight": "LIGHT",
+      "madeOf": "mushroom"
+    },
+    {
+      "name": "Expensive Necklace",
+      "description": "This beautiful necklace looks like it should be in a vault instead of on a campus of broke people.",
+      "icon": "💎",
+      "weight": "MEDIUM",
+      "madeOf": "gold and diamond"
+    },
+    {
+      "name": "Baseball Bat",
+      "description": "A plain old baseball bat with a dark red paint job. At least it all looks like paint.",
+      "icon": "🧢",
+      "weight": "MEDIUM",
+      "madeOf": "wood and paint"
+    }
+  ],
+  "locationList": [
+    {
+      "name": "Lecture Hall",
+      "description": "This big classroom features the latest technology from before whiteboards were invented. Those budget cuts hit hard.",
+      "icon": "👩‍🏫",
+      "doorness": "INDOORS"
+    },
+    {
+      "name": "Office Hall",
+      "description": "All the professors have their offices on this hall. Hopefully they're locked.",
+      "icon": "📓",
+      "doorness": "INDOORS"
+    },
+    {
+      "name": "Quad",
+      "description": "No matter where you want to go on campus, you have to pass through her. The traffic is awful.",
+      "icon": "◼️",
+      "doorness": "OUTDOORS"
+    }
+  ],
+  "cluesList": [
+    "Traces of diamond were found in the offices.",
+    "A completely organic weapon was found in the lecture hall."
+  ],
+  "hint": "The Oracle scribbled on the board and interpreted it to mean that Professor Peach had a Poison 'Shroom",
+  "resolution": {
+    "correctSolution": {
+      "person": "Rebel Rouge",
+      "location": "Office Hall",
+      "weapon": "Expensive Necklace"
+    },
+    "resolutionText": "Rebel Rouge smiled as the cops put the cuffs on her. \"Sorry boys, but silver just isn't my color,\" she said before showing she'd taken the cuffs off and running. Well, catching her wasn't the Detective's problem. Doing the assignment now taking the place of the lecture was."
+  }
+}

@@ -1,0 +1,144 @@
+{
+    "title": "Laid out in the Lobby",
+    "description": "Having finally come to his place of rest and obtained a good night cap, the Detective settled into bed in his hotel room. He had just gotten comfortable when, to his chagrin and dismay, he heard a scream. Throwing on enough clothing to be respectable, the Detective trudged down the stairs to find exactly what he'd come to expect at this point - a body, which happened to dead and surrounded by other living bodies who would all claim to be innocent. Oh well, time to open up the notebook.",
+    "personList": [
+        {
+            "name": "Bellboy Oh Geez That's A Long Name That I Didn't Catch",
+            "description": "Bellboy is just the official title. He does basically anything around here.",
+            "icon": "🛎️",
+            "eyeColor": "Brown",
+            "hairColor": "Brown",
+            "height": "5'10\"",
+            "astrologicalSign": "Pisces",
+            "statement": "I was carrying the mop."
+        },
+        {
+            "name": "Night Auditor Jennifer",
+            "description": "A friendly voice doesn't mean an unwillingness to defenestrate rude guests.",
+            "icon": "☎️",
+            "eyeColor": "Grey",
+            "hairColor": "Blonde",
+            "height": "5'4\"",
+            "astrologicalSign": "Capricorn",
+            "statement": "I'm sure General Manager Phill would do anything to placate a guest."
+        },
+        {
+            "name": "General Manager Phill",
+            "description": "He makes the big bucks, hence the fancy car with a golden PRNDL",
+            "icon": "🪖",
+            "eyeColor": "Brown",
+            "hairColor": "None",
+            "height": "5'11\"",
+            "astrologicalSign": "Gemini",
+            "statement": "I was in the lounge"
+        },
+        {
+            "name": "Doorman... Something",
+            "description": "No one seems to know this guy's name. What's with the barcode tattoo?",
+            "icon": "🚪",
+            "eyeColor": "Blue",
+            "hairColor": "None",
+            "height": "6'0\"",
+            "astrologicalSign": "Taurus",
+            "statement": "I was at the Breakfast Buffet."
+        }
+    ],
+    "weaponList": [
+        {
+            "name": "Blueberry Muffin",
+            "description": "Delicious, crumbly, and oddly hefty. Probably shouldn't be thrown around carelessly.",
+            "icon": "🧁",
+            "weight": "MEDIUM",
+            "madeOf": "baking ingredients and paper"
+        },
+        {
+            "name": "Briefcase",
+            "description": "So many very important papers in here. Top Secret of course.",
+            "icon": "💼",
+            "weight": "MEDIUM",
+            "madeOf": "leather"
+        },
+        {
+            "name": "Room Key",
+            "description": "With enough force, you could probably use this little card to cut something open.",
+            "icon": "🗝️",
+            "weight": "LIGHT",
+            "madeOf": "plastic"
+        },
+        {
+            "name": "Mop",
+            "description": "Normally this is just used for cleaning up spilled milk.",
+            "icon": "🧹",
+            "weight": "MEDIUM",
+            "madeOf": "wood"
+        }
+    ],
+    "locationList": [
+        {
+            "name": "Stairs",
+            "description": "A beautiful marble staircase. That's what the brochure pictured. It's actually just concrete in a normal stairwell.",
+            "icon": "🏛️",
+            "doorness": "INDOORS"
+        },
+        {
+            "name": "Front Desk",
+            "description": "It's got every office supply you can think of except for a decent chair.",
+            "icon": "🖥️",
+            "doorness": "INDOORS"
+        },
+        {
+            "name": "Lounge",
+            "description": "It's so comfortable and quiet. You could rest here forever.",
+            "icon": "🛋️",
+            "doorness": "INDOORS"
+        },
+        {
+            "name": "Breakfast Buffet",
+            "description": "You'd expect to see some food here. Then again, it is midnight.",
+            "icon": "🥣",
+            "doorness": "INDOORS"
+        }
+    ],
+    "motiveList": [
+        {
+            "name": "To complete a job",
+            "description" : "",
+            "icon": "🖇️"
+        },
+        {
+            "name": "To defend themself",
+            "description": "",
+            "icon": "🛡️"
+        },
+        {
+            "name": "To placate a guest",
+            "description": "",
+            "icon": "🙏"
+        },
+        {
+            "name": "To rob the victim",
+            "description": "",
+            "icon": "🔫"
+        }
+    ],
+    "cluesList": [
+        "Someone with no hair carried a Blueberry Muffin",
+        "The shortest suspect was at the Front Desk",
+        "Crumbs of baking ingredients were found on the Stairs",
+        "The briefcase was not found among office supplies",
+        "The person who wanted to defend themself did not have a mop.",
+        "Whoever wanted to rob the victim was in a place you would expect to find food.",
+        "A weapon useful for work was ironically found in the lounge.",
+        "The Doorman wanted to complete a job"
+    ],
+    "hint": "The Oracle had foreseen that the Room Key would be at the Front Desk.",
+    "resolution": {
+        "resolutionText": "As the Detective looked around, he realized that he there was only one person standing there to appreciate his work - the doorman. Everyone else had been killed while he was explaining. The Doorman quickly donned the General Manager's clothes before turning to the detective and pulling a fish out of the briefcase. The Detective's heart jumped into high gear as he immediately put together what was about to happen - it would be the Hitman in the Lobby with the Fish. Why? To silence all witnesses.",
+        "correctSolution": {
+            "person": "Doorman... Something",
+            "weapon": "Blueberry Muffin",
+            "location": "Stairs",
+            "motive": "To complete a job"
+        }
+    }
+}

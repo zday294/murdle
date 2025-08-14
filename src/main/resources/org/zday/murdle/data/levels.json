@@ -1,7 +1,7 @@
 [
   {
     "name": "House on Wilson Street",
-    "caseFileName": "zach-test-case.json",
+    "caseFileName": "house-on-wilson-street.json",
     "difficulty": 1,
     "caseImageFile": "house-on-wilson-street.png"
   },
@@ -14,7 +14,7 @@
   {
     "name": "Wasted in the Wegner Wing",
     "caseFileName": "wasted-in-the-wegner-wing.json",
-    "difficulty": 2,
+    "difficulty": 1,
     "caseImageFile": "wasted-in-the-wegner-wing.png"
   },
   {
@@ -26,25 +26,25 @@
   {
     "name": "Ladies of the Cove",
     "caseFileName": "ladies-of-the-cove.json",
-    "difficulty": 3,
+    "difficulty": 2,
     "caseImageFile": "ladies-of-the-cove.png"
   },
   {
     "name": "Clocked Out on the Cruise",
     "caseFileName": "clocked-out-on-the-cruise.json",
-    "difficulty": 3,
+    "difficulty": 2,
     "caseImageFile": "clocked-out-on-the-cruise.png"
   },
   {
     "name": "At the Corner of Thunder and Lightning",
     "caseFileName": "at-the-corner-of-thunder-and-lightning.json",
-    "difficulty": 4,
+    "difficulty": 3,
     "caseImageFile": "at-the-corner-of-thunder-and-lightning.png"
   },
   {
     "name": "Bumped Off in the Belfry",
     "caseFileName": "bumped-off-in-the-belfry.json",
-    "difficulty": 4,
+    "difficulty": 3,
     "caseImageFile": "bumped-off-in-the-belfry.png"
   },
   {

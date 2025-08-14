@@ -1,0 +1,146 @@
+{
+    "title": "Bumped Off in the Belfry",
+    "description": "It appeared Watch-seller Wesley had run out of time. Once the Detective found the body of the former murderer at the bottom of the church's bell tower, he realized that this could be no accident. The worst part? He might actually need the Oracle on this one.",
+    "personList": [
+        {
+            "name": "Priest Purple",
+            "description": "He's got the spirit. We're just not sure which one",
+            "icon": "⛪️",
+            "eyeColor": "Blue",
+            "hairColor": "None",
+            "handedness": "Left",
+            "astrologicalSign": "Pisces",
+            "height": "5'7\""
+        },
+        {
+            "name": "Organist Orange",
+            "description": "He will play for you the music of the night. Which tonight is probably a dirge.",
+            "icon": "🪗",
+            "eyeColor": "Green",
+            "hairColor": "Red",
+            "handedness": "Right",
+            "astrologicalSign": "Gemini",
+            "height": "5'2\""
+        },
+        {
+            "name": "Choir-boy Cyan",
+            "description": "He's got a strong pair of lungs for someone so young.",
+            "icon": "🎵",
+            "eyeColor": "Blue",
+            "hairColor": "Blonde",
+            "handedness": "Right",
+            "astrologicalSign": "Gemini",
+            "height": "4'6\""
+        },
+        {
+            "name": "Groundskeeper Grey",
+            "description": "Those graves won't tend themselves. Or fill themselves either.",
+            "icon": "🪦",
+            "eyeColor": "Grey",
+            "hairColor": "Grey",
+            "handedness": "Left",
+            "astrologicalSign": "Taurus",
+            "height": "6'4\""
+        }
+    ],
+    "weaponList": [
+        {
+            "name": "Gravity",
+            "description": "Sometimes all you need is a little push to use your potential.",
+            "icon": "🍁",
+            "weight": "LIGHT",
+            "madeOf": "physics"
+        },
+        {
+            "name": "A Very Loud Noise",
+            "description": "Oops. Didn't mean to make you jump.",
+            "icon": "🔊",
+            "weight": "LIGHT",
+            "madeOf": "sound"
+        },
+        {
+            "name": "Guilt",
+            "description": "Nothing weighs you down quite like your own actions.",
+            "icon": "😔",
+            "weight": "HEAVY",
+            "madeOf": "memories and regret"
+        },
+        {
+            "name": "Spooky Ghost",
+            "description": "He just wanted a friend.",
+            "icon": "👻",
+            "weight": "LIGHT",
+            "madeOf": "ectoplasm"
+        }
+    ],
+    "locationList": [
+        {
+            "name": "Altar",
+            "description": "A place to offer prayers. Or perhaps blood sacrifices",
+            "icon": "🙏",
+            "doorness": "INDOORS"
+        },
+        {
+            "name": "Choir Loft",
+            "description": "Some of the singing coming from here sounds like bloody murder.",
+            "icon": "🎤",
+            "doorness": "INDOORS"
+        },
+        {
+            "name": "Pews",
+            "description": "Those who occupy these plain, nearly-identical wooden benches might do anything to keep their secrets.",
+            "icon": "🪑",
+            "doorness": "INDOORS"
+        },
+        {
+            "name": "Belfry",
+            "description": "There's a rope so you don't have to climb all the way up to the bell to ring it.",
+            "icon": "🔔",
+            "doorness": "INDOORS"
+        }
+    ],
+    "motiveList": [
+        {
+            "name": "To hide occult activities",
+            "description": "",
+            "icon": "👹"
+        },
+        {
+            "name": "To get some peace and quiet",
+            "description": "",
+            "icon": "🔇"
+        },
+        {
+            "name": "To keep the place clean",
+            "description": "",
+            "icon": "🧹"
+        },
+        {
+            "name": "To feel what it's like to kill",
+            "description": "",
+            "icon": "💀"
+        }
+    ],
+    "cluesList": [
+        "Traces of ectoplasm were found in the Pews.",
+        "A weapon made of physics was found in the Belfry.",
+        "Choir-boy Cyan had no interest in keeping the place clean.",
+        "Blue eyes looked upon a Spooky Ghost",
+        "The tallest suspect was also the highest.",
+        "Red hair was discovered in the Choir Loft",
+        "Guilt was wielded by a Left-handed person",
+        "The person looking to hide occult activities was in a place that could be convenient for blood sacrifices",
+        "Either Organist Orange was at the Altar or Organist-orange wanted to get some peace and quiet (but not both)",
+        "The pose of the corpse clearly indicated occult activities"
+    ],
+    "hint": "By staring deeply into the Groundskeeper's eyes, the Oracle determined that he had no Guilt.",
+    "resolution": {
+        "resolutionText": "The priest stood proud. \"Hell hath plenty of fury, and I am happy to have unleashed it,\" he said as the police led him away. The Detective shuddered to think what else this wack job might do, but decided that for now, it was time to get that drink.",
+        "correctSolution": {
+            "person": "Priest Purple",
+            "location": "Altar",
+            "weapon": "Guilt",
+            "motive": "To hide occult activities"
+        }
+    }
+}
